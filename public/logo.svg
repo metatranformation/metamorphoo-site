@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="METAMORPHOO">
+  <defs>
+    <linearGradient id="mGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFE9B0"/>
+      <stop offset="0.45" stop-color="#F5B942"/>
+      <stop offset="1" stop-color="#B87A12"/>
+    </linearGradient>
+    <linearGradient id="mEmerald" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#0E9473"/>
+      <stop offset="0.5" stop-color="#2ED39B"/>
+      <stop offset="1" stop-color="#5FE3B3"/>
+    </linearGradient>
+    <linearGradient id="mViolet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7C5CFF"/>
+      <stop offset="1" stop-color="#3B228F"/>
+    </linearGradient>
+    <radialGradient id="mHalo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#F5B942" stop-opacity="0.35"/>
+      <stop offset="0.6" stop-color="#7C5CFF" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#04060F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- halo -->
+  <circle cx="256" cy="256" r="248" fill="url(#mHalo)"/>
+
+  <!-- aile supérieure gauche -->
+  <path d="M244 236 C 196 108 84 92 62 158 C 40 224 128 268 244 262 Z" fill="url(#mGold)"/>
+  <!-- aile supérieure droite -->
+  <path d="M268 236 C 316 108 428 92 450 158 C 472 224 384 268 268 262 Z" fill="url(#mGold)"/>
+  <!-- aile inférieure gauche -->
+  <path d="M244 268 C 208 340 132 396 92 372 C 52 348 96 268 244 276 Z" fill="url(#mEmerald)"/>
+  <!-- aile inférieure droite -->
+  <path d="M268 268 C 304 340 380 396 420 372 C 460 348 416 268 268 276 Z" fill="url(#mEmerald)"/>
+
+  <!-- veines formant un "M" stylisé -->
+  <g fill="none" stroke="#04060F" stroke-opacity="0.55" stroke-width="9" stroke-linecap="round">
+    <path d="M244 254 C 216 190 176 150 132 146"/>
+    <path d="M268 254 C 296 190 336 150 380 146"/>
+    <path d="M244 274 C 216 322 180 352 138 358"/>
+    <path d="M268 274 C 296 322 332 352 374 358"/>
+  </g>
+
+  <!-- tache violette (chrysalide / oeuf) -->
+  <ellipse cx="256" cy="196" rx="26" ry="34" fill="url(#mViolet)" opacity="0.9"/>
+
+  <!-- corps -->
+  <path d="M256 196 C 268 240 268 330 256 392 C 244 330 244 240 256 196 Z" fill="url(#mGold)"/>
+  <!-- tête -->
+  <circle cx="256" cy="188" r="20" fill="#FFE9B0"/>
+  <!-- antennes -->
+  <g fill="none" stroke="#FFE9B0" stroke-width="9" stroke-linecap="round">
+    <path d="M248 172 C 232 140 214 124 196 116"/>
+    <path d="M264 172 C 280 140 298 124 316 116"/>
+  </g>
+  <circle cx="196" cy="116" r="11" fill="#F5B942"/>
+  <circle cx="316" cy="116" r="11" fill="#F5B942"/>
+</svg>

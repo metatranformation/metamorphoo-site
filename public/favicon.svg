@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="METAMORPHOO">
+  <defs>
+    <linearGradient id="fGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFE9B0"/>
+      <stop offset="0.5" stop-color="#F5B942"/>
+      <stop offset="1" stop-color="#B87A12"/>
+    </linearGradient>
+    <linearGradient id="fEmerald" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#0E9473"/>
+      <stop offset="0.5" stop-color="#2ED39B"/>
+      <stop offset="1" stop-color="#5FE3B3"/>
+    </linearGradient>
+    <linearGradient id="fViolet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9E86FF"/>
+      <stop offset="1" stop-color="#5E3FE0"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#04060F"/>
+  <g transform="translate(32 32) scale(0.052) translate(-256 -256)">
+    <path d="M244 236 C 196 108 84 92 62 158 C 40 224 128 268 244 262 Z" fill="url(#fGold)"/>
+    <path d="M268 236 C 316 108 428 92 450 158 C 472 224 384 268 268 262 Z" fill="url(#fGold)"/>
+    <path d="M244 268 C 208 340 132 396 92 372 C 52 348 96 268 244 276 Z" fill="url(#fEmerald)"/>
+    <path d="M268 268 C 304 340 380 396 420 372 C 460 348 416 268 268 276 Z" fill="url(#fEmerald)"/>
+    <ellipse cx="256" cy="196" rx="26" ry="34" fill="url(#fViolet)"/>
+    <path d="M256 196 C 268 240 268 330 256 392 C 244 330 244 240 256 196 Z" fill="url(#fGold)"/>
+    <circle cx="256" cy="188" r="20" fill="#FFE9B0"/>
+  </g>
+</svg>

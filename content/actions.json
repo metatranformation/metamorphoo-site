@@ -1,0 +1,82 @@
+[
+  {
+    "id": "camps",
+    "titre": "Camps spirituels",
+    "image": "/images/action-camps.jpg",
+    "resume": "Des temps de retraite et de consécration où les cœurs sont préparés et les appelés confirmés.",
+    "contenu": "Les camps Metamorphoo sont des temps forts de retraite : jeûne, enseignement, intercession et imposition des mains. Chaque camp est contextualisé selon les besoins de réveil de la ville ou de la nation d'accueil.",
+    "points": ["Retraite de consécration", "Intercession pour la nation", "Imposition des mains et confirmations"],
+    "categorie": "Rassemblement",
+    "formId": "visiteur"
+  },
+  {
+    "id": "conferences",
+    "titre": "Conférences & séminaires",
+    "image": "/images/action-conferences.jpg",
+    "resume": "Enseignements profonds et pratiques pour renouveler l'intelligence et former des disciples solides.",
+    "contenu": "Conférences publiques et séminaires thématiques animés par le couple visionnaire et les leaders invités, dans les Églises, salles de conférence et universités.",
+    "points": ["Enseignement biblique & renouvellement de l'intelligence", "Séminaires par sphère sociale", "Tables rondes avec les intellectuels"],
+    "categorie": "Enseignement",
+    "formId": "visiteur"
+  },
+  {
+    "id": "ateliers",
+    "titre": "Ateliers & formations",
+    "image": "/images/action-ateliers.jpg",
+    "resume": "Des ateliers pratiques par domaine professionnel : médecine, droit, éducation, entrepreneuriat, arts.",
+    "contenu": "Metamorphoo équipe les croyants pour impacter leur milieu professionnel. Chaque atelier associe fondements bibliques, compétences concrètes et mise en réseau.",
+    "points": ["Ateliers par métier", "Mentorat & suivi", "Réseau de professionnels croyants"],
+    "categorie": "Équipement",
+    "formId": "ouvrier"
+  },
+  {
+    "id": "retraites",
+    "titre": "Retraites & croisades de réveil",
+    "image": "/images/action-camps.jpg",
+    "resume": "Des croisades d'évangélisation et de réveil qui secouent les villes et réveillent l'Église locale.",
+    "contenu": "Les croisades Metamorphoo réunissent Églises, communautés et autorités locales autour d'un même objectif : le réveil authentique et durable.",
+    "points": ["Croisades de réveil", "Partenariat avec les Églises locales", "Suivi des nouvelles âmes"],
+    "categorie": "Évangélisation",
+    "formId": "visiteur"
+  },
+  {
+    "id": "leadership",
+    "titre": "Leadership Master Class",
+    "image": "/images/action-leadership.jpg",
+    "resume": "Former des leaders selon le critère unique : avoir le fardeau du réveil et être prêt au sacrifice.",
+    "contenu": "Un parcours exigeant de formation au leadership serviteur, à la gestion des projets du Royaume et à la mobilisation des ressources, pour les 12 leaders clés de chaque ville.",
+    "points": ["Noyau de 12 leaders par ville", "Réunions en ligne & présentiel", "Contact permanent avec les visionnaires"],
+    "categorie": "Leadership",
+    "formId": "leader"
+  },
+  {
+    "id": "concerts",
+    "titre": "Célébrations & concerts chrétiens",
+    "image": "/images/action-concerts.jpg",
+    "resume": "Louange, arts et célébration comme véhicules de la présence de Dieu dans l'espace public.",
+    "contenu": "Concerts, nuits de louange et productions artistiques chrétiennes rassemblant les talents de la nation pour l'honneur de Dieu.",
+    "points": ["Nuits de louange", "Productions artistiques", "Talents de la nation"],
+    "categorie": "Célébration",
+    "formId": "ouvrier"
+  },
+  {
+    "id": "humanitaire",
+    "titre": "Actions humanitaires – Oasis de vie",
+    "image": "/images/action-humanitaire.jpg",
+    "resume": "Metamorphoo, oasis de vie : eau, santé, éducation et assistance aux vulnérables dans les nations.",
+    "contenu": "L'Évangile se démontre par l'amour en action. Nos équipes interviennent auprès des déplacés, orphelins, veuves et populations affectées, avec des partenaires engagés.",
+    "points": ["Accès à l'eau potable", "Santé & assistance alimentaire", "Soutien scolaire et orphelinats"],
+    "categorie": "Humanitaire",
+    "formId": "donNature"
+  },
+  {
+    "id": "education",
+    "titre": "Éducation & renouvellement de l'intelligence",
+    "image": "/images/action-education.jpg",
+    "resume": "Un réveil qui touche l'intelligence : former une génération de penseurs et d'entrepreneurs chrétiens.",
+    "contenu": "Programmes éducatifs, académie en ligne, bourses d'excellence et incubation de projets entrepreneuriaux pour une transformation durable.",
+    "points": ["Metamorphoo Académie (en ligne)", "Bourses & excellence", "Incubation entrepreneuriale"],
+    "categorie": "Éducation",
+    "formId": "formation"
+  }
+]

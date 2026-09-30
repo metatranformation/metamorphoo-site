@@ -1,0 +1,44 @@
+[
+  {
+    "id": "galerie-1",
+    "titre": "Camp de consécration – Goma",
+    "image": "/images/action-camps.jpg",
+    "legende": "Nuit d'intercession pour la nation",
+    "categorie": "Camps"
+  },
+  {
+    "id": "galerie-2",
+    "titre": "Conférence sur le renouvellement de l'intelligence",
+    "image": "/images/action-conferences.jpg",
+    "legende": "Séminaire Romains 12:2",
+    "categorie": "Conférences"
+  },
+  {
+    "id": "galerie-3",
+    "titre": "Atelier des professionnels croyants",
+    "image": "/images/action-ateliers.jpg",
+    "legende": "Médecins, avocats, entrepreneurs",
+    "categorie": "Ateliers"
+  },
+  {
+    "id": "galerie-4",
+    "titre": "Oasis de vie – action humanitaire",
+    "image": "/images/action-humanitaire.jpg",
+    "legende": "Eau potable et assistance",
+    "categorie": "Humanitaire"
+  },
+  {
+    "id": "galerie-5",
+    "titre": "Nuit de louange et célébration",
+    "image": "/images/action-concerts.jpg",
+    "legende": "Concerts chrétiens",
+    "categorie": "Célébration"
+  },
+  {
+    "id": "galerie-6",
+    "titre": "Leadership Master Class",
+    "image": "/images/action-leadership.jpg",
+    "legende": "Le noyau de 12 leaders",
+    "categorie": "Leadership"
+  }
+]

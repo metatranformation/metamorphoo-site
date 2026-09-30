@@ -1,0 +1,31 @@
+{
+  "name": "METAMORPHOO MOVEMENT",
+  "short_name": "Metamorphoo",
+  "description": "Transformation holistique pour le reveil authentique et durable dans les nations.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#04060F",
+  "theme_color": "#04060F",
+  "lang": "fr",
+  "dir": "ltr",
+  "categories": ["lifestyle", "education", "social"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    { "name": "Faire un don", "url": "/dons" },
+    { "name": "Devenir visiteur", "url": "/contact" },
+    { "name": "Formation en ligne", "url": "/academie" }
+  ]
+}
