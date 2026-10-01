@@ -7,8 +7,10 @@ import { SocialLinks } from './SocialLinks';
 import { ArrowRight, Check, Mail, MapPin, Phone } from './Icons';
 import { actions, site } from '@/lib/content';
 import { submitForm } from '@/lib/forms';
+import { useI18n } from './I18nProvider';
 
 export function Footer() {
+  const { t } = useI18n();
   const [email, setEmail] = useState('');
   const [state, setState] = useState<'idle' | 'sending' | 'done' | 'error'>('idle');
 
@@ -21,6 +23,8 @@ export function Footer() {
     if (res.ok) setEmail('');
   };
 
+  const waHref = `https://wa.me/${site.contact.whatsapp.replace(/[^\d]/g, '')}?text=${encodeURIComponent(site.contact.whatsappMessage)}`;
+
   return (
     <footer className="relative z-10 mt-10 border-t border-white/10 bg-night-950/80">
       {/* Bandeau d'appel */}
@@ -30,26 +34,18 @@ export function Footer() {
           <div className="halo -bottom-20 right-0 h-56 w-56 bg-emerald2-500/20" />
           <div className="relative flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
             <div>
-              <p className="eyebrow mb-3">Rejoindre le mouvement</p>
+              <p className="eyebrow mb-3">{t('footer.cta.eyebrow')}</p>
               <h3 className="max-w-xl text-2xl font-bold leading-snug sm:text-3xl">
-                Prêt à entrer dans votre saison de{' '}
-                <span className="text-gradient">transformation</span> ?
+                {t('footer.cta.title')}
               </h3>
-              <p className="mt-2 max-w-lg text-sm text-cream/70">
-                Enregistrez-vous en une minute. Vous serez suivi, orienté et intégré à un noyau de leaders.
-              </p>
+              <p className="mt-2 max-w-lg text-sm text-cream/65">{t('footer.cta.text')}</p>
             </div>
             <div className="flex flex-wrap gap-3">
               <Link href="/contact" className="btn-gold">
-                Devenir visiteur <ArrowRight width={16} height={16} />
+                {t('footer.cta.cta1')} <ArrowRight width={16} height={16} />
               </Link>
-              <a
-                href={`https://wa.me/${site.contact.whatsapp.replace(/[^\d]/g, '')}?text=${encodeURIComponent(site.contact.whatsappMessage)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-whatsapp"
-              >
-                WhatsApp
+              <a href={waHref} target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
+                {t('footer.cta.cta2')}
               </a>
             </div>
           </div>
@@ -59,41 +55,55 @@ export function Footer() {
       <div className="container-x grid gap-12 pb-14 pt-4 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr]">
         <div>
           <Logo size={46} />
-          <p className="mt-5 max-w-sm text-sm leading-relaxed text-cream/60">{site.brand.tagline}</p>
+          <p className="mt-5 max-w-sm text-sm leading-relaxed text-cream/60">{t('footer.tagline')}</p>
           <p className="mt-4 max-w-sm text-xs italic leading-relaxed text-gold-200/70">
             {site.brand.verse} <span className="not-italic">— {site.brand.verseRef}</span>
           </p>
           <SocialLinks className="mt-6" />
+          {site.contact.whatsappChannel && (
+            <a
+              href={site.contact.whatsappChannel}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 text-xs font-semibold text-emerald2-300 transition-colors hover:text-emerald2-400"
+            >
+              📣 {site.contact.whatsappChannelLabel}
+            </a>
+          )}
         </div>
 
-        <nav aria-label="Navigation du pied de page">
-          <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-gold-200/80">Navigation</h4>
+        <nav aria-label={t('nav.footerNav')}>
+          <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-gold-200/80">
+            {t('nav.footerNav')}
+          </h4>
           <ul className="space-y-2.5 text-sm text-cream/60">
             {[
-              { href: '/vision-mission', label: 'Vision & Mission' },
-              { href: '/actions', label: 'Nos Actions' },
-              { href: '/academie', label: 'Metamorphoo Académie' },
-              { href: '/leaders', label: 'Devenir Leader' },
-              { href: '/medias', label: 'Médias & Galerie' },
-              { href: '/dons', label: 'Dons & Soutien' },
-              { href: '/contact', label: 'Contact' },
+              { href: '/vision-mission', key: 'nav.vision' },
+              { href: '/actions', key: 'nav.actions' },
+              { href: '/academie', key: 'nav.academy' },
+              { href: '/leaders', key: 'nav.leaders' },
+              { href: '/medias', key: 'nav.media' },
+              { href: '/dons', key: 'nav.donate' },
+              { href: '/contact', key: 'nav.contact' },
             ].map((l) => (
               <li key={l.href}>
                 <Link href={l.href} className="transition-colors hover:text-gold-200">
-                  {l.label}
+                  {t(l.key)}
                 </Link>
               </li>
             ))}
           </ul>
         </nav>
 
-        <nav aria-label="Actions">
-          <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-gold-200/80">Nos actions</h4>
+        <nav aria-label={t('nav.footerActions')}>
+          <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-gold-200/80">
+            {t('nav.footerActions')}
+          </h4>
           <ul className="space-y-2.5 text-sm text-cream/60">
             {actions.slice(0, 6).map((a) => (
               <li key={a.id}>
                 <Link href="/actions" className="transition-colors hover:text-gold-200">
-                  {a.titre}
+                  {t(`data.actions.${a.id}.titre`)}
                 </Link>
               </li>
             ))}
@@ -101,8 +111,10 @@ export function Footer() {
         </nav>
 
         <div>
-          <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-gold-200/80">Contact</h4>
-          <ul className="space-y-3 text-sm text-cream/70">
+          <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-gold-200/80">
+            {t('nav.footerContact')}
+          </h4>
+          <ul className="space-y-3 text-sm text-cream/65">
             <li className="flex items-start gap-2.5">
               <MapPin width={17} height={17} className="mt-0.5 shrink-0 text-emerald2-400" />
               <span>{site.contact.address}</span>
@@ -123,7 +135,7 @@ export function Footer() {
 
           <form onSubmit={subscribe} className="mt-6">
             <label htmlFor="newsletter-email" className="label">
-              Lettre Metamorphoo
+              {t('footer.newsletter')}
             </label>
             <div className="flex gap-2">
               <input
@@ -132,45 +144,43 @@ export function Footer() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="votre@email.com"
+                placeholder={t('footer.newsletterPlaceholder')}
                 className="field !py-2.5"
               />
               <button
                 type="submit"
                 disabled={state === 'sending'}
                 className="btn-gold !px-5 !py-2.5"
-                aria-label="S'abonner"
+                aria-label={t('footer.newsletter')}
               >
                 {state === 'done' ? <Check width={18} height={18} /> : <ArrowRight width={18} height={18} />}
               </button>
             </div>
-            <p className="mt-2 text-[0.7rem] text-cream/40">
+            <p className="mt-2 text-[0.7rem] text-cream/45">
               {state === 'done'
-                ? 'Inscription enregistrée. Merci !'
+                ? t('footer.newsletterOk')
                 : state === 'error'
-                  ? 'Échec de l\'inscription — écrivez-nous sur WhatsApp.'
-                  : 'Dates des camps, conférences et enseignements.'}
+                  ? t('footer.newsletterError')
+                  : t('footer.newsletterNote')}
             </p>
           </form>
         </div>
       </div>
 
       <div className="border-t border-white/5">
-        <div className="container-x flex flex-col items-center justify-between gap-3 py-6 text-xs text-cream/40 sm:flex-row">
+        <div className="container-x flex flex-col items-center justify-between gap-3 py-6 text-xs text-cream/45 sm:flex-row">
           <p>
             © {new Date().getFullYear()} {site.brand.fullName} — {site.contact.address}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-5">
             <Link href="/mentions-legales" className="hover:text-gold-200">
-              Mentions légales
+              {t('footer.legal')}
             </Link>
             <Link href="/confidentialite" className="hover:text-gold-200">
-              Confidentialité
+              {t('footer.privacy')}
             </Link>
             <span className="hidden sm:inline">·</span>
-            <span>
-              Fait avec foi à Goma, RDC — <span className="text-gold-200/70">Romains 12:2</span>
-            </span>
+            <span>{t('footer.madeWith')}</span>
           </div>
         </div>
       </div>

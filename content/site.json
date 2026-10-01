@@ -14,18 +14,28 @@
     "whatsapp": "+243997628592",
     "whatsappDisplay": "+243 997 628 592",
     "whatsappMessage": "Bonjour METAMORPHOO, je vous contacte depuis votre site internet.",
-    "phones": ["+243 997 328 120", "+243 822 928 730", "+243 903 569 114"],
-    "emails": ["contactmetamorphoo@gmail.com", "bumbafidele@gmail.com", "salumuclarice@gmail.com"],
+    "phones": [
+      "+243 997 328 120",
+      "+243 822 928 730",
+      "+243 903 569 114"
+    ],
+    "emails": [
+      "contactmetamorphoo@gmail.com",
+      "bumbafidele@gmail.com",
+      "salumuclarice@gmail.com"
+    ],
     "address": "Goma, Nord-Kivu, République Démocratique du Congo",
     "hours": "Lundi – Vendredi : 08h30 – 17h30 · Samedi : 09h00 – 13h00",
-    "googleMapsQuery": "Goma, Nord-Kivu, RDC"
+    "googleMapsQuery": "Goma, Nord-Kivu, RDC",
+    "whatsappChannel": "https://whatsapp.com/channel/0029VbAy52xIN9itPPfLe82M",
+    "whatsappChannelLabel": "Canal WhatsApp Metamorphoo"
   },
   "socials": [
     {
       "id": "youtube",
       "label": "YouTube",
-      "handle": "@metamorphoo",
-      "url": "https://www.youtube.com/@metamorphoo",
+      "handle": "@metamorphoo-tv",
+      "url": "https://youtube.com/@metamorphoo-tv",
       "channelId": "",
       "accent": "#FF0033"
     },
@@ -33,7 +43,7 @@
       "id": "facebook",
       "label": "Facebook",
       "handle": "Metamorphoo Movement",
-      "url": "https://www.facebook.com/metamorphoo",
+      "url": "https://www.facebook.com/share/1DHQW7zXBg/",
       "accent": "#1877F2"
     },
     {
@@ -52,10 +62,30 @@
     }
   ],
   "stats": [
-    { "value": 2023, "suffix": "", "label": "Année de fondation", "detail": "Juillet 2023, retraite de la jeunesse Chrisco Goma" },
-    { "value": 12, "suffix": "", "label": "Leaders clés par ville", "detail": "Le noyau de 12 dans chaque ville" },
-    { "value": 5, "suffix": "", "label": "Sphères de réveil", "detail": "Esprit, âme/corps, éducation, professions, société" },
-    { "value": 8, "suffix": "", "label": "Domaines d'action", "detail": "Camps, conférences, ateliers, retraites…" }
+    {
+      "value": 2023,
+      "suffix": "",
+      "label": "Année de fondation",
+      "detail": "Juillet 2023, retraite de la jeunesse Chrisco Goma"
+    },
+    {
+      "value": 12,
+      "suffix": "",
+      "label": "Leaders clés par ville",
+      "detail": "Le noyau de 12 dans chaque ville"
+    },
+    {
+      "value": 5,
+      "suffix": "",
+      "label": "Sphères de réveil",
+      "detail": "Esprit, âme/corps, éducation, professions, société"
+    },
+    {
+      "value": 8,
+      "suffix": "",
+      "label": "Domaines d'action",
+      "detail": "Camps, conférences, ateliers, retraites…"
+    }
   ],
   "integrations": {
     "googleScriptUrl": "",
@@ -128,36 +158,110 @@
     }
   },
   "payments": {
-    "actifs": ["mobile-money", "virement", "especes"],
-    "enDeveloppement": ["flexpaie", "generapay"],
-    "flexpaie": { "url": "", "marchand": "" },
-    "generapay": { "url": "", "marchand": "" },
+    "actifs": [
+      "mobile-money",
+      "virement",
+      "especes"
+    ],
+    "enDeveloppement": [
+      "flexpaie",
+      "generapay"
+    ],
+    "flexpaie": {
+      "url": "",
+      "marchand": ""
+    },
+    "generapay": {
+      "url": "",
+      "marchand": ""
+    },
     "mobileMoney": {
       "mpesa": "",
       "airtelMoney": "",
       "orangeMoney": ""
     },
-    "banque": { "nom": "", "compte": "", "swift": "", "titulaire": "METAMORPHOO MOVEMENT" },
+    "banque": {
+      "nom": "",
+      "compte": "",
+      "swift": "",
+      "titulaire": "METAMORPHOO MOVEMENT"
+    },
     "paypal": ""
   },
   "frequences": [
-    { "id": "ponctuel", "label": "Ponctuel", "detail": "Une seule fois" },
-    { "id": "hebdomadaire", "label": "Hebdomadaire", "detail": "Chaque semaine" },
-    { "id": "mensuel", "label": "Mensuel", "detail": "Chaque mois" },
-    { "id": "annuel", "label": "Annuel", "detail": "Chaque année" }
+    {
+      "id": "ponctuel",
+      "label": "Ponctuel",
+      "detail": "Une seule fois"
+    },
+    {
+      "id": "hebdomadaire",
+      "label": "Hebdomadaire",
+      "detail": "Chaque semaine"
+    },
+    {
+      "id": "mensuel",
+      "label": "Mensuel",
+      "detail": "Chaque mois"
+    },
+    {
+      "id": "annuel",
+      "label": "Annuel",
+      "detail": "Chaque année"
+    }
   ],
   "typesDon": [
-    { "id": "offrande", "label": "Offrande", "detail": "Soutenir l'œuvre en cours" },
-    { "id": "dime", "label": "Dîme", "detail": "Fidélité et principes bibliques" },
-    { "id": "don", "label": "Don libre", "detail": "Montant libre" },
-    { "id": "voeu", "label": "Vœu", "detail": "Engagement devant Dieu"},
-    { "id": "partenariat", "label": "Partenariat de soutien", "detail": "Église, entreprise, ASBL, ONG" },
-    { "id": "projet", "label": "Projet Triomphes / Oasis de vie", "detail": "Construction & humanitaire" },
-    { "id": "nature", "label": "Don en nature", "detail": "Matériel, denrées, moyens" }
+    {
+      "id": "offrande",
+      "label": "Offrande",
+      "detail": "Soutenir l'œuvre en cours"
+    },
+    {
+      "id": "dime",
+      "label": "Dîme",
+      "detail": "Fidélité et principes bibliques"
+    },
+    {
+      "id": "don",
+      "label": "Don libre",
+      "detail": "Montant libre"
+    },
+    {
+      "id": "voeu",
+      "label": "Vœu",
+      "detail": "Engagement devant Dieu"
+    },
+    {
+      "id": "partenariat",
+      "label": "Partenariat de soutien",
+      "detail": "Église, entreprise, ASBL, ONG"
+    },
+    {
+      "id": "projet",
+      "label": "Projet Triomphes / Oasis de vie",
+      "detail": "Construction & humanitaire"
+    },
+    {
+      "id": "nature",
+      "label": "Don en nature",
+      "detail": "Matériel, denrées, moyens"
+    }
   ],
   "devises": [
-    { "code": "USD", "label": "Dollar US", "symbole": "$" },
-    { "code": "CDF", "label": "Franc congolais", "symbole": "FC" },
-    { "code": "EUR", "label": "Euro", "symbole": "€" }
+    {
+      "code": "USD",
+      "label": "Dollar US",
+      "symbole": "$"
+    },
+    {
+      "code": "CDF",
+      "label": "Franc congolais",
+      "symbole": "FC"
+    },
+    {
+      "code": "EUR",
+      "label": "Euro",
+      "symbole": "€"
+    }
   ]
 }

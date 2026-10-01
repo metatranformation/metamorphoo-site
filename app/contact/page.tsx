@@ -6,15 +6,19 @@ import { ContactForm } from '@/components/ContactForm';
 import { GoogleFormEmbed } from '@/components/GoogleFormEmbed';
 import { Clock, Mail, MapPin, Phone, WhatsappIcon } from '@/components/Icons';
 import { getForm, site } from '@/lib/content';
+import { getT } from '@/lib/i18n';
 
-export const metadata: Metadata = {
-  title: 'Contact',
-  description:
-    'Contactez METAMORPHOO : WhatsApp +243 997 628 592, e-mail contactmetamorphoo@gmail.com, Goma en RDC. Devenez visiteur, demandez la prière ou proposez un partenariat.',
-  alternates: { canonical: '/contact' },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getT();
+  return {
+    title: t('contact.title'),
+    description: t('contact.subtitle'),
+    alternates: { canonical: '/contact' },
+  };
+}
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const t = await getT();
   const visiteur = getForm('visiteur');
   const priere = getForm('priere');
   const waNumber = site.contact.whatsapp.replace(/[^\d]/g, '');
@@ -22,35 +26,38 @@ export default function ContactPage() {
   const cards = [
     {
       icone: WhatsappIcon,
-      titre: 'WhatsApp (le plus rapide)',
+      titre: t('contact.cards.whatsapp'),
       lignes: [site.contact.whatsappDisplay],
-      action: { label: 'Ouvrir la discussion', href: `https://wa.me/${waNumber}?text=${encodeURIComponent(site.contact.whatsappMessage)}` },
+      action: {
+        label: t('contact.cards.whatsappCta'),
+        href: `https://wa.me/${waNumber}?text=${encodeURIComponent(site.contact.whatsappMessage)}`,
+      },
       accent: 'text-[#25D366]',
     },
     {
       icone: Phone,
-      titre: 'Téléphones',
+      titre: t('contact.cards.phones'),
       lignes: site.contact.phones,
-      action: { label: 'Appeler', href: `tel:${site.contact.phones[0].replace(/\s/g, '')}` },
+      action: { label: t('contact.cards.call'), href: `tel:${site.contact.phones[0].replace(/\s/g, '')}` },
       accent: 'text-gold-300',
     },
     {
       icone: Mail,
-      titre: 'E-mails',
+      titre: t('contact.cards.emails'),
       lignes: site.contact.emails,
-      action: { label: 'Écrire un e-mail', href: `mailto:${site.contact.emails[0]}` },
+      action: { label: t('contact.cards.write'), href: `mailto:${site.contact.emails[0]}` },
       accent: 'text-violet2-400',
     },
     {
       icone: MapPin,
-      titre: 'Siège & actions',
+      titre: t('contact.cards.address'),
       lignes: [site.contact.address],
-      action: { label: 'Voir sur la carte', href: '#carte' },
+      action: { label: t('contact.cards.map'), href: '#carte' },
       accent: 'text-emerald2-400',
     },
     {
       icone: Clock,
-      titre: 'Disponibilité',
+      titre: t('contact.cards.hours'),
       lignes: [site.contact.hours],
       accent: 'text-cream/70',
     },
@@ -59,14 +66,10 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        breadcrumb="Contact"
-        eyebrow="Restons en contact"
-        title={
-          <>
-            Écrivez-nous, nous vous <span className="text-gradient">répondons</span>
-          </>
-        }
-        subtitle="Une question, une demande de prière, une invitation ou un partenariat ? Notre équipe est disponible sur WhatsApp et par e-mail."
+        breadcrumb={t('contact.title')}
+        eyebrow={t('contact.eyebrow')}
+        title={t('contact.title')}
+        subtitle={t('contact.subtitle')}
         image="/images/hero-butterfly.jpg"
       />
 
@@ -110,13 +113,9 @@ export default function ContactPage() {
         <div className="container-x grid gap-10 lg:grid-cols-[1.1fr_1fr]">
           <div>
             <SectionHeading
-              eyebrow="Nous écrire"
-              title={
-                <>
-                  Votre message va directement à <span className="text-gradient">l’équipe</span>
-                </>
-              }
-              subtitle="Les messages sont enregistrés dans notre tableur de suivi et reçoivent une réponse sous 48 heures ouvrées."
+              eyebrow={t('contact.form.eyebrow')}
+              title={t('contact.form.title')}
+              subtitle={t('contact.form.subtitle')}
               align="left"
             />
             <div className="mt-9">
@@ -126,28 +125,23 @@ export default function ContactPage() {
 
           <div className="space-y-8">
             <Reveal delay={1} className="glass rounded-3xl p-7">
-              <h3 className="text-lg font-bold">Nouveau venu ?</h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-cream/70">
-                Enregistrez-vous en une minute : vous serez suivi, orienté vers une Église locale ou intégré à
-                un noyau de leaders.
-              </p>
+              <h3 className="text-lg font-bold">{t('contact.new.title')}</h3>
+              <p className="mt-2.5 text-sm leading-relaxed text-cream/70">{t('contact.new.text')}</p>
               <a
-                href={`https://wa.me/${waNumber}?text=${encodeURIComponent('Bonjour METAMORPHOO, je suis un nouveau venu et je souhaite être enregistré.')}`}
+                href={`https://wa.me/${waNumber}?text=${encodeURIComponent(t('contact.newMsg'))}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-whatsapp mt-6"
               >
-                <WhatsappIcon width={17} height={17} /> M’enregistrer par WhatsApp
+                <WhatsappIcon width={17} height={17} /> {t('contact.new.cta')}
               </a>
             </Reveal>
 
             <Reveal delay={2} className="glass rounded-3xl p-7">
-              <h3 className="text-lg font-bold">Demande de prière</h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-cream/70">
-                Notre équipe d’intercesseurs se tient avec vous, dans la confidentialité.
-              </p>
+              <h3 className="text-lg font-bold">{t('contact.priere.title')}</h3>
+              <p className="mt-2.5 text-sm leading-relaxed text-cream/70">{t('contact.priere.text')}</p>
               <a href="#formulaires" className="btn-ghost mt-6">
-                Remplir le formulaire de prière
+                {t('contact.priere.cta')}
               </a>
             </Reveal>
           </div>
@@ -158,13 +152,9 @@ export default function ContactPage() {
       <section className="section pt-0" id="formulaires">
         <div className="container-x">
           <SectionHeading
-            eyebrow="Formulaires connectés"
-            title={
-              <>
-                Enregistrement <span className="text-gradient">automatique</span>
-              </>
-            }
-            subtitle="Ces formulaires Google alimentent directement notre tableur de suivi : chaque demande est notifiée à l’équipe."
+            eyebrow={t('contact.forms.eyebrow')}
+            title={t('contact.forms.title')}
+            subtitle={t('contact.forms.subtitle')}
           />
 
           <div className="mt-12 grid gap-8 lg:grid-cols-2">
@@ -172,16 +162,16 @@ export default function ContactPage() {
               <GoogleFormEmbed
                 formId={visiteur.googleFormId}
                 height={visiteur.googleFormHeight}
-                titre={visiteur.titre}
-                description={visiteur.description}
+                titre={t('data.forms.visiteur.titre')}
+                description={t('data.forms.visiteur.description')}
               />
             </Reveal>
             <Reveal delay={2}>
               <GoogleFormEmbed
                 formId={priere.googleFormId}
                 height={priere.googleFormHeight}
-                titre={priere.titre}
-                description={priere.description}
+                titre={t('data.forms.priere.titre')}
+                description={t('data.forms.priere.description')}
               />
             </Reveal>
           </div>
@@ -193,7 +183,7 @@ export default function ContactPage() {
         <div className="container-x">
           <Reveal className="overflow-hidden rounded-3xl border border-white/10">
             <iframe
-              title="Carte — Goma, Nord-Kivu, RDC"
+              title={t('contact.mapTitle')}
               src={`https://maps.google.com/maps?q=${encodeURIComponent(site.contact.googleMapsQuery)}&t=&z=12&ie=UTF8&iwloc=&output=embed`}
               width="100%"
               height="420"

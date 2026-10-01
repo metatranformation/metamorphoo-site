@@ -4,49 +4,40 @@ import { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { ArrowRight, Sparkle } from './Icons';
 import { Reveal } from './Reveal';
+import { useI18n } from './I18nProvider';
 
-type Stage = {
-  key: string;
-  titre: string;
-  soustitre: string;
-  image: string;
-  texte: string;
-  accent: string;
-};
-
-const STAGES: Stage[] = [
-  {
-    key: 'chenille',
-    titre: 'La chenille',
-    soustitre: 'L’état de sommeil',
-    image: '/images/stage-caterpillar.jpg',
-    texte:
-      'Comme la chenille, l’homme peut ramper, limité par son intelligence non renouvelée : sommeil spirituel, moral et intellectuel. Metamorphoo commence par un diagnostic honnête de cet état.',
-    accent: 'from-emerald2-500/30',
-  },
-  {
-    key: 'chrysalide',
-    titre: 'La chrysalide',
-    soustitre: 'Le temps de la transformation',
-    image: '/images/stage-chrysalis.jpg',
-    texte:
-      'Dans le secret de la chrysalide, tout est reconstruit. Formation, imposition des mains, parole, repentance et sacrifice : le temps où Dieu creuse le vase avant de s’en servir.',
-    accent: 'from-gold-400/30',
-  },
-  {
-    key: 'papillon',
-    titre: 'Le papillon',
-    soustitre: 'L’envol et l’impact',
-    image: '/images/hero-butterfly.jpg',
-    texte:
-      'Le papillon ne rampe plus : il vole et il pollinise. Le croyant transformé devient acteur du réveil dans sa famille, son Église, sa profession et sa nation.',
-    accent: 'from-violet2-500/30',
-  },
-];
 
 /** Section animée : la métamorphose spirituelle en 3 étapes (chenille → chrysalide → papillon). */
 export function MetamorphoseStage() {
+  const { t } = useI18n();
   const [active, setActive] = useState(0);
+
+  const STAGES = [
+    {
+      key: 'chenille',
+      titre: t('home.metamorphose.stages.0.titre'),
+      soustitre: t('home.metamorphose.stages.0.soustitre'),
+      image: '/images/stage-caterpillar.jpg',
+      texte: t('home.metamorphose.stages.0.texte'),
+      accent: 'from-emerald2-500/30',
+    },
+    {
+      key: 'chrysalide',
+      titre: t('home.metamorphose.stages.1.titre'),
+      soustitre: t('home.metamorphose.stages.1.soustitre'),
+      image: '/images/stage-chrysalis.jpg',
+      texte: t('home.metamorphose.stages.1.texte'),
+      accent: 'from-gold-400/30',
+    },
+    {
+      key: 'papillon',
+      titre: t('home.metamorphose.stages.2.titre'),
+      soustitre: t('home.metamorphose.stages.2.soustitre'),
+      image: '/images/hero-butterfly.jpg',
+      texte: t('home.metamorphose.stages.2.texte'),
+      accent: 'from-violet2-500/30',
+    },
+  ];
   const [paused, setPaused] = useState(false);
   const cardRefs = useRef<Array<HTMLDivElement | null>>([]);
 
@@ -80,7 +71,7 @@ export function MetamorphoseStage() {
             <Sparkle width={13} height={13} /> Le symbole du mouvement
           </span>
           <h2 className="text-3xl font-bold leading-[1.12] sm:text-4xl lg:text-5xl">
-            De la chenille au <span className="text-gradient">papillon</span>
+            {t('home.metamorphose.title')}
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-cream/70">
             La métamorphose n’est pas une amélioration : c’est une transformation totale. C’est l’image que
@@ -140,7 +131,7 @@ export function MetamorphoseStage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-night-950 via-night-950/25 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-6">
                   <p className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-gold-200/90">
-                    Étape {i + 1} · {stage.soustitre}
+                    {t('home.metamorphose.step')} {i + 1} · {stage.soustitre}
                   </p>
                   <h3 className="mt-2 text-2xl font-bold">{stage.titre}</h3>
                 </div>

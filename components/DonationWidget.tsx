@@ -10,6 +10,7 @@ import {
   WhatsappIcon,
 } from './Icons';
 import { site } from '@/lib/content';
+import { useI18n } from './I18nProvider';
 import {
   buildCheckoutUrl,
   buildReference,
@@ -27,12 +28,20 @@ const PRESETS: Record<string, number[]> = {
   EUR: [20, 50, 100, 200, 500],
 };
 
+const TYPE_IDS = ['offrande', 'dime', 'don', 'voeu', 'partenariat', 'projet', 'nature'] as const;
+const FREQ_IDS = ['ponctuel', 'hebdomadaire', 'mensuel', 'annuel'] as const;
+const CURRENCIES = ['USD', 'CDF', 'EUR'] as const;
+
 type Step = 0 | 1 | 2 | 3;
 
-const STEPS = ['Votre soutien', 'Montant', 'Coordonnées', 'Paiement'];
+const LOCALE_TAG: Record<string, string> = { fr: 'fr-FR', en: 'en-US', es: 'es-ES' };
 
 export function DonationWidget() {
   const providers = useMemo(() => listProviders(), []);
+  const { t, locale, translateList } = useI18n();
+
+  const STEPS = translateList('dons.widget.steps');
+  const tag = LOCALE_TAG[locale] ?? 'fr-FR';
 
   const [step, setStep] = useState<Step>(0);
   const [type, setType] = useState(site.typesDon[0].id);
@@ -48,7 +57,7 @@ export function DonationWidget() {
   const [instructions, setInstructions] = useState('');
   const [copied, setCopied] = useState(false);
 
-  const selectedType = site.typesDon.find((t) => t.id === type);
+  const selectedType = { id: type, label: t(`dons.types.${type}.label`), detail: t(`dons.types.${type}.detail`) };
   const isNature = type === 'nature';
   const selectedProvider = providers.find((p) => p.id === provider);
 
@@ -126,40 +135,40 @@ export function DonationWidget() {
         {/* Étape 1 : type + fréquence */}
         {step === 0 && (
           <div className="animate-rise-fade">
-            <h3 className="text-lg font-bold">Quel type de soutien souhaitez-vous apporter ?</h3>
+            <h3 className="text-lg font-bold">{t('dons.widget.step1Title')}</h3>
             <div className="mt-5 flex flex-wrap gap-2.5">
-              {site.typesDon.map((t) => (
+              {TYPE_IDS.map((id) => (
                 <button
-                  key={t.id}
+                  key={id}
                   type="button"
-                  onClick={() => setType(t.id)}
+                  onClick={() => setType(id)}
                   className={cn(
                     'rounded-full border px-4 py-2.5 text-sm font-medium transition-all duration-300',
-                    type === t.id
+                    type === id
                       ? 'border-gold-300 bg-gold-300/15 text-gold-100'
                       : 'border-white/10 text-cream/70 hover:border-white/30 hover:text-cream',
                   )}
                 >
-                  {t.label}
+                  {t(`dons.types.${id}.label`)}
                 </button>
               ))}
             </div>
-            {selectedType && <p className="mt-3 text-xs text-cream/50">{selectedType.detail}</p>}
+            {<p className="mt-3 text-xs text-cream/50">{selectedType.detail}</p>}
 
-            <h3 className="mt-9 text-lg font-bold">À quelle fréquence ?</h3>
+            <h3 className="mt-9 text-lg font-bold">{t('dons.widget.step1Freq')}</h3>
             <div className="mt-5 grid gap-3 sm:grid-cols-4">
-              {site.frequences.map((f) => (
+              {FREQ_IDS.map((id) => (
                 <button
-                  key={f.id}
+                  key={id}
                   type="button"
-                  onClick={() => setFrequency(f.id as PaymentIntent['frequency'])}
+                  onClick={() => setFrequency(id as PaymentIntent['frequency'])}
                   className={cn(
                     'rounded-2xl border p-4 text-left transition-all duration-300',
-                    frequency === f.id ? 'border-emerald2-400 bg-emerald2-500/10' : 'border-white/10 hover:border-white/25',
+                    frequency === id ? 'border-emerald2-400 bg-emerald2-500/10' : 'border-white/10 hover:border-white/25',
                   )}
                 >
-                  <span className="block text-sm font-semibold text-cream">{f.label}</span>
-                  <span className="mt-1 block text-[0.7rem] text-cream/50">{f.detail}</span>
+                  <span className="block text-sm font-semibold text-cream">{t(`dons.frequences.${id}.label`)}</span>
+                  <span className="mt-1 block text-[0.7rem] text-cream/50">{t(`dons.frequences.${id}.detail`)}</span>
                 </button>
               ))}
             </div>
@@ -169,24 +178,24 @@ export function DonationWidget() {
         {/* Étape 2 : montant */}
         {step === 1 && (
           <div className="animate-rise-fade">
-            <h3 className="text-lg font-bold">Montant de votre {selectedType?.label.toLowerCase()}</h3>
+            <h3 className="text-lg font-bold">{t('dons.widget.step2Title')} {selectedType.label.toLowerCase()}</h3>
 
             <div className="mt-5 flex gap-2">
-              {site.devises.map((d) => (
+              {CURRENCIES.map((code) => (
                 <button
-                  key={d.code}
+                  key={code}
                   type="button"
                   onClick={() => {
-                    setCurrency(d.code as 'USD' | 'CDF' | 'EUR');
-                    setAmount(PRESETS[d.code as 'USD' | 'CDF' | 'EUR'][1]);
+                    setCurrency(code as 'USD' | 'CDF' | 'EUR');
+                    setAmount(PRESETS[code][1]);
                     setCustom('');
                   }}
                   className={cn(
                     'rounded-full border px-4 py-2 text-xs font-semibold transition-all duration-300',
-                    currency === d.code ? 'border-gold-300 bg-gold-300/15 text-gold-100' : 'border-white/10 text-cream/60 hover:text-cream',
+                    currency === code ? 'border-gold-300 bg-gold-300/15 text-gold-100' : 'border-white/10 text-cream/60 hover:text-cream',
                   )}
                 >
-                  {d.code} — {d.label}
+                  {code} — {t(`dons.devises.${code}`)}
                 </button>
               ))}
             </div>
@@ -207,14 +216,14 @@ export function DonationWidget() {
                       : 'border-white/10 text-cream/70 hover:border-white/30 hover:text-cream',
                   )}
                 >
-                  {p.toLocaleString('fr-FR')}
+                  {p.toLocaleString(tag)}
                   <span className="ml-1 text-xs font-normal text-cream/40">{currency}</span>
                 </button>
               ))}
             </div>
 
             <label className="label mt-7" htmlFor="don-montant">
-              Autre montant
+              {t('dons.widget.other')}
             </label>
             <div className="flex items-center gap-3">
               <input
@@ -222,7 +231,7 @@ export function DonationWidget() {
                 type="number"
                 min={0}
                 className="field"
-                placeholder={`Montant en ${currency}`}
+                placeholder={`${t('dons.widget.amount')} · ${currency}`}
                 value={custom}
                 onChange={(e) => setCustom(e.target.value)}
               />
@@ -231,8 +240,7 @@ export function DonationWidget() {
 
             {isNature && (
               <p className="mt-6 rounded-xl border border-emerald2-400/25 bg-emerald2-500/10 p-4 text-xs leading-relaxed text-emerald2-100/80">
-                Don en nature : décrivez le matériel, les denrées ou les moyens offerts à l’étape suivante.
-                Notre équipe vous contactera pour organiser la réception.
+                {t('dons.widget.natureNote')}
               </p>
             )}
           </div>
@@ -241,41 +249,39 @@ export function DonationWidget() {
         {/* Étape 3 : coordonnées */}
         {step === 2 && (
           <div className="animate-rise-fade">
-            <h3 className="text-lg font-bold">Vos coordonnées</h3>
-            <p className="mt-2 text-xs text-cream/50">
-              Nécessaires pour vous remercier et vous envoyer le reçu / rapport d’utilisation.
-            </p>
+            <h3 className="text-lg font-bold">{t('dons.widget.step3Title')}</h3>
+            <p className="mt-2 text-xs text-cream/50">{t('dons.widget.step3Text')}</p>
 
             <div className="mt-6 grid gap-5 sm:grid-cols-2">
               <div>
                 <label className="label" htmlFor="d-nom">
-                  Nom complet
+                  {t('dons.widget.name')}
                 </label>
-                <input id="d-nom" className="field" value={identity.nom} onChange={(e) => setIdentity({ ...identity, nom: e.target.value })} placeholder="Nom et prénom" />
+                <input id="d-nom" className="field" value={identity.nom} onChange={(e) => setIdentity({ ...identity, nom: e.target.value })} placeholder={t('dons.widget.namePlaceholder')} />
               </div>
               <div>
                 <label className="label" htmlFor="d-email">
-                  E-mail
+                  {t('dons.widget.email')}
                 </label>
                 <input id="d-email" type="email" className="field" value={identity.email} onChange={(e) => setIdentity({ ...identity, email: e.target.value })} placeholder="vous@exemple.com" />
               </div>
               <div>
                 <label className="label" htmlFor="d-tel">
-                  Téléphone / WhatsApp
+                  {t('dons.widget.phone')}
                 </label>
                 <input id="d-tel" className="field" value={identity.telephone} onChange={(e) => setIdentity({ ...identity, telephone: e.target.value })} placeholder="+243 …" />
               </div>
               <div className="sm:pt-6">
                 <label className="flex items-center gap-3 text-sm text-cream/70">
                   <input type="checkbox" checked={anonyme} onChange={(e) => setAnonyme(e.target.checked)} className="h-4 w-4 rounded border-white/20 bg-night-900 accent-gold-400" />
-                  Don anonyme
+                  {t('dons.widget.anonymous')}
                 </label>
               </div>
               <div className="sm:col-span-2">
                 <label className="label" htmlFor="d-msg">
-                  Message / précision (optionnel)
+                  {t('dons.widget.message')}
                 </label>
-                <textarea id="d-msg" rows={4} className="field resize-none" value={identity.message} onChange={(e) => setIdentity({ ...identity, message: e.target.value })} placeholder="Ex. : offrande pour le camp de Goma…" />
+                <textarea id="d-msg" rows={4} className="field resize-none" value={identity.message} onChange={(e) => setIdentity({ ...identity, message: e.target.value })} placeholder={t('dons.widget.messagePlaceholder')} />
               </div>
             </div>
           </div>
@@ -284,11 +290,8 @@ export function DonationWidget() {
         {/* Étape 4 : paiement */}
         {step === 3 && (
           <div className="animate-rise-fade">
-            <h3 className="text-lg font-bold">Moyen de paiement</h3>
-            <p className="mt-2 text-xs text-cream/50">
-              Les paiements en ligne par FlexPaie et GeneraPay sont en cours d’activation. Mobile Money,
-              virement et espèces fonctionnent dès maintenant.
-            </p>
+            <h3 className="text-lg font-bold">{t('dons.widget.step4Title')}</h3>
+            <p className="mt-2 text-xs text-cream/50">{t('dons.widget.step4Text')}</p>
 
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
               {providers.map((p) => (
@@ -305,12 +308,12 @@ export function DonationWidget() {
                     <span className="text-sm font-semibold text-cream">{p.label}</span>
                     {p.status === 'bientot' && (
                       <span className="rounded-full bg-violet2-500/25 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-violet2-400">
-                        bientôt
+                        {t('dons.widget.soon')}
                       </span>
                     )}
                     {p.status === 'actif' && p.id !== 'especes' && (
                       <span className="rounded-full bg-emerald2-500/20 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-emerald2-300">
-                        en ligne
+                        {t('dons.widget.online')}
                       </span>
                     )}
                   </span>
@@ -328,21 +331,20 @@ export function DonationWidget() {
             <div className="mt-7 flex flex-wrap items-center gap-3">
               <button type="button" onClick={submit} disabled={status === 'sending'} className="btn-gold disabled:opacity-60">
                 <Lock width={16} height={16} />
-                {status === 'sending' ? 'Enregistrement…' : 'Confirmer mon soutien'}
+                {status === 'sending' ? t('dons.widget.confirming') : t('dons.widget.confirm')}
               </button>
               <a
-                href={`https://wa.me/${site.contact.whatsapp.replace(/[^\d]/g, '')}?text=${encodeURIComponent(`Bonjour METAMORPHOO, je souhaite soutenir le mouvement par un don (${selectedType?.label}, ${frequency}).`)}`}
+                href={`https://wa.me/${site.contact.whatsapp.replace(/[^\d]/g, '')}?text=${encodeURIComponent(`${t('dons.widget.whatsappMsg')} (${selectedType.label}, ${t(`dons.frequences.${frequency}.label`)}).`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-whatsapp"
               >
-                <WhatsappIcon width={17} height={17} /> Confirmer par WhatsApp
+                <WhatsappIcon width={17} height={17} /> {t('dons.widget.whatsappConfirm')}
               </a>
             </div>
 
             <p className="mt-4 flex items-center gap-2 text-[0.7rem] text-cream/40">
-              <Lock width={13} height={13} /> Transaction sécurisée · Metamorphoo est une organisation à but
-              non lucratif.
+              <Lock width={13} height={13} /> {t('dons.widget.secure')}
             </p>
           </div>
         )}
@@ -356,11 +358,11 @@ export function DonationWidget() {
               disabled={step === 0}
               className="text-xs font-semibold uppercase tracking-[0.14em] text-cream/40 transition-colors hover:text-cream disabled:opacity-30"
             >
-              ← Retour
+              {t('dons.widget.back')}
             </button>
             {step < 3 ? (
               <button type="button" onClick={() => setStep((s) => (s + 1) as Step)} disabled={!canContinue()} className="btn-gold !px-7 !py-3 disabled:opacity-40">
-                Continuer <ArrowRight width={16} height={16} />
+                {t('dons.widget.next')} <ArrowRight width={16} height={16} />
               </button>
             ) : null}
           </div>
@@ -370,10 +372,10 @@ export function DonationWidget() {
         {status === 'done' && (
           <div className="mt-8 animate-rise-fade rounded-2xl border border-emerald2-400/30 bg-emerald2-500/10 p-6">
             <p className="flex items-center gap-2 font-bold text-emerald2-200">
-              <Check width={18} height={18} /> Merci pour votre soutien !
+              <Check width={18} height={18} /> {t('dons.widget.successTitle')}
             </p>
             <p className="mt-2 text-sm leading-relaxed text-cream/75">
-              Votre engagement a été enregistré. Référence :{' '}
+              {t('dons.widget.successText')}{' '}
               <button
                 type="button"
                 onClick={() => {
@@ -381,7 +383,7 @@ export function DonationWidget() {
                   setCopied(true);
                 }}
                 className="rounded bg-white/10 px-2 py-0.5 font-mono text-gold-200"
-                title="Copier la référence"
+                title={t('dons.widget.copy')}
               >
                 {reference} {copied ? '✓' : '⧉'}
               </button>
@@ -389,12 +391,12 @@ export function DonationWidget() {
             {instructions && <p className="mt-3 text-xs leading-relaxed text-cream/70">{instructions}</p>}
             <div className="mt-5 flex flex-wrap gap-3">
               <a
-                href={`https://wa.me/${site.contact.whatsapp.replace(/[^\d]/g, '')}?text=${encodeURIComponent(`Bonjour METAMORPHOO, voici ma référence de don : ${reference}`)}`}
+                href={`https://wa.me/${site.contact.whatsapp.replace(/[^\d]/g, '')}?text=${encodeURIComponent(`${t('dons.widget.whatsappProof')} ${reference}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-whatsapp !py-2.5 !text-xs"
               >
-                <WhatsappIcon width={15} height={15} /> Envoyer la preuve de paiement
+                <WhatsappIcon width={15} height={15} /> {t('dons.widget.sendProof')}
               </a>
               <button
                 type="button"
@@ -404,7 +406,7 @@ export function DonationWidget() {
                 }}
                 className="btn-ghost !py-2.5 !text-xs"
               >
-                Nouveau don
+                {t('dons.widget.newDon')}
               </button>
             </div>
           </div>
@@ -417,38 +419,36 @@ export function DonationWidget() {
           <div className="relative h-36">
             <img src="/images/hero-butterfly.jpg" alt="" className="h-full w-full object-cover opacity-70" />
             <div className="absolute inset-0 bg-gradient-to-t from-night-950 to-transparent" />
-            <span className="absolute bottom-4 left-6 font-display text-lg font-bold">Votre soutien</span>
+            <span className="absolute bottom-4 left-6 font-display text-lg font-bold">{t('dons.widget.summary')}</span>
           </div>
           <dl className="space-y-4 p-6 text-sm">
             <div className="flex items-center justify-between gap-4">
-              <dt className="text-cream/50">Type</dt>
-              <dd className="text-right font-semibold">{selectedType?.label}</dd>
+              <dt className="text-cream/50">{t('dons.widget.type')}</dt>
+              <dd className="text-right font-semibold">{selectedType.label}</dd>
             </div>
             <div className="flex items-center justify-between gap-4">
-              <dt className="text-cream/50">Fréquence</dt>
-              <dd className="font-semibold capitalize">{frequency}</dd>
+              <dt className="text-cream/50">{t('dons.widget.frequency')}</dt>
+              <dd className="font-semibold capitalize">{t(`dons.frequences.${frequency}.label`)}</dd>
             </div>
             <div className="flex items-center justify-between gap-4">
-              <dt className="text-cream/50">Montant</dt>
+              <dt className="text-cream/50">{t('dons.widget.amount')}</dt>
               <dd className="font-display text-2xl font-extrabold text-gradient">
                 {finalAmount > 0 ? formatAmount(finalAmount, currency) : '—'}
               </dd>
             </div>
             <div className="flex items-center justify-between gap-4">
-              <dt className="text-cream/50">Moyen</dt>
+              <dt className="text-cream/50">{t('dons.widget.method')}</dt>
               <dd className="text-right font-semibold">{selectedProvider?.label}</dd>
             </div>
           </dl>
           <div className="border-t border-white/10 p-6">
             <p className="flex items-start gap-2.5 text-xs leading-relaxed text-cream/50">
               <Heart width={15} height={15} className="mt-0.5 shrink-0 text-gold-300" />
-              « Dieu reste le bailleur de fonds par excellence. » Chaque soutien finance les camps, les
-              formations, les croisades et les actions humanitaires d’Oasis de vie.
+              {t('dons.widget.quote')}
             </p>
             <p className="mt-4 flex items-start gap-2.5 text-xs leading-relaxed text-cream/50">
               <Handshake width={15} height={15} className="mt-0.5 shrink-0 text-emerald2-400" />
-              Vous représentez une église, une entreprise ou une ONG ? Devenez partenaire de soutien
-              ponctuel, hebdomadaire, mensuel ou annuel.
+              {t('dons.widget.partnerNote')}
             </p>
           </div>
         </div>

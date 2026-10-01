@@ -2,69 +2,69 @@ import type { Metadata } from 'next';
 import { PageHero } from '@/components/PageHero';
 import { Reveal } from '@/components/Reveal';
 import { site } from '@/lib/content';
+import { getLocale, getT, translateList } from '@/lib/i18n';
+import { getObject, LOCALE_TAGS } from '@/lib/i18n-core';
 
-export const metadata: Metadata = {
-  title: 'Mentions légales',
-  description: 'Mentions légales et informations sur l’éditeur du site METAMORPHOO MOVEMENT.',
-  alternates: { canonical: '/mentions-legales' },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getT();
+  return {
+    title: t('legal.title'),
+    description: t('legal.subtitle'),
+    alternates: { canonical: '/mentions-legales' },
+  };
+}
 
-export default function MentionsLegalesPage() {
+const BLOCK_IDS = ['editeur', 'nature', 'hebergement', 'propriete', 'dons', 'contact'] as const;
+
+export default async function MentionsLegalesPage() {
+  const t = await getT();
+  const locale = await getLocale();
+  const labels = getObject(locale, 'legal.blocks.editeur.labels');
+
+  const blocks = BLOCK_IDS.map((id) => ({
+    id,
+    titre: t(`legal.blocks.${id}.titre`),
+    contenu: translateList(locale, `legal.blocks.${id}.contenu`),
+  }));
+
+  const editeur = blocks[0];
+  const contact = blocks[blocks.length - 1];
+
   return (
     <>
       <PageHero
-        breadcrumb="Mentions légales"
-        eyebrow="Informations légales"
-        title={<>Mentions légales</>}
-        subtitle="Éditeur, hébergement, propriété intellectuelle et conditions d’utilisation du site."
+        breadcrumb={t('legal.title')}
+        eyebrow={t('legal.eyebrow')}
+        title={t('legal.title')}
+        subtitle={t('legal.subtitle')}
         image="/images/stage-chrysalis.jpg"
       />
 
       <section className="section pt-8">
         <div className="container-x max-w-3xl space-y-8">
-          {[
-            {
-              titre: 'Éditeur du site',
-              contenu: [
-                `${site.brand.fullName} — ${site.brand.baseline}.`,
-                `Adresse : ${site.contact.address}.`,
-                `Téléphone / WhatsApp : ${site.contact.whatsappDisplay}.`,
-                `E-mail : ${site.contact.emails.join(', ')}.`,
-                `Visionnaires : ${site.brand.founders}.`,
-              ],
-            },
-            {
-              titre: 'Nature de l’organisation',
-              contenu: [
-                'Metamorphoo est une organisation chrétienne à but non lucratif. Metamorphoo n’est pas une Église, mais un mouvement du Saint-Esprit pour les nations et une plateforme missionnaire.',
-              ],
-            },
-            {
-              titre: 'Hébergement',
-              contenu: [
-                'Le site est hébergé sur une plateforme d’hébergement web professionnelle (Vercel, Netlify ou équivalent) et le code source est publié sur GitHub. Les données des formulaires sont hébergées par Google (Google Forms / Google Sheets) dans le cadre de l’offre gratuite Google Workspace.',
-              ],
-            },
-            {
-              titre: 'Propriété intellectuelle',
-              contenu: [
-                'Le nom METAMORPHOO, le logo, les textes, visuels et illustrations sont la propriété du mouvement. Toute reproduction sans autorisation écrite est interdite. Les citations bibliques sont issues de la Bible Louis Segond (domaine public).',
-              ],
-            },
-            {
-              titre: 'Dons et contreparties',
-              contenu: [
-                'Les dons, offrandes, dîmes et vœux sont libres et sans contrepartie commerciale. Metamorphoo ne vend aucun produit ni service. Les partenariats de soutien font l’objet d’une convention écrite.',
-              ],
-            },
-            {
-              titre: 'Contact',
-              contenu: [
-                `Pour toute question relative au site : ${site.contact.emails[0]} ou WhatsApp ${site.contact.whatsappDisplay}.`,
-              ],
-            },
-          ].map((block, i) => (
-            <Reveal key={block.titre} delay={((i % 3) + 1) as 1 | 2 | 3} className="glass rounded-3xl p-7">
+          <Reveal className="glass rounded-3xl p-7">
+            <h2 className="text-xl font-bold">{editeur.titre}</h2>
+            <div className="mt-4 space-y-2.5">
+              <p className="text-sm leading-relaxed text-cream/70">
+                {site.brand.fullName} — {site.brand.baseline}.
+              </p>
+              <p className="text-sm leading-relaxed text-cream/70">
+                {labels.address} : {site.contact.address}.
+              </p>
+              <p className="text-sm leading-relaxed text-cream/70">
+                {labels.phone} : {site.contact.whatsappDisplay}.
+              </p>
+              <p className="text-sm leading-relaxed text-cream/70">
+                {labels.email} : {site.contact.emails.join(', ')}.
+              </p>
+              <p className="text-sm leading-relaxed text-cream/70">
+                {labels.founders} : {site.brand.founders}.
+              </p>
+            </div>
+          </Reveal>
+
+          {blocks.slice(1, -1).map((block, i) => (
+            <Reveal key={block.id} delay={((i % 3) + 1) as 1 | 2 | 3} className="glass rounded-3xl p-7">
               <h2 className="text-xl font-bold">{block.titre}</h2>
               <div className="mt-4 space-y-2.5">
                 {block.contenu.map((ligne) => (
@@ -76,8 +76,19 @@ export default function MentionsLegalesPage() {
             </Reveal>
           ))}
 
+          <Reveal className="glass rounded-3xl p-7">
+            <h2 className="text-xl font-bold">{contact.titre}</h2>
+            <div className="mt-4 space-y-2.5">
+              {contact.contenu.map((ligne) => (
+                <p key={ligne} className="text-sm leading-relaxed text-cream/70">
+                  {ligne} {site.contact.emails[0]} · WhatsApp {site.contact.whatsappDisplay}.
+                </p>
+              ))}
+            </div>
+          </Reveal>
+
           <Reveal className="text-center text-xs text-cream/40">
-            Dernière mise à jour : {new Date().toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })}
+            {t('legal.updated')} : {new Date().toLocaleDateString(LOCALE_TAGS[locale], { month: 'long', year: 'numeric' })}
           </Reveal>
         </div>
       </section>

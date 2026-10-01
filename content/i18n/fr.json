@@ -1,0 +1,1200 @@
+{
+  "meta": {
+    "title": "METAMORPHOO — Transformation holistique pour le réveil des nations",
+    "description": "Former, équiper et activer les croyants pour devenir des acteurs du réveil : camps spirituels, conférences, ateliers, croisades, Leadership Master Class, concerts et actions humanitaires."
+  },
+  "nav": {
+    "home": "Accueil",
+    "vision": "Vision & Mission",
+    "actions": "Nos Actions",
+    "academy": "Académie",
+    "leaders": "Devenir Leader",
+    "media": "Médias",
+    "contact": "Contact",
+    "donate": "Faire un don",
+    "skip": "Aller au contenu",
+    "open": "Ouvrir le menu",
+    "close": "Fermer le menu",
+    "language": "Choisir la langue",
+    "menu": "Menu",
+    "footerNav": "Navigation",
+    "footerActions": "Nos actions",
+    "footerContact": "Contact",
+    "quickLinks": "Liens rapides"
+  },
+  "hero": {
+    "eyebrow": "Mouvement du Saint-Esprit pour les nations · depuis juillet 2023",
+    "line1": "Soyez",
+    "line2": "transformés",
+    "line3": "par le renouvellement",
+    "line4": "de l'intelligence",
+    "verse": "« Soyez transformés par le renouvellement de l'intelligence. »",
+    "verseRef": "Romains 12:2",
+    "lead": "METAMORPHOO MOVEMENT est une plateforme missionnaire née en juillet 2023 pour former, équiper et activer les croyants afin qu'ils deviennent des acteurs du réveil dans les nations.",
+    "cta1": "Devenir visiteur",
+    "cta2": "Découvrir la vision",
+    "cta3": "Nous écrire",
+    "link": "Formation en ligne",
+    "stage3": "Étape 3 · L'envol",
+    "stage3Title": "Le papillon",
+    "stage3Text": "Le croyant transformé porte la vie et le réveil là où il passe.",
+    "caterpillar": "La chenille",
+    "chrysalis": "La chrysalide",
+    "founders": "Porté par",
+    "foundersName": "Fidèle & Clarice BUMBA",
+    "scroll": "Défiler"
+  },
+  "stats": {
+    "founded": "Année de fondation",
+    "foundedDetail": "Juillet 2023, retraite de la jeunesse Chrisco Goma",
+    "leaders": "Leaders clés par ville",
+    "leadersDetail": "Le noyau de 12 dans chaque ville",
+    "spheres": "Sphères de réveil",
+    "spheresDetail": "Esprit, âme/corps, éducation, professions, société",
+    "actions": "Domaines d'action",
+    "actionsDetail": "Camps, conférences, ateliers, retraites…"
+  },
+  "home": {
+    "vision": {
+      "eyebrow": "Notre vision",
+      "title": "La transformation holistique pour le réveil authentique et durable dans les nations",
+      "lead1": "Né en juillet 2023 d'une retraite avec la jeunesse de Chrisco (circonscription de Goma), METAMORPHOO est porté par le couple Pasteur – Entrepreneur – Chantre Fidèle BUMBA OBUTU et son épouse Clarice BUMBA. Le mouvement est confirmé par des paroles prophétiques et attisé par la vision de l'œuvre Chrisco : le réveil de l'Église qui impactera des nations et des gouvernements.",
+      "lead2": "Metamorphoo n'est pas une Église, mais un mouvement du Saint-Esprit pour les nations. C'est une plateforme missionnaire qui peut faire naître des Églises.",
+      "bullets": [
+        "Former et équiper les croyants",
+        "Activer les acteurs du réveil",
+        "Contextualiser chaque action",
+        "Accompagner les nouvelles âmes"
+      ],
+      "cta": "Lire la vision complète",
+      "cardTitle": "Romains 12:2",
+      "cardText": "« Ne vous conformez pas au siècle présent… » Le texte fondateur du mouvement."
+    },
+    "mission": {
+      "eyebrow": "Notre mission",
+      "title": "Former, équiper et activer les croyants",
+      "subtitle": "Chaque action est contextualisée selon les besoins spécifiques de réveil : familles, Églises, communautés, villes, nations, domaines professionnels, intellectuels et entrepreneuriat.",
+      "cta": "Découvrir les 8 domaines d'action"
+    },
+    "metamorphose": {
+      "eyebrow": "Le symbole du mouvement",
+      "title": "De la chenille au papillon",
+      "lead": "La métamorphose n'est pas une amélioration : c'est une transformation totale. C'est l'image que Dieu nous donne dans Romains 12:2, et la raison d'être de METAMORPHOO.",
+      "step": "Étape",
+      "current": "en cours",
+      "hover": "Survolez pour mettre en pause",
+      "stages": [
+        {
+          "titre": "La chenille",
+          "soustitre": "L'état de sommeil",
+          "texte": "Comme la chenille, l'homme peut ramper, limité par son intelligence non renouvelée : sommeil spirituel, moral et intellectuel. Metamorphoo commence par un diagnostic honnête de cet état."
+        },
+        {
+          "titre": "La chrysalide",
+          "soustitre": "Le temps de la transformation",
+          "texte": "Dans le secret de la chrysalide, tout est reconstruit. Formation, imposition des mains, parole, repentance et sacrifice : le temps où Dieu creuse le vase avant de s'en servir."
+        },
+        {
+          "titre": "Le papillon",
+          "soustitre": "L'envol et l'impact",
+          "texte": "Le papillon ne rampe plus : il vole et il pollinise. Le croyant transformé devient acteur du réveil dans sa famille, son Église, sa profession et sa nation."
+        }
+      ]
+    },
+    "objectif": {
+      "eyebrow": "Notre objectif",
+      "title": "Déclencher un réveil holistique",
+      "subtitle": "Un réveil qui ne laisse aucun domaine de côté : de la relation avec Dieu jusqu'à l'impact sur les nations.",
+      "spheres": [
+        {
+          "titre": "L'esprit",
+          "texte": "La relation avec Dieu restaurée et continuellement renouvelée."
+        },
+        {
+          "titre": "L'âme et le corps",
+          "texte": "Les émotions, la volonté, les pensées et le corps rendus à leur dessein."
+        },
+        {
+          "titre": "L'éducation",
+          "texte": "L'intelligence et le savoir au service de la vérité et de la nation."
+        },
+        {
+          "titre": "Les professions",
+          "texte": "Un impact concret dans le travail : médecine, droit, politique, entreprise, arts."
+        },
+        {
+          "titre": "La société et les nations",
+          "texte": "Des communautés, des villes et des gouvernements touchés par le réveil."
+        }
+      ]
+    },
+    "noyau": {
+      "eyebrow": "Stratégie de mobilisation",
+      "title": "Un noyau de 12 leaders clés dans chaque ville",
+      "lead": "Un critère unique : « avoir le fardeau du réveil et être prêt au sacrifice pour l'accomplir ». Ces leaders, issus de différentes Églises et domaines professionnels, organisent les actions METAMORPHOO dans leur zone sous l'orientation des visionnaires, avec un contact permanent pour être prêts à toute activation divine.",
+      "bullets": [
+        "Réunions régulières en ligne et en présentiel, surtout avant chaque grande action",
+        "Responsables des besoins organisationnels de chaque action",
+        "Accompagnement des nouvelles âmes : orientation vers une Église locale, encadrement dans le mouvement ou intégration dans la vision des Triomphes"
+      ],
+      "cta1": "Devenir leader clé",
+      "cta2": "Nous rejoindre"
+    },
+    "youtube": {
+      "eyebrow": "Chaîne YouTube",
+      "title": "Nos dernières vidéos",
+      "subtitle": "Enseignements, témoignages et temps de louange — en direct sur notre chaîne YouTube.",
+      "cta": "Voir toutes les vidéos sur YouTube",
+      "modal": "Metamorphoo — YouTube",
+      "close": "Fermer",
+      "views": "vues"
+    },
+    "testimonials": {
+      "eyebrow": "Témoignages",
+      "title": "Des vies transformées",
+      "rating": "Note"
+    },
+    "academy": {
+      "eyebrow": "Metamorphoo Académie",
+      "title": "La formation en ligne, puis l'interview de validation",
+      "lead": "Suivez des modules vidéo sur YouTube, à votre rythme, où que vous soyez. Votre progression est enregistrée. À la fin du parcours, vous validez votre candidature : vous êtes ensuite appelé en ligne ou en présentiel pour l'entretien de validation.",
+      "stat1": "leçons vidéo",
+      "stat2": "modules progressifs",
+      "stat3": "gratuit & en ligne",
+      "cta": "Commencer la formation",
+      "cardTitle": "Validation",
+      "cardText": "Vidéos terminées → questionnaire → appel en ligne ou présentiel → intégration."
+    },
+    "dons": {
+      "eyebrow": "Soutenir le mouvement",
+      "title": "Offrandes, dons, dîmes et partenariats",
+      "lead": "Metamorphoo est une organisation chrétienne à but non lucratif. Dieu reste le bailleur de fonds par excellence : offrandes, dons, vœux et partenaires de soutien ponctuel, hebdomadaire, mensuel et annuel — en espèces comme en nature.",
+      "cta1": "Faire un don / soutenir",
+      "cta2": "Don en nature"
+    },
+    "reseaux": {
+      "eyebrow": "Communication & visibilité",
+      "title": "Suivez-nous sur nos espaces numériques",
+      "subtitle": "Facebook, Instagram, YouTube, TikTok, groupes et chaînes WhatsApp : le mouvement est vivant partout, rejoignez la communauté."
+    },
+    "faq": {
+      "eyebrow": "Questions fréquentes",
+      "title": "Tout ce que vous devez savoir"
+    },
+    "film": {
+      "eyebrow": "Le film de la marque",
+      "title": "De la chenille aux nations",
+      "lead": "L'histoire de Metamorphoo en une séquence : la chenille rampe, la chrysalide se construit, le papillon prend son envol — et le logo parcourt le globe pour réveiller les nations.",
+      "stages": [
+        "La chenille",
+        "La chrysalide",
+        "Le papillon",
+        "Le logo",
+        "Les nations"
+      ],
+      "step": "Étape {n} / 5",
+      "pauseHint": "Survolez la scène pour la mettre en pause ·",
+      "replay": "revoir depuis le début",
+      "globeLabel": "Globe tournant avec les nations atteintes par Metamorphoo",
+      "nations": [
+        "RD Congo",
+        "Nigeria",
+        "Kenya",
+        "Afrique du Sud",
+        "France",
+        "Espagne",
+        "États-Unis",
+        "Brésil",
+        "Inde",
+        "Indonésie"
+      ]
+    }
+  },
+  "vision": {
+    "eyebrow": "Vision · Mission · ADN",
+    "title": "Une vision de transformation et de réveil",
+    "subtitle": "METAMORPHOO MOVEMENT — la transformation holistique pour le réveil authentique et durable dans les nations.",
+    "quote": "« La transformation holistique pour le réveil authentique et durable dans les nations. »",
+    "origin": {
+      "eyebrow": "Origine et ADN",
+      "title": "Comment est né METAMORPHOO",
+      "subtitle": "Un mouvement du Saint-Esprit pour les nations, né d'une rencontre avec Dieu et confirmé par des voix prophétiques.",
+      "timeline": [
+        {
+          "date": "Juillet 2023",
+          "titre": "La retraite de la jeunesse Chrisco",
+          "texte": "Lors d'une retraite organisée avec la jeunesse de Chrisco (circonscription de Goma), le couple Pasteur – Entrepreneur – Chantre Fidèle BUMBA OBUTU et son épouse Clarice BUMBA reçoivent de Dieu l'inspiration de METAMORPHOO."
+        },
+        {
+          "date": "Le fondement",
+          "titre": "Romains 12:2",
+          "texte": "« Soyez transformés par le renouvellement de l'intelligence. » La métamorphose devient l'ADN, le nom et la méthode du mouvement."
+        },
+        {
+          "date": "La confirmation",
+          "titre": "Paroles prophétiques",
+          "texte": "Le mouvement est confirmé par des paroles prophétiques de l'Apôtre Hary Das (de son vivant) et de plusieurs patriarches à travers le monde."
+        },
+        {
+          "date": "L'attise",
+          "titre": "La vision de l'œuvre Chrisco",
+          "texte": "Attisé par la vision de l'œuvre Chrisco expliquée au point 4 par l'Apôtre Samuel Emmanuel Dikanakina : le réveil de l'Église qui impactera des nations et des gouvernements."
+        }
+      ],
+      "note": "METAMORPHOO n'est pas une Église, mais un mouvement du Saint-Esprit pour les nations. C'est une plateforme missionnaire qui peut faire naître des Églises."
+    },
+    "mission": {
+      "eyebrow": "Mission",
+      "title": "Former, équiper et activer les croyants",
+      "subtitle": "Devenir des acteurs du réveil, à travers des actions contextualisées selon les besoins spécifiques de chaque nation."
+    },
+    "objectif": {
+      "eyebrow": "Objectif",
+      "title": "Un réveil holistique en 5 sphères",
+      "cibles": {
+        "titre": "Cibles",
+        "texte": "Toutes les sphères de la société vivant dans un état de sommeil spirituel, moral ou intellectuel dans chaque nation : familles, Églises, communautés, villes, nations, domaines professionnels (médecins, avocats, politiciens, intellectuels…), milieux intellectuels et entrepreneuriaux."
+      },
+      "spheres": [
+        {
+          "titre": "L'esprit",
+          "texte": "Relation avec Dieu"
+        },
+        {
+          "titre": "L'âme et le corps",
+          "texte": "Émotions, volonté, pensées, corps"
+        },
+        {
+          "titre": "L'éducation",
+          "texte": "Intelligence et savoir"
+        },
+        {
+          "titre": "Les professions",
+          "texte": "Impact dans le travail"
+        },
+        {
+          "titre": "La société et les nations",
+          "texte": "Communautés, villes, gouvernements"
+        }
+      ]
+    },
+    "accompagnement": {
+      "eyebrow": "Accompagnement",
+      "title": "Les nouvelles âmes ne sont jamais abandonnées",
+      "subtitle": "Trois voies d'intégration, selon la situation de chacun.",
+      "items": [
+        {
+          "titre": "Orientées vers une Église locale",
+          "texte": "Les personnes sans Église d'attache sont orientées vers une Église de la place, pour y être réellement disciples."
+        },
+        {
+          "titre": "Encadrées dans le mouvement",
+          "texte": "Celles qui le souhaitent sont encadrées directement dans METAMORPHOO et intégrées à la vie du noyau."
+        },
+        {
+          "titre": "Intégrées dans la vision des Triomphes",
+          "texte": "Participation au projet des Triomphes, en cours de construction par le couple porteur de la vision."
+        }
+      ]
+    },
+    "charte": {
+      "eyebrow": "Charte graphique",
+      "title": "L'identité visuelle METAMORPHOO",
+      "subtitle": "Un « M » formé de deux ailes de feu surmontées d'une flamme : la transformation et le Saint-Esprit.",
+      "logoCaption": "Le symbole se décline en version monochrome (orange, crème, nuit) pour l'impression, les tissus et les réseaux sociaux. Fichier source : public/logo.svg",
+      "paletteTitle": "Palette chromatique",
+      "typoTitle": "Typographie",
+      "typoDisplay": "Titres — Playfair Display / Georgia",
+      "typoBody": "Textes — Inter / system-ui",
+      "typoSample": "Former, équiper et activer les croyants pour devenir des acteurs du réveil dans les nations.",
+      "palette": [
+        {
+          "nom": "Orange flamme",
+          "hex": "#F9A227",
+          "usage": "Couleur principale de la marque, appels à l'action"
+        },
+        {
+          "nom": "Rouge transformation",
+          "hex": "#DD2B18",
+          "usage": "Accents, dégradés, urgence spirituelle"
+        },
+        {
+          "nom": "Nuit profonde",
+          "hex": "#04060F",
+          "usage": "Fond principal, profondeur"
+        },
+        {
+          "nom": "Émeraude de vie",
+          "hex": "#2ED39B",
+          "usage": "Actions humanitaires, validation"
+        },
+        {
+          "nom": "Crème",
+          "hex": "#F7F3EA",
+          "usage": "Textes courants"
+        }
+      ],
+      "cta": "Voir les médias & la galerie"
+    },
+    "closing": {
+      "quote": "« Chaque croyant transformé devient une oasis de vie, et chaque nation touchée devient un témoignage. »",
+      "cta1": "Rejoindre le mouvement",
+      "cta2": "Soutenir la vision"
+    }
+  },
+  "actions": {
+    "eyebrow": "Mission en action",
+    "title": "Huit domaines pour réveiller une nation",
+    "subtitle": "Des camps spirituels aux actions humanitaires, chaque action est contextualisée selon les besoins spécifiques de réveil de la ville, de la communauté ou de la nation.",
+    "cta": "Participer / s'inscrire",
+    "cta2": "Demander les dates",
+    "agenda": {
+      "eyebrow": "Agenda",
+      "title": "Prochaines activités",
+      "subtitle": "Modifiez librement ces dates dans le fichier content/agenda.json — elles se mettent à jour automatiquement sur le site.",
+      "register": "Je m'inscris →",
+      "date": "Date",
+      "lieu": "Lieu"
+    },
+    "inscription": {
+      "eyebrow": "Participer",
+      "title": "Inscrivez-vous à une activité",
+      "subtitle": "Le formulaire enregistre automatiquement votre participation et prévient l'équipe d'organisation de votre ville."
+    },
+    "whatsappMsg": "Bonjour METAMORPHOO, je souhaite participer à :"
+  },
+  "academy": {
+    "eyebrow": "Metamorphoo Académie",
+    "title": "Se former en ligne, puis passer l'interview de validation",
+    "subtitle": "Un parcours de transformation progressif, accessible gratuitement, qui prépare les croyants à devenir des acteurs du réveil.",
+    "steps": [
+      {
+        "titre": "1. Inscription",
+        "texte": "Vous remplissez le formulaire d'inscription. Vous recevez un message de bienvenue et l'accès aux modules."
+      },
+      {
+        "titre": "2. Formation en ligne",
+        "texte": "Vous suivez les leçons vidéo à votre rythme, sur YouTube, où que vous soyez."
+      },
+      {
+        "titre": "3. Validation",
+        "texte": "Vous validez votre parcours : questionnaire, puis appel en ligne ou en présentiel pour l'interview."
+      },
+      {
+        "titre": "4. Intégration",
+        "texte": "Vous êtes affecté à un noyau, un département ou une action selon votre appel et vos compétences."
+      }
+    ],
+    "modules": {
+      "eyebrow": "Modules de formation",
+      "title": "Le programme de la Métamorphoo Académie",
+      "subtitle": "Cochez les leçons terminées : votre progression est enregistrée sur cet appareil. Cliquez sur une leçon pour la visionner.",
+      "lessons": "leçons",
+      "done": "terminées",
+      "objectives": "Objectifs",
+      "evaluation": "Évaluation & validation",
+      "evaluationText": "À la fin du module, répondez au questionnaire de validation. Les candidats retenus sont appelés en ligne ou en présentiel pour l'interview finale.",
+      "mark": "Marquer",
+      "marked": "Terminée",
+      "play": "Lire",
+      "videoLessons": "Leçons vidéo (YouTube)"
+    },
+    "progress": {
+      "eyebrow": "Votre progression",
+      "title": "leçons terminées",
+      "lead": "Suivez les modules à votre rythme. Votre progression est enregistrée sur cet appareil. À la fin du parcours, validez votre candidature pour être appelé en ligne ou en présentiel."
+    },
+    "validation": {
+      "eyebrow": "Interview de validation",
+      "title": "Dernière étape : l'appel",
+      "lead": "Une fois les vidéos terminées, vous validez votre parcours. Les candidats retenus sont appelés en ligne ou en présentiel pour un entretien de validation avec l'équipe des visionnaires.",
+      "bullets": [
+        "Entretien en ligne (WhatsApp / Zoom) ou en présentiel à Goma",
+        "Vérification de l'appel, du caractère et de la disponibilité",
+        "Décision d'intégration communiquée sous 7 jours"
+      ],
+      "cta": "Valider mon parcours",
+      "cta2": "Planifier l'appel"
+    },
+    "inscription": {
+      "eyebrow": "Inscription",
+      "title": "Rejoindre la promotion en cours",
+      "subtitle": "Remplissez le formulaire : votre candidature est enregistrée automatiquement dans notre tableur de suivi.",
+      "fallback": "Un problème avec le formulaire ? Écrivez-nous ou appelez-nous sur WhatsApp."
+    },
+    "parcoursEyebrow": "Le parcours",
+    "parcoursTitle": "Quatre étapes vers votre activation",
+    "write": "Écrivez-nous",
+    "formFallback": "Un problème avec le formulaire ?",
+    "orCall": "ou appelez-nous sur WhatsApp.",
+    "whatsappValidate": "Bonjour METAMORPHOO, je souhaite valider mon parcours à la Métamorphoo Académie."
+  },
+  "leaders": {
+    "eyebrow": "Noyau de 12 · Recrutement",
+    "title": "Un noyau de 12 leaders dans chaque ville",
+    "subtitle": "Un critère unique : avoir le fardeau du réveil et être prêt au sacrifice pour l'accomplir.",
+    "criteres": {
+      "eyebrow": "Le critère unique",
+      "title": "Qui peut devenir leader clé ?",
+      "subtitle": "Les leaders sont issus de différentes Églises et domaines professionnels et sociaux. Aucun titre n'est exigé : seulement un fardeau et une disponibilité.",
+      "items": [
+        {
+          "titre": "Avoir le fardeau du réveil",
+          "texte": "Une charge intérieure, reçue de Dieu, pour le réveil de sa ville et de sa nation. Ce n'est pas une fonction, c'est un poids spirituel."
+        },
+        {
+          "titre": "Être prêt au sacrifice",
+          "texte": "Accepter de donner son temps, ses ressources et son confort pour l'accomplissement de la vision, sans chercher la première place."
+        },
+        {
+          "titre": "Vivre dans la communion",
+          "texte": "Maintenir un contact permanent avec le couple visionnaire et les autres leaders, être prêt à toute activation divine."
+        }
+      ]
+    },
+    "responsabilites": {
+      "eyebrow": "Responsabilités",
+      "title": "Ce que porte un leader Metamorphoo",
+      "items": [
+        "Organiser les actions METAMORPHOO dans sa zone, sous l'orientation des visionnaires",
+        "Prendre en charge les besoins organisationnels de chaque aspect de chaque action",
+        "Participer aux réunions régulières en ligne et en présentiel, surtout avant chaque grande action",
+        "Accompagner les nouvelles âmes et les orienter vers une Église locale ou le mouvement",
+        "Mobiliser les ressources, les prières et les partenaires de sa zone"
+      ],
+      "note": "Vous représentez une Église, une entreprise, une association ou une institution ? Votre leadership est précieux pour mobiliser votre sphère. Postulez : nous vous répondrons sous 7 jours."
+    },
+    "candidature": {
+      "eyebrow": "Candidature",
+      "title": "Postuler comme leader clé",
+      "subtitle": "Votre candidature est enregistrée automatiquement dans notre tableur de suivi, puis étudiée par les visionnaires."
+    },
+    "ouvriers": {
+      "eyebrow": "Recrutement des ouvriers",
+      "title": "Servir dans un département",
+      "subtitle": "Le mouvement a besoin d'ouvriers dans tous les domaines. Choisissez votre département et candidatez en une minute.",
+      "fallback": "Vous préférez échanger d'abord ? WhatsApp"
+    },
+    "departements": [
+      {
+        "nom": "Accueil & intégration",
+        "detail": "Recevoir, orienter et suivre les nouveaux venus"
+      },
+      {
+        "nom": "Intercession",
+        "detail": "Couverture spirituelle des actions et des nations"
+      },
+      {
+        "nom": "Logistique & protocole",
+        "detail": "Organisation matérielle des camps et conférences"
+      },
+      {
+        "nom": "Louange & arts",
+        "detail": "Musique, chant, danse, productions scéniques"
+      },
+      {
+        "nom": "Médias & communication",
+        "detail": "Réseaux sociaux, photo, vidéo, presse"
+      },
+      {
+        "nom": "Enseignement",
+        "detail": "Supports pédagogiques, académie, formation"
+      },
+      {
+        "nom": "Humanitaire — Oasis de vie",
+        "detail": "Eau, santé, assistance, orphelinats"
+      },
+      {
+        "nom": "Jeunesse & triomphes",
+        "detail": "Encadrement des jeunes et projet Triomphes"
+      }
+    ]
+  },
+  "media": {
+    "eyebrow": "Galerie · Vidéos · Réseaux",
+    "title": "La vie du mouvement en images",
+    "subtitle": "Camps, conférences, concerts, actions humanitaires : revivez les temps forts de METAMORPHOO et suivez-nous sur toutes nos plateformes.",
+    "gallery": {
+      "eyebrow": "Galerie",
+      "title": "Instants de transformation",
+      "subtitle": "Cliquez sur une image pour l'agrandir. Les visuels sont librement remplaçables dans le dossier public/images.",
+      "open": "Agrandir"
+    },
+    "reseaux": {
+      "eyebrow": "Réseaux sociaux",
+      "title": "Rejoignez la communauté en ligne",
+      "subtitle": "Facebook, Instagram, YouTube, TikTok et groupes WhatsApp : le mouvement est connecté partout.",
+      "follow": "Suivre la page",
+      "profile": "Voir le profil",
+      "tiktok": "Suivre sur TikTok",
+      "instagramText": "Photos, citations et coulisses des actions Metamorphoo.",
+      "tiktokText": "Extraits courts, versets du jour et messages de réveil."
+    },
+    "press": {
+      "title": "Vous êtes journaliste, créateur ou partenaire média ?",
+      "text": "Nous mettons à disposition des visuels, des témoignages et des données sur les actions du mouvement. Contactez notre équipe communication."
+    },
+    "videosTitle": "Nos dernières vidéos",
+    "videosSubtitle": "Enseignements, témoignages et temps de louange — en direct sur notre chaîne YouTube."
+  },
+  "dons": {
+    "eyebrow": "Mobilisation financière et matérielle",
+    "title": "Semer dans la vision",
+    "subtitle": "Metamorphoo est une organisation chrétienne à but non lucratif. Offrandes, dîmes, dons, vœux et partenariats — en espèces comme en nature, une fois ou chaque mois.",
+    "widget": {
+      "eyebrow": "Faire un don",
+      "title": "Votre soutien en 4 étapes",
+      "subtitle": "Choisissez le type de soutien, le montant, vos coordonnées et le moyen de paiement. Chaque engagement est enregistré et suivi.",
+      "steps": [
+        "Votre soutien",
+        "Montant",
+        "Coordonnées",
+        "Paiement"
+      ],
+      "step1Title": "Quel type de soutien souhaitez-vous apporter ?",
+      "step1Freq": "À quelle fréquence ?",
+      "step2Title": "Montant de votre",
+      "other": "Autre montant",
+      "step3Title": "Vos coordonnées",
+      "step3Text": "Nécessaires pour vous remercier et vous envoyer le reçu / rapport d'utilisation.",
+      "name": "Nom complet",
+      "email": "E-mail",
+      "phone": "Téléphone / WhatsApp",
+      "message": "Message / précision (optionnel)",
+      "messagePlaceholder": "Ex. : offrande pour le camp de Goma…",
+      "anonymous": "Don anonyme",
+      "step4Title": "Moyen de paiement",
+      "step4Text": "Les paiements en ligne FlexPaie et GeneraPay sont en cours d'activation. Mobile Money, virement et espèces sont disponibles dès maintenant.",
+      "soon": "bientôt",
+      "online": "en ligne",
+      "confirm": "Confirmer mon soutien",
+      "confirming": "Enregistrement…",
+      "whatsappConfirm": "Confirmer par WhatsApp",
+      "secure": "Transaction sécurisée · Metamorphoo est une organisation à but non lucratif.",
+      "next": "Continuer",
+      "back": "← Retour",
+      "successTitle": "Merci pour votre soutien !",
+      "successText": "Votre engagement a été enregistré. Référence :",
+      "copy": "Copier la référence",
+      "copied": "Référence copiée",
+      "sendProof": "Envoyer la preuve de paiement",
+      "newDon": "Nouveau don",
+      "natureNote": "Don en nature : décrivez le matériel, les denrées ou les moyens offerts à l'étape suivante. Notre équipe vous contactera pour organiser la réception.",
+      "summary": "Votre soutien",
+      "type": "Type",
+      "frequency": "Fréquence",
+      "amount": "Montant",
+      "method": "Moyen",
+      "quote": "« Dieu reste le bailleur de fonds par excellence. » Chaque soutien finance les camps, les formations, les croisades et les actions humanitaires d'Oasis de vie.",
+      "partnerNote": "Vous représentez une église, une entreprise ou une ONG ? Devenez partenaire de soutien ponctuel, hebdomadaire, mensuel ou annuel.",
+      "whatsappMsg": "Bonjour METAMORPHOO, je souhaite soutenir le mouvement par un don",
+      "whatsappProof": "Bonjour METAMORPHOO, voici ma référence de don :",
+      "namePlaceholder": "Nom et prénom"
+    },
+    "nature": {
+      "eyebrow": "Don en nature",
+      "title": "Matériel, denrées, moyens",
+      "lead": "Les dons en nature sont essentiels : équipements audio et scène, denrées alimentaires, moyens de transport, locaux, matériel médical et scolaire, fournitures pour les camps.",
+      "items": [
+        "Équipement son, lumière et scène pour les croisades",
+        "Denrées et eau potable pour Oasis de vie",
+        "Moyens de transport et logistique des camps",
+        "Matériel médical, scolaire et fournitures de bureau"
+      ]
+    },
+    "paiement": {
+      "eyebrow": "Moyens de paiement",
+      "title": "Comment donner concrètement",
+      "subtitle": "Les paiements en ligne FlexPaie et GeneraPay sont en cours d'activation. Mobile Money, virement et espèces sont disponibles dès maintenant.",
+      "mobile": "Mobile Money",
+      "bank": "Virement bancaire",
+      "bankTitulaire": "Titulaire",
+      "bankCompte": "Compte",
+      "bankSwift": "SWIFT / IBAN",
+      "bankNom": "Banque",
+      "toCommunicate": "À communiquer",
+      "mobileNote": "Indiquez toujours la référence de transaction reçue par e-mail ou WhatsApp afin que votre don soit correctement affecté.",
+      "bankNote": "Pour les églises, entreprises, ASBL et ONG : demandez une convention de partenariat à",
+      "onlineTitle": "Paiement en ligne (bientôt)",
+      "onlineText": "FlexPaie et GeneraPay (plateforme SaaS développée par Metamorphoo) seront branchés sur cette page dès leur activation : il suffira de renseigner les clés marchands dans les variables d'environnement, sans modifier le site. Voir le guide docs/03-PAIEMENTS-FLEXPAIE-GENERAPAY.md."
+    },
+    "promesse": {
+      "eyebrow": "Promesse de don",
+      "title": "Devenir partenaire de soutien",
+      "subtitle": "Ponctuel, hebdomadaire, mensuel ou annuel : engagez-vous et recevez le rapport des actions financées."
+    },
+    "transparence": {
+      "eyebrow": "Transparence",
+      "title": "Une gestion fidèle des ressources",
+      "items": [
+        "Dieu reste le bailleur de fonds par excellence du mouvement.",
+        "Les offrandes collectées durant les activités financent directement les actions en cours.",
+        "Les partenaires de soutien reçoivent un rapport régulier d'utilisation.",
+        "Les portes restent ouvertes aux sponsors : églises, communautés, entreprises, ASBL, ONG et gouvernements, dans le respect des principes bibliques."
+      ],
+      "footer": "Partenariats, sponsoring et mécénat :"
+    },
+    "types": {
+      "offrande": {
+        "label": "Offrande",
+        "detail": "Soutenir l'œuvre en cours"
+      },
+      "dime": {
+        "label": "Dîme",
+        "detail": "Fidélité et principes bibliques"
+      },
+      "don": {
+        "label": "Don libre",
+        "detail": "Montant libre"
+      },
+      "voeu": {
+        "label": "Vœu",
+        "detail": "Engagement devant Dieu"
+      },
+      "partenariat": {
+        "label": "Partenariat de soutien",
+        "detail": "Église, entreprise, ASBL, ONG"
+      },
+      "projet": {
+        "label": "Projet Triomphes / Oasis de vie",
+        "detail": "Construction & humanitaire"
+      },
+      "nature": {
+        "label": "Don en nature",
+        "detail": "Matériel, denrées, moyens"
+      }
+    },
+    "frequences": {
+      "ponctuel": {
+        "label": "Ponctuel",
+        "detail": "Une seule fois"
+      },
+      "hebdomadaire": {
+        "label": "Hebdomadaire",
+        "detail": "Chaque semaine"
+      },
+      "mensuel": {
+        "label": "Mensuel",
+        "detail": "Chaque mois"
+      },
+      "annuel": {
+        "label": "Annuel",
+        "detail": "Chaque année"
+      }
+    },
+    "devises": {
+      "USD": "Dollar US",
+      "CDF": "Franc congolais",
+      "EUR": "Euro"
+    }
+  },
+  "contact": {
+    "eyebrow": "Restons en contact",
+    "title": "Écrivez-nous, nous vous répondons",
+    "subtitle": "Une question, une demande de prière, une invitation ou un partenariat ? Notre équipe est disponible sur WhatsApp et par e-mail.",
+    "cards": {
+      "whatsapp": "WhatsApp (le plus rapide)",
+      "whatsappCta": "Ouvrir la discussion",
+      "phones": "Téléphones",
+      "call": "Appeler",
+      "emails": "E-mails",
+      "write": "Écrire un e-mail",
+      "address": "Siège & actions",
+      "map": "Voir sur la carte",
+      "hours": "Disponibilité"
+    },
+    "form": {
+      "eyebrow": "Nous écrire",
+      "title": "Votre message va directement à l'équipe",
+      "subtitle": "Les messages sont enregistrés dans notre tableur de suivi et reçoivent une réponse sous 48 heures ouvrées.",
+      "name": "Nom complet",
+      "email": "E-mail",
+      "phone": "Téléphone / WhatsApp",
+      "city": "Ville / Pays",
+      "subject": "Sujet",
+      "message": "Message",
+      "messagePlaceholder": "Écrivez votre message, votre demande de prière ou votre projet…",
+      "consent": "J'accepte que mes informations soient utilisées pour être recontacté par METAMORPHOO (voir la politique de confidentialité).",
+      "submit": "Envoyer le message",
+      "sending": "Envoi en cours…",
+      "successTitle": "Message reçu, merci !",
+      "successText": "Notre équipe vous répond sous 48 heures ouvrées. Pour une demande urgente, écrivez-nous directement sur WhatsApp.",
+      "error": "L'envoi automatique a échoué. Merci de réessayer ou de nous écrire sur WhatsApp au",
+      "sujets": [
+        "Devenir visiteur / nouveau venu",
+        "Demande de prière",
+        "Partenariat / soutien",
+        "Invitation & organisation d'une action",
+        "Presse & médias",
+        "Autre sujet"
+      ],
+      "whatsappFast": "Réponse rapide WhatsApp"
+    },
+    "new": {
+      "title": "Nouveau venu ?",
+      "text": "Enregistrez-vous en une minute : vous serez suivi, orienté vers une Église locale ou intégré à un noyau de leaders.",
+      "cta": "M'enregistrer par WhatsApp"
+    },
+    "priere": {
+      "title": "Demande de prière",
+      "text": "Notre équipe d'intercesseurs se tient avec vous, dans la confidentialité.",
+      "cta": "Remplir le formulaire de prière"
+    },
+    "forms": {
+      "eyebrow": "Formulaires connectés",
+      "title": "Enregistrement automatique",
+      "subtitle": "Ces formulaires Google alimentent directement notre tableur de suivi : chaque demande est notifiée à l'équipe."
+    },
+    "mapTitle": "Carte — Goma, Nord-Kivu, RDC",
+    "newMsg": "Bonjour METAMORPHOO, je suis un nouveau venu et je souhaite être enregistré."
+  },
+  "legal": {
+    "title": "Mentions légales",
+    "subtitle": "Éditeur, hébergement, propriété intellectuelle et conditions d'utilisation du site.",
+    "privacyTitle": "Politique de confidentialité",
+    "privacySubtitle": "Quelles données nous collectons, pourquoi, et comment les supprimer.",
+    "updated": "Dernière mise à jour",
+    "blocks": {
+      "editeur": {
+        "titre": "Éditeur du site",
+        "labels": {
+          "address": "Adresse",
+          "phone": "Téléphone / WhatsApp",
+          "email": "E-mail",
+          "founders": "Visionnaires"
+        }
+      },
+      "nature": {
+        "titre": "Nature de l'organisation",
+        "contenu": [
+          "Metamorphoo est une organisation chrétienne à but non lucratif. Metamorphoo n'est pas une Église, mais un mouvement du Saint-Esprit pour les nations et une plateforme missionnaire."
+        ]
+      },
+      "hebergement": {
+        "titre": "Hébergement",
+        "contenu": [
+          "Le site est hébergé sur une plateforme d'hébergement web professionnelle (Vercel, Netlify ou équivalent) et le code source est publié sur GitHub. Les données des formulaires sont hébergées par Google (Google Forms / Google Sheets) dans le cadre de l'offre gratuite Google Workspace."
+        ]
+      },
+      "propriete": {
+        "titre": "Propriété intellectuelle",
+        "contenu": [
+          "Le nom METAMORPHOO, le logo, les textes, visuels et illustrations sont la propriété du mouvement. Toute reproduction sans autorisation écrite est interdite. Les citations bibliques sont issues de la Bible Louis Segond (domaine public)."
+        ]
+      },
+      "dons": {
+        "titre": "Dons et contreparties",
+        "contenu": [
+          "Les dons, offrandes, dîmes et vœux sont libres et sans contrepartie commerciale. Metamorphoo ne vend aucun produit ni service. Les partenariats de soutien font l'objet d'une convention écrite."
+        ]
+      },
+      "contact": {
+        "titre": "Contact",
+        "contenu": [
+          "Pour toute question relative au site :"
+        ]
+      }
+    },
+    "privacy": {
+      "donnees": {
+        "titre": "Données collectées",
+        "contenu": [
+          "Nous collectons uniquement les informations que vous nous transmettez volontairement : nom, e-mail, téléphone, ville, message, type de soutien et montant des dons.",
+          "Aucune donnée bancaire n'est stockée sur ce site. Les paiements en ligne sont traités par les plateformes habilitées (FlexPaie, GeneraPay, opérateurs Mobile Money)."
+        ]
+      },
+      "finalite": {
+        "titre": "Finalité",
+        "contenu": [
+          "Vos données servent à vous recontacter, à organiser les activités, à suivre les candidatures et les formations, à vous remercier de votre soutien et à vous envoyer la lettre d'information si vous y avez consenti."
+        ]
+      },
+      "conservation": {
+        "titre": "Hébergement et durée de conservation",
+        "contenu": [
+          "Les réponses aux formulaires sont enregistrées dans un tableur Google Sheets sécurisé, accessible uniquement à l'équipe habilitée. Elles sont conservées le temps nécessaire à la finalité du traitement, puis supprimées."
+        ]
+      },
+      "droits": {
+        "titre": "Vos droits",
+        "contenu": [
+          "Vous pouvez demander l'accès, la rectification ou la suppression de vos données à tout moment en écrivant à notre adresse e-mail. Nous répondons sous 30 jours."
+        ]
+      },
+      "cookies": {
+        "titre": "Cookies",
+        "contenu": [
+          "Ce site n'utilise pas de cookies publicitaires. Des contenus intégrés (YouTube, Facebook, Instagram, TikTok, Google Maps) peuvent déposer leurs propres cookies lorsque vous les visualisez."
+        ]
+      },
+      "securite": {
+        "titre": "Sécurité",
+        "contenu": [
+          "Le site est diffusé en connexion sécurisée (HTTPS). L'accès aux données est limité aux membres autorisés du mouvement."
+        ]
+      },
+      "contact": {
+        "titre": "Nous contacter",
+        "texte": "Pour exercer vos droits, écrivez-nous à"
+      }
+    },
+    "eyebrow": "Informations légales",
+    "privacyEyebrow": "Protection des données"
+  },
+  "footer": {
+    "cta": {
+      "eyebrow": "Rejoindre le mouvement",
+      "title": "Prêt à entrer dans votre saison de transformation ?",
+      "text": "Enregistrez-vous en une minute. Vous serez suivi, orienté et intégré à un noyau de leaders.",
+      "cta1": "Devenir visiteur",
+      "cta2": "WhatsApp"
+    },
+    "tagline": "Mouvement du Saint-Esprit pour les nations",
+    "newsletter": "Lettre Metamorphoo",
+    "newsletterPlaceholder": "votre@email.com",
+    "newsletterOk": "Inscription enregistrée. Merci !",
+    "newsletterError": "Échec de l'inscription — écrivez-nous sur WhatsApp.",
+    "newsletterNote": "Dates des camps, conférences et enseignements.",
+    "legal": "Mentions légales",
+    "privacy": "Confidentialité",
+    "madeWith": "Fait avec foi à Goma, RDC — Romains 12:2",
+    "form": {
+      "title": "Formulaire à connecter",
+      "text": "Ce formulaire Google n'est pas encore relié au site. Créez-le sur forms.google.com, puis collez son identifiant dans content/site.json (section forms). Guide détaillé : docs/02-GOOGLE-FORMS-ET-SUIVI.md.",
+      "note": "En attendant, écrivez-nous sur WhatsApp au +243 997 628 592 — nous répondons rapidement.",
+      "open": "Ouvrir le formulaire dans un nouvel onglet",
+      "loading": "Chargement du formulaire…"
+    },
+    "payments": "Paiements acceptés :",
+    "or": "ou",
+    "whatsappFloat": "Écrivez-nous",
+    "whatsappFloatAria": "Contacter METAMORPHOO sur WhatsApp au"
+  },
+  "data": {
+    "actions": {
+      "camps": {
+        "titre": "Camps spirituels",
+        "resume": "Des temps de retraite et de consécration où les cœurs sont préparés et les appelés confirmés.",
+        "contenu": "Les camps Metamorphoo sont des temps forts de retraite : jeûne, enseignement, intercession et imposition des mains. Chaque camp est contextualisé selon les besoins de réveil de la ville ou de la nation d'accueil.",
+        "points": [
+          "Retraite de consécration",
+          "Intercession pour la nation",
+          "Imposition des mains et confirmations"
+        ],
+        "categorie": "Rassemblement"
+      },
+      "conferences": {
+        "titre": "Conférences & séminaires",
+        "resume": "Enseignements profonds et pratiques pour renouveler l'intelligence et former des disciples solides.",
+        "contenu": "Conférences publiques et séminaires thématiques animés par le couple visionnaire et les leaders invités, dans les Églises, salles de conférence et universités.",
+        "points": [
+          "Enseignement biblique & renouvellement de l'intelligence",
+          "Séminaires par sphère sociale",
+          "Tables rondes avec les intellectuels"
+        ],
+        "categorie": "Enseignement"
+      },
+      "ateliers": {
+        "titre": "Ateliers & formations",
+        "resume": "Des ateliers pratiques par domaine professionnel : médecine, droit, éducation, entrepreneuriat, arts.",
+        "contenu": "Metamorphoo équipe les croyants pour impacter leur milieu professionnel. Chaque atelier associe fondements bibliques, compétences concrètes et mise en réseau.",
+        "points": [
+          "Ateliers par métier",
+          "Mentorat & suivi",
+          "Réseau de professionnels croyants"
+        ],
+        "categorie": "Équipement"
+      },
+      "retraites": {
+        "titre": "Retraites & croisades de réveil",
+        "resume": "Des croisades d'évangélisation et de réveil qui secouent les villes et réveillent l'Église locale.",
+        "contenu": "Les croisades Metamorphoo réunissent Églises, communautés et autorités locales autour d'un même objectif : le réveil authentique et durable.",
+        "points": [
+          "Croisades de réveil",
+          "Partenariat avec les Églises locales",
+          "Suivi des nouvelles âmes"
+        ],
+        "categorie": "Évangélisation"
+      },
+      "leadership": {
+        "titre": "Leadership Master Class",
+        "resume": "Former des leaders selon le critère unique : avoir le fardeau du réveil et être prêt au sacrifice.",
+        "contenu": "Un parcours exigeant de formation au leadership serviteur, à la gestion des projets du Royaume et à la mobilisation des ressources, pour les 12 leaders clés de chaque ville.",
+        "points": [
+          "Noyau de 12 leaders par ville",
+          "Réunions en ligne & présentiel",
+          "Contact permanent avec les visionnaires"
+        ],
+        "categorie": "Leadership"
+      },
+      "concerts": {
+        "titre": "Célébrations & concerts chrétiens",
+        "resume": "Louange, arts et célébration comme véhicules de la présence de Dieu dans l'espace public.",
+        "contenu": "Concerts, nuits de louange et productions artistiques chrétiennes rassemblant les talents de la nation pour l'honneur de Dieu.",
+        "points": [
+          "Nuits de louange",
+          "Productions artistiques",
+          "Talents de la nation"
+        ],
+        "categorie": "Célébration"
+      },
+      "humanitaire": {
+        "titre": "Actions humanitaires – Oasis de vie",
+        "resume": "Metamorphoo, oasis de vie : eau, santé, éducation et assistance aux vulnérables dans les nations.",
+        "contenu": "L'Évangile se démontre par l'amour en action. Nos équipes interviennent auprès des déplacés, orphelins, veuves et populations affectées, avec des partenaires engagés.",
+        "points": [
+          "Accès à l'eau potable",
+          "Santé & assistance alimentaire",
+          "Soutien scolaire et orphelinats"
+        ],
+        "categorie": "Humanitaire"
+      },
+      "education": {
+        "titre": "Éducation & renouvellement de l'intelligence",
+        "resume": "Un réveil qui touche l'intelligence : former une génération de penseurs et d'entrepreneurs chrétiens.",
+        "contenu": "Programmes éducatifs, académie en ligne, bourses d'excellence et incubation de projets entrepreneuriaux pour une transformation durable.",
+        "points": [
+          "Metamorphoo Académie (en ligne)",
+          "Bourses & excellence",
+          "Incubation entrepreneuriale"
+        ],
+        "categorie": "Éducation"
+      }
+    },
+    "faq": [
+      {
+        "question": "Metamorphoo est-elle une Église ?",
+        "reponse": "Non. Metamorphoo n'est pas une Église, mais un mouvement du Saint-Esprit pour les nations. C'est une plateforme missionnaire qui peut faire naître des Églises. Nous travaillons en partenariat avec les Églises locales et orientons les nouvelles âmes sans attache vers une Église de la place."
+      },
+      {
+        "question": "Comment rejoindre le mouvement ?",
+        "reponse": "Remplissez le formulaire « Nouveau venu » sur la page Contact ou écrivez-nous sur WhatsApp au +243 997 628 592. Vous serez enregistré, suivi automatiquement par notre équipe, puis intégré à un noyau ou orienté selon votre situation."
+      },
+      {
+        "question": "Qui peut devenir leader clé ?",
+        "reponse": "Un seul critère : avoir le fardeau du réveil et être prêt au sacrifice pour l'accomplir. Les leaders sont issus de différentes Églises et domaines professionnels, et organisent les actions Metamorphoo dans leur zone sous l'orientation des visionnaires."
+      },
+      {
+        "question": "Comment fonctionne la formation en ligne ?",
+        "reponse": "La Metamorphoo Académie propose des modules de vidéos YouTube à suivre à votre rythme. Votre progression est enregistrée. À la fin du parcours, vous validez votre candidature : vous êtes ensuite appelé en ligne ou en présentiel pour un entretien de validation."
+      },
+      {
+        "question": "Comment soutenir financièrement ?",
+        "reponse": "Par offrande, don, dîme ou vœu, en espèces ou en nature, de façon ponctuelle, hebdomadaire, mensuelle ou annuelle. Les paiements en ligne (FlexPaie, GeneraPay) seront activés progressivement ; en attendant, Mobile Money, virement bancaire et remise directe sont disponibles."
+      },
+      {
+        "question": "Mes dons sont-ils utilisés de manière transparente ?",
+        "reponse": "Metamorphoo est une organisation chrétienne à but non lucratif. Dieu reste le bailleur de fonds principal. Chaque don est affecté aux actions, projets Triomphes et Oasis de vie, et fait l'objet d'un rapport aux partenaires de soutien."
+      }
+    ],
+    "testimonies": [
+      {
+        "nom": "Pasteur Daniel K.",
+        "ville": "Goma",
+        "role": "Leader d'Église partenaire",
+        "texte": "Metamorphoo a réveillé notre jeunesse. En trois jours de camp, nous avons vu plus de conversions que durant toute une année. Ce n'est pas une émotion, c'est une transformation qui demeure."
+      },
+      {
+        "nom": "Grâce M.",
+        "ville": "Goma",
+        "role": "Participante à la Leadership Master Class",
+        "texte": "J'ai appris que le réveil commence dans ma manière de penser. Ma famille, mon travail et mon service ont été transformés. Aujourd'hui je dirige un noyau de 12 leaders dans ma ville."
+      },
+      {
+        "nom": "Entreprise Espoir SA",
+        "ville": "Nord-Kivu",
+        "role": "Partenaire de soutien",
+        "texte": "Nous soutenons Metamorphoo parce que l'œuvre est sérieuse, transparente et structurée. L'impact humanitaire d'Oasis de vie est visible et mesurable."
+      }
+    ],
+    "agenda": [
+      {
+        "id": "agenda-1",
+        "titre": "Camp spirituel de consécration",
+        "description": "Trois jours de jeûne, d'enseignement et d'intercession pour la nation."
+      },
+      {
+        "id": "agenda-2",
+        "titre": "Conférence : le renouvellement de l'intelligence",
+        "description": "Romains 12:2 appliqué à la vie quotidienne, à la famille et au travail."
+      },
+      {
+        "id": "agenda-3",
+        "titre": "Nuit de louange et célébration",
+        "description": "Concert chrétien réunissant les talents de la nation."
+      },
+      {
+        "id": "agenda-4",
+        "titre": "Leadership Master Class — session en ligne",
+        "description": "Session réservée aux leaders clés et aux candidats du noyau de 12."
+      }
+    ],
+    "academy": {
+      "fondements": {
+        "titre": "Module 1 – Fondements de la transformation",
+        "objectifs": [
+          "Comprendre la métamorphose selon Romains 12:2",
+          "Distinguer émotion, âme et esprit dans la marche chrétienne",
+          "Poser les bases d'une vie de renouvellement de l'intelligence"
+        ],
+        "lecons": [
+          {
+            "titre": "La chenille, la chrysalide et le papillon",
+            "resume": "Une image biblique de la transformation : mourir à l'ancien pour vivre le nouveau."
+          },
+          {
+            "titre": "Le renouvellement de l'intelligence",
+            "resume": "Comment nos pensées déterminent notre terrain spirituel et nos résultats."
+          },
+          {
+            "titre": "Le fardeau du réveil",
+            "resume": "Le critère unique du leader Metamorphoo : porter le fardeau et être prêt au sacrifice."
+          }
+        ],
+        "niveau": "Fondation",
+        "duree": "3 semaines"
+      },
+      "identite": {
+        "titre": "Module 2 – Identité, caractère & sainteté",
+        "objectifs": [
+          "Bâtir un caractère capable de porter la vision",
+          "Vaincre les schémas de sommeil spirituel et moral",
+          "Développer la vie de prière et la Parole"
+        ],
+        "lecons": [
+          {
+            "titre": "Qui suis-je en Christ ?",
+            "resume": "L'identité précède le ministère : retrouver sa vraie place."
+          },
+          {
+            "titre": "Le caractère avant le charisme",
+            "resume": "Pourquoi Dieu creuse le vase avant de s'en servir."
+          }
+        ],
+        "niveau": "Fondation",
+        "duree": "3 semaines"
+      },
+      "reveil": {
+        "titre": "Module 3 – Le réveil dans les nations",
+        "objectifs": [
+          "Comprendre la vision Chrisco et l'impact sur les nations",
+          "Identifier les sphères de la société à réveiller",
+          "Préparer une action de réveil contextualisée"
+        ],
+        "lecons": [
+          {
+            "titre": "Le réveil de l'Église qui impacte les nations",
+            "resume": "De l'église locale aux gouvernements : la logique du Royaume."
+          },
+          {
+            "titre": "Réveiller les 7 sphères de la société",
+            "resume": "Famille, Église, éducation, médias, économie, arts, gouvernement."
+          }
+        ],
+        "niveau": "Intermédiaire",
+        "duree": "4 semaines"
+      },
+      "leadership": {
+        "titre": "Module 4 – Leadership & mobilisation",
+        "objectifs": [
+          "Mobiliser et responsabiliser le noyau de 12 leaders",
+          "Organiser une action Metamorphoo de A à Z",
+          "Gérer les ressources, les partenaires et les finances du Royaume"
+        ],
+        "lecons": [
+          {
+            "titre": "Construire le noyau de 12",
+            "resume": "Choisir, responsabiliser et maintenir une équipe de leaders clés."
+          },
+          {
+            "titre": "Mobilisation financière et matérielle",
+            "resume": "Dieu comme bailleur de fonds : offrandes, dons, vœux, partenaires et sponsors."
+          }
+        ],
+        "niveau": "Avancé",
+        "duree": "4 semaines"
+      }
+    },
+    "gallery": [
+      {
+        "titre": "Camp de consécration – Goma",
+        "legende": "Nuit d'intercession pour la nation",
+        "categorie": "Camps"
+      },
+      {
+        "titre": "Conférence sur le renouvellement de l'intelligence",
+        "legende": "Séminaire Romains 12:2",
+        "categorie": "Conférences"
+      },
+      {
+        "titre": "Atelier des professionnels croyants",
+        "legende": "Médecins, avocats, entrepreneurs",
+        "categorie": "Ateliers"
+      },
+      {
+        "titre": "Oasis de vie – action humanitaire",
+        "legende": "Eau potable et assistance",
+        "categorie": "Humanitaire"
+      },
+      {
+        "titre": "Nuit de louange et célébration",
+        "legende": "Concerts chrétiens",
+        "categorie": "Célébration"
+      },
+      {
+        "titre": "Leadership Master Class",
+        "legende": "Le noyau de 12 leaders",
+        "categorie": "Leadership"
+      }
+    ],
+    "videos": [
+      {
+        "titre": "Metamorphoo – Vision & Mission"
+      },
+      {
+        "titre": "Le réveil de l'Église qui impacte les nations"
+      },
+      {
+        "titre": "Témoignages du camp de Goma"
+      }
+    ],
+    "forms": {
+      "visiteur": {
+        "titre": "Devenir visiteur / nouveau venu",
+        "description": "Enregistrez-vous en 1 minute : vous serez automatiquement suivi par notre équipe."
+      },
+      "ouvrier": {
+        "titre": "Recrutement des ouvriers (bénévoles & staff)",
+        "description": "Servez dans un département : accueil, intercession, logistique, louange, médias, humanitaire…"
+      },
+      "leader": {
+        "titre": "Candidature – Leader clé du noyau de 12",
+        "description": "Vous avez le fardeau du réveil et vous êtes prêt au sacrifice ? Postulez pour votre ville."
+      },
+      "formation": {
+        "titre": "Inscription – Metamorphoo Académie",
+        "description": "Formation en ligne par vidéos, puis appel en ligne ou en présentiel pour l'interview de validation."
+      },
+      "don": {
+        "titre": "Promesse de don / partenariat",
+        "description": "Dons, offrandes, dîmes, vœux, en espèces ou en nature, ponctuels ou réguliers."
+      },
+      "donNature": {
+        "titre": "Don en nature / matériel",
+        "description": "Équipements, denrées, moyens de transport, locaux, matériel médical…"
+      },
+      "contact": {
+        "titre": "Nous écrire",
+        "description": "Question, demande de prière, invitation ou partenariat."
+      },
+      "newsletter": {
+        "titre": "Lettre Metamorphoo",
+        "description": "Recevez les dates des camps, conférences et enseignements."
+      },
+      "priere": {
+        "titre": "Demande de prière",
+        "description": "Notre équipe d'intercesseurs se tient avec vous."
+      }
+    }
+  }
+}

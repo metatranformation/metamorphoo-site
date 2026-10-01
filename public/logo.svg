@@ -1,58 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="METAMORPHOO">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="METAMORPHOO">
   <defs>
-    <linearGradient id="mGold" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#FFE9B0"/>
-      <stop offset="0.45" stop-color="#F5B942"/>
-      <stop offset="1" stop-color="#B87A12"/>
+    <linearGradient id="mtaGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFC44D"/>
+      <stop offset="0.35" stop-color="#F9A227"/>
+      <stop offset="0.7" stop-color="#F4731F"/>
+      <stop offset="1" stop-color="#DD2B18"/>
     </linearGradient>
-    <linearGradient id="mEmerald" x1="0" y1="1" x2="1" y2="0">
-      <stop offset="0" stop-color="#0E9473"/>
-      <stop offset="0.5" stop-color="#2ED39B"/>
-      <stop offset="1" stop-color="#5FE3B3"/>
+    <linearGradient id="mtaShine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="mViolet" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#7C5CFF"/>
-      <stop offset="1" stop-color="#3B228F"/>
-    </linearGradient>
-    <radialGradient id="mHalo" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="#F5B942" stop-opacity="0.35"/>
-      <stop offset="0.6" stop-color="#7C5CFF" stop-opacity="0.12"/>
-      <stop offset="1" stop-color="#04060F" stop-opacity="0"/>
-    </radialGradient>
   </defs>
 
-  <!-- halo -->
-  <circle cx="256" cy="256" r="248" fill="url(#mHalo)"/>
+  <!-- Aile / lame gauche -->
+  <path d="M 18 40 C 14 90, 52 142, 100 178 C 86 140, 72 88, 68 40 C 48 32, 32 32, 18 40 Z" fill="url(#mtaGrad)"/>
+  <!-- Aile / lame droite -->
+  <path d="M 182 40 C 186 90, 148 142, 100 178 C 114 140, 128 88, 132 40 C 152 32, 168 32, 182 40 Z" fill="url(#mtaGrad)"/>
+  <!-- Flamme -->
+  <path d="M 100 4 C 113 24, 126 40, 126 55 C 126 72, 114 84, 100 84 C 86 84, 74 72, 74 55 C 74 40, 87 24, 100 4 Z" fill="url(#mtaGrad)"/>
 
-  <!-- aile supérieure gauche -->
-  <path d="M244 236 C 196 108 84 92 62 158 C 40 224 128 268 244 262 Z" fill="url(#mGold)"/>
-  <!-- aile supérieure droite -->
-  <path d="M268 236 C 316 108 428 92 450 158 C 472 224 384 268 268 262 Z" fill="url(#mGold)"/>
-  <!-- aile inférieure gauche -->
-  <path d="M244 268 C 208 340 132 396 92 372 C 52 348 96 268 244 276 Z" fill="url(#mEmerald)"/>
-  <!-- aile inférieure droite -->
-  <path d="M268 268 C 304 340 380 396 420 372 C 460 348 416 268 268 276 Z" fill="url(#mEmerald)"/>
-
-  <!-- veines formant un "M" stylisé -->
-  <g fill="none" stroke="#04060F" stroke-opacity="0.55" stroke-width="9" stroke-linecap="round">
-    <path d="M244 254 C 216 190 176 150 132 146"/>
-    <path d="M268 254 C 296 190 336 150 380 146"/>
-    <path d="M244 274 C 216 322 180 352 138 358"/>
-    <path d="M268 274 C 296 322 332 352 374 358"/>
-  </g>
-
-  <!-- tache violette (chrysalide / oeuf) -->
-  <ellipse cx="256" cy="196" rx="26" ry="34" fill="url(#mViolet)" opacity="0.9"/>
-
-  <!-- corps -->
-  <path d="M256 196 C 268 240 268 330 256 392 C 244 330 244 240 256 196 Z" fill="url(#mGold)"/>
-  <!-- tête -->
-  <circle cx="256" cy="188" r="20" fill="#FFE9B0"/>
-  <!-- antennes -->
-  <g fill="none" stroke="#FFE9B0" stroke-width="9" stroke-linecap="round">
-    <path d="M248 172 C 232 140 214 124 196 116"/>
-    <path d="M264 172 C 280 140 298 124 316 116"/>
-  </g>
-  <circle cx="196" cy="116" r="11" fill="#F5B942"/>
-  <circle cx="316" cy="116" r="11" fill="#F5B942"/>
+  <!-- Reflets 3D -->
+  <path d="M 26 46 C 24 88, 56 134, 96 168 C 84 134, 72 90, 68 48 C 52 42, 38 42, 26 46 Z" fill="url(#mtaShine)"/>
+  <path d="M 174 46 C 176 88, 144 134, 104 168 C 116 134, 128 90, 132 48 C 148 42, 162 42, 174 46 Z" fill="url(#mtaShine)"/>
+  <path d="M 100 14 C 110 30, 120 43, 120 55 C 120 68, 111 77, 100 77 C 89 77, 80 68, 80 55 C 80 43, 90 30, 100 14 Z" fill="url(#mtaShine)" opacity="0.7"/>
 </svg>

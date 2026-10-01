@@ -8,31 +8,40 @@ import { GoogleFormEmbed } from '@/components/GoogleFormEmbed';
 import { Calendar, Check, MapPin } from '@/components/Icons';
 import { actions, getForm, site } from '@/lib/content';
 import agenda from '@/content/agenda.json';
+import { getLocale, getT, translateArray } from '@/lib/i18n';
+import { LOCALE_TAGS } from '@/lib/i18n-core';
 
-export const metadata: Metadata = {
-  title: 'Nos Actions',
-  description:
-    'Camps spirituels, conférences et séminaires, ateliers et formations, retraites et croisades de réveil, Leadership Master Class, concerts chrétiens et actions humanitaires Oasis de vie.',
-  alternates: { canonical: '/actions' },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getT();
+  return {
+    title: t('actions.title'),
+    description: t('actions.subtitle'),
+    alternates: { canonical: '/actions' },
+  };
+}
 
-const formatDate = (iso: string) =>
-  new Date(iso).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
-
-export default function ActionsPage() {
+export default async function ActionsPage() {
+  const t = await getT();
+  const locale = await getLocale();
   const form = getForm('visiteur');
+  const tag = LOCALE_TAGS[locale];
+  const agendaText = translateArray<{ id: string; titre: string; description: string }>(
+    locale,
+    'data.agenda',
+  );
+
+  const formatDate = (iso: string) =>
+    new Date(iso).toLocaleDateString(tag, { day: 'numeric', month: 'long', year: 'numeric' });
+
+  const textFor = (i: number) => agendaText[i] ?? { titre: '', description: '' };
 
   return (
     <>
       <PageHero
-        breadcrumb="Nos Actions"
-        eyebrow="Mission en action"
-        title={
-          <>
-            Huit domaines pour <span className="text-gradient">réveiller</span> une nation
-          </>
-        }
-        subtitle="Des camps spirituels aux actions humanitaires, chaque action est contextualisée selon les besoins spécifiques de réveil de la ville, de la communauté ou de la nation."
+        breadcrumb={t('actions.eyebrow')}
+        eyebrow={t('actions.eyebrow')}
+        title={t('actions.title')}
+        subtitle={t('actions.subtitle')}
         image="/images/action-camps.jpg"
       />
 
@@ -46,48 +55,57 @@ export default function ActionsPage() {
       {/* ================= DÉTAIL ================= */}
       <section className="section pt-0">
         <div className="container-x space-y-20">
-          {actions.map((action, i) => (
-            <Reveal
-              key={action.id}
-              className={`grid items-center gap-10 lg:grid-cols-2 ${i % 2 === 1 ? 'lg:[&>figure]:order-2' : ''}`}
-            >
-              <figure className="frame-img aspect-[16/11]">
-                <img
-                  src={action.image}
-                  alt={`${action.titre} — illustration 3D Metamorphoo`}
-                  loading="lazy"
-                  className="h-full w-full object-cover"
-                />
-              </figure>
+          {actions.map((action, i) => {
+            const titre = t(`data.actions.${action.id}.titre`);
+            const categorie = t(`data.actions.${action.id}.categorie`);
+            const contenu = t(`data.actions.${action.id}.contenu`);
+            const points = [0, 1, 2, 3, 4]
+              .map((k) => t(`data.actions.${action.id}.points.${k}`))
+              .filter((v) => v && !v.startsWith('data.'));
 
-              <div>
-                <span className="eyebrow">{action.categorie}</span>
-                <h2 className="mt-5 text-3xl font-bold leading-tight sm:text-4xl">{action.titre}</h2>
-                <p className="mt-5 text-base leading-relaxed text-cream/70">{action.contenu}</p>
-                <ul className="mt-7 space-y-3">
-                  {action.points.map((p) => (
-                    <li key={p} className="flex items-start gap-3 text-sm text-cream/70">
-                      <Check width={16} height={16} className="mt-0.5 shrink-0 text-emerald2-400" />
-                      {p}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <Link href="/contact" className="btn-gold">
-                    Participer / s’inscrire
-                  </Link>
-                  <a
-                    href={`https://wa.me/${site.contact.whatsapp.replace(/[^\d]/g, '')}?text=${encodeURIComponent(`Bonjour METAMORPHOO, je souhaite participer à : ${action.titre}`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-ghost"
-                  >
-                    Demander les dates
-                  </a>
+            return (
+              <Reveal
+                key={action.id}
+                className={`grid items-center gap-10 lg:grid-cols-2 ${i % 2 === 1 ? 'lg:[&>figure]:order-2' : ''}`}
+              >
+                <figure className="frame-img aspect-[16/11]">
+                  <img
+                    src={action.image}
+                    alt={`${titre} — Metamorphoo`}
+                    loading="lazy"
+                    className="h-full w-full object-cover"
+                  />
+                </figure>
+
+                <div>
+                  <span className="eyebrow">{categorie}</span>
+                  <h2 className="mt-5 text-3xl font-bold leading-tight sm:text-4xl">{titre}</h2>
+                  <p className="mt-5 text-base leading-relaxed text-cream/70">{contenu}</p>
+                  <ul className="mt-7 space-y-3">
+                    {points.map((p) => (
+                      <li key={p} className="flex items-start gap-3 text-sm text-cream/70">
+                        <Check width={16} height={16} className="mt-0.5 shrink-0 text-emerald2-400" />
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-8 flex flex-wrap gap-3">
+                    <Link href="/contact" className="btn-gold">
+                      {t('actions.cta')}
+                    </Link>
+                    <a
+                      href={`https://wa.me/${site.contact.whatsapp.replace(/[^\d]/g, '')}?text=${encodeURIComponent(`${t('actions.whatsappMsg')} ${titre}`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-ghost"
+                    >
+                      {t('actions.cta2')}
+                    </a>
+                  </div>
                 </div>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            );
+          })}
         </div>
       </section>
 
@@ -95,47 +113,49 @@ export default function ActionsPage() {
       <section className="section pt-0" id="agenda">
         <div className="container-x">
           <SectionHeading
-            eyebrow="Agenda"
-            title={
-              <>
-                Prochaines <span className="text-gradient">activités</span>
-              </>
-            }
-            subtitle="Modifiez librement ces dates dans le fichier content/agenda.json — elles se mettent à jour automatiquement sur le site."
+            eyebrow={t('actions.agenda.eyebrow')}
+            title={t('actions.agenda.title')}
+            subtitle={t('actions.agenda.subtitle')}
           />
 
           <div className="mt-14 grid gap-5 lg:grid-cols-2">
-            {agenda.map((event, i) => (
-              <Reveal key={event.id} delay={((i % 3) + 1) as 1 | 2 | 3}>
-                <article className="card-3d glass flex h-full flex-col rounded-3xl p-7">
-                  <div className="flex items-start justify-between gap-4">
-                    <span className="rounded-full border border-gold-300/40 bg-gold-400/10 px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-gold-200">
-                      {event.type}
-                    </span>
-                    <Calendar width={20} height={20} className="text-cream/30" />
-                  </div>
-                  <h3 className="mt-5 text-xl font-bold leading-snug">{event.titre}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-cream/60">{event.description}</p>
-                  <dl className="mt-6 space-y-2 text-xs text-cream/50">
-                    <div className="flex items-center gap-2.5">
-                      <Calendar width={14} height={14} className="text-gold-300" />
-                      <dt className="sr-only">Date</dt>
-                      <dd>
-                        {formatDate(event.date)} · {event.heure}
-                      </dd>
+            {agenda.map((event, i) => {
+              const txt = textFor(i);
+              return (
+                <Reveal key={event.id} delay={((i % 3) + 1) as 1 | 2 | 3}>
+                  <article className="card-3d glass flex h-full flex-col rounded-3xl p-7">
+                    <div className="flex items-start justify-between gap-4">
+                      <span className="rounded-full border border-gold-300/40 bg-gold-400/10 px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-gold-200">
+                        {event.type}
+                      </span>
+                      <Calendar width={20} height={20} className="text-cream/30" />
                     </div>
-                    <div className="flex items-center gap-2.5">
-                      <MapPin width={14} height={14} className="text-emerald2-400" />
-                      <dt className="sr-only">Lieu</dt>
-                      <dd>{event.lieu}</dd>
-                    </div>
-                  </dl>
-                  <Link href="/contact" className="mt-7 text-xs font-semibold uppercase tracking-[0.14em] text-gold-200 hover:text-gold-100">
-                    Je m’inscris →
-                  </Link>
-                </article>
-              </Reveal>
-            ))}
+                    <h3 className="mt-5 text-xl font-bold leading-snug">{txt.titre}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-cream/60">{txt.description}</p>
+                    <dl className="mt-6 space-y-2 text-xs text-cream/50">
+                      <div className="flex items-center gap-2.5">
+                        <Calendar width={14} height={14} className="text-gold-300" />
+                        <dt className="sr-only">{t('actions.agenda.date')}</dt>
+                        <dd>
+                          {formatDate(event.date)} · {event.heure}
+                        </dd>
+                      </div>
+                      <div className="flex items-center gap-2.5">
+                        <MapPin width={14} height={14} className="text-emerald2-400" />
+                        <dt className="sr-only">{t('actions.agenda.lieu')}</dt>
+                        <dd>{event.lieu}</dd>
+                      </div>
+                    </dl>
+                    <Link
+                      href="/contact"
+                      className="mt-7 text-xs font-semibold uppercase tracking-[0.14em] text-gold-200 hover:text-gold-100"
+                    >
+                      {t('actions.agenda.register')}
+                    </Link>
+                  </article>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -144,20 +164,16 @@ export default function ActionsPage() {
       <section className="section pt-0" id="inscription">
         <div className="container-x max-w-4xl">
           <SectionHeading
-            eyebrow="Participer"
-            title={
-              <>
-                Inscrivez-vous à une <span className="text-gradient">activité</span>
-              </>
-            }
-            subtitle="Le formulaire enregistre automatiquement votre participation et prévient l'équipe d'organisation de votre ville."
+            eyebrow={t('actions.inscription.eyebrow')}
+            title={t('actions.inscription.title')}
+            subtitle={t('actions.inscription.subtitle')}
           />
           <div className="mt-12">
             <GoogleFormEmbed
               formId={form.googleFormId}
               height={form.googleFormHeight}
-              titre={form.titre}
-              description={form.description}
+              titre={t('data.forms.visiteur.titre')}
+              description={t('data.forms.visiteur.description')}
             />
           </div>
         </div>

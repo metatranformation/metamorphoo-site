@@ -1,6 +1,9 @@
+'use client';
+
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { ChevronDown } from './Icons';
+import { useI18n } from './I18nProvider';
 
 type PageHeroProps = {
   eyebrow: string;
@@ -12,6 +15,8 @@ type PageHeroProps = {
 
 /** Bandeau d'en-tête des pages intérieures. */
 export function PageHero({ eyebrow, title, subtitle, image, breadcrumb }: PageHeroProps) {
+  const { t } = useI18n();
+
   return (
     <section className="relative flex min-h-[54svh] items-end overflow-hidden pb-14 pt-36">
       {image && (
@@ -27,7 +32,7 @@ export function PageHero({ eyebrow, title, subtitle, image, breadcrumb }: PageHe
         {breadcrumb && (
           <nav className="mb-5 flex items-center gap-2 text-xs text-cream/40" aria-label="Fil d'Ariane">
             <Link href="/" className="hover:text-gold-200">
-              Accueil
+              {t('nav.home')}
             </Link>
             <ChevronDown width={13} height={13} className="-rotate-90" />
             <span className="text-gold-200/80">{breadcrumb}</span>

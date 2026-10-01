@@ -5,6 +5,7 @@ import { cn, youtubeId, youtubeThumb } from '@/lib/utils';
 import { Play, YoutubeIcon } from './Icons';
 import { Reveal } from './Reveal';
 import { site } from '@/lib/content';
+import { useI18n } from './I18nProvider';
 import type { YoutubeVideo } from '@/lib/youtube';
 
 type YouTubeSectionProps = {
@@ -16,9 +17,10 @@ type YouTubeSectionProps = {
 /** Grille des dernières vidéos YouTube + lecteur en fenêtre modale. */
 export function YouTubeSection({
   videos,
-  title = 'Nos dernières vidéos',
-  subtitle = 'Enseignements, témoignages et temps de louange — en direct sur notre chaîne YouTube.',
+  title,
+  subtitle,
 }: YouTubeSectionProps) {
+  const { t } = useI18n();
   const [playing, setPlaying] = useState<string | null>(null);
   const channel = site.socials.find((s) => s.id === 'youtube');
 
@@ -29,19 +31,10 @@ export function YouTubeSection({
       <div className="container-x">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="eyebrow mb-5">
-            <YoutubeIcon width={13} height={13} /> Chaîne YouTube
+            <YoutubeIcon width={13} height={13} /> {t('home.youtube.eyebrow')}
           </span>
           <h2 className="text-3xl font-bold leading-[1.12] sm:text-4xl">
-            {title.split(' ').map((w, i) =>
-              i === title.split(' ').length - 1 ? (
-                <span key={i} className="text-gradient">
-                  {' '}
-                  {w}
-                </span>
-              ) : (
-                <span key={i}>{w} </span>
-              ),
-            )}
+            {title}
           </h2>
           <p className="mx-auto mt-4 text-sm text-cream/70 sm:text-base">{subtitle}</p>
         </Reveal>
@@ -69,7 +62,7 @@ export function YouTubeSection({
                   </span>
                   {v.vues && (
                     <span className="absolute bottom-3 right-3 rounded-full bg-night-950/80 px-2.5 py-1 text-[0.65rem] font-medium text-cream/75">
-                      {v.vues} vues
+                      {v.vues} {t('home.youtube.views')}
                     </span>
                   )}
                 </div>
@@ -85,7 +78,7 @@ export function YouTubeSection({
 
         <Reveal className="mt-12 text-center">
           <a href={channel?.url} target="_blank" rel="noopener noreferrer" className="btn-ghost">
-            <YoutubeIcon width={17} height={17} /> Voir toutes les vidéos sur YouTube
+            <YoutubeIcon width={17} height={17} /> {t('home.youtube.cta')}
           </a>
         </Reveal>
       </div>
@@ -101,13 +94,13 @@ export function YouTubeSection({
         >
           <div className={cn('w-full max-w-4xl')} onClick={(e) => e.stopPropagation()}>
             <div className="mb-3 flex items-center justify-between">
-              <p className="text-sm font-semibold text-gold-200">Metamorphoo — YouTube</p>
+              <p className="text-sm font-semibold text-gold-200">{t('home.youtube.modal')}</p>
               <button
                 type="button"
                 onClick={() => setPlaying(null)}
                 className="glass rounded-full px-4 py-1.5 text-xs font-semibold text-cream/80 hover:text-cream"
               >
-                Fermer ✕
+                {t('home.youtube.close')} ✕
               </button>
             </div>
             <div className="aspect-video overflow-hidden rounded-2xl border border-white/15 bg-black shadow-card">

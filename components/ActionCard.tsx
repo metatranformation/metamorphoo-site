@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import { ArrowUpRight, Check } from './Icons';
 import { Reveal } from './Reveal';
 import type { Action } from '@/lib/content';
+import { useI18n } from './I18nProvider';
 
 type ActionCardProps = {
   action: Action;
@@ -15,7 +16,13 @@ type ActionCardProps = {
 
 /** Carte d'action avec effet 3D à la souris. */
 export function ActionCard({ action, index, compact = false }: ActionCardProps) {
+  const { t } = useI18n();
   const ref = useRef<HTMLDivElement>(null);
+
+  const titre = t(`data.actions.${action.id}.titre`);
+  const resume = t(`data.actions.${action.id}.resume`);
+  const categorie = t(`data.actions.${action.id}.categorie`);
+  const points = [0, 1, 2].map((i) => t(`data.actions.${action.id}.points.${i}`)).filter((v) => v && !v.startsWith('data.'));
 
   const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const el = ref.current;
@@ -41,7 +48,7 @@ export function ActionCard({ action, index, compact = false }: ActionCardProps) 
         <div className="frame-img !rounded-none !border-0">
           <img
             src={action.image}
-            alt={`${action.titre} — illustration 3D Metamorphoo`}
+            alt={`${titre} — illustration 3D Metamorphoo`}
             loading="lazy"
             className={cn(
               'w-full object-cover transition-transform duration-[1200ms] ease-expo group-hover:scale-110',
@@ -51,18 +58,18 @@ export function ActionCard({ action, index, compact = false }: ActionCardProps) 
         </div>
 
         <span className="absolute left-5 top-5 rounded-full border border-gold-300/40 bg-night-950/80 px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-gold-200 backdrop-blur">
-          {action.categorie}
+          {categorie}
         </span>
 
         <div className="relative p-6 sm:p-7">
           <h3 className="text-xl font-bold leading-snug transition-colors duration-300 group-hover:text-gold-200">
-            {action.titre}
+            {titre}
           </h3>
-          <p className="mt-3 text-sm leading-relaxed text-cream/70">{action.resume}</p>
+          <p className="mt-3 text-sm leading-relaxed text-cream/70">{resume}</p>
 
           {!compact && (
             <ul className="mt-5 space-y-2.5">
-              {action.points.map((p) => (
+              {points.map((p) => (
                 <li key={p} className="flex items-start gap-2.5 text-[0.82rem] text-cream/60">
                   <Check width={15} height={15} className="mt-0.5 shrink-0 text-emerald2-400" />
                   {p}

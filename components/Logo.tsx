@@ -2,70 +2,63 @@ import { cn } from '@/lib/utils';
 
 type LogoProps = {
   className?: string;
-  /** Afficher le texte METAMORPHOO à côté du papillon */
+  /** Afficher le texte META MORPHOO à côté du symbole */
   withWordmark?: boolean;
-  /** Taille du papillon en pixels */
+  /** Taille du symbole en pixels */
   size?: number;
+  /** Animation douce (battement d'ailes) */
+  animated?: boolean;
 };
 
 /**
- * Logo METAMORPHOO — papillon dont les veines dessinent un « M ».
- * Le point violet sur l'aile supérieure symbolise la chrysalide.
+ * Logo officiel METAMORPHOO.
+ * Symbole : un « M » formé de deux ailes de feu, surmonté d'une flamme
+ * (la transformation / le Saint-Esprit). Dégradé orange officiel de la marque.
  */
-export function Logo({ className, withWordmark = true, size = 44 }: LogoProps) {
+export function Logo({ className, withWordmark = true, size = 44, animated = false }: LogoProps) {
   return (
     <span className={cn('inline-flex items-center gap-3', className)}>
       <svg
         width={size}
         height={size}
-        viewBox="0 0 512 512"
-        className="shrink-0 drop-shadow-[0_0_18px_rgba(245,185,66,0.45)]"
+        viewBox="0 0 200 200"
+        className={cn('shrink-0 drop-shadow-[0_0_16px_rgba(249,162,39,0.5)]', animated && 'logo-wing logo-flame')}
         aria-hidden="true"
       >
         <defs>
-          <linearGradient id="lgGold" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#FFE9B0" />
-            <stop offset="0.45" stopColor="#F5B942" />
-            <stop offset="1" stopColor="#B87A12" />
+          <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stopColor="#FFC44D" />
+            <stop offset="0.35" stopColor="#F9A227" />
+            <stop offset="0.7" stopColor="#F4731F" />
+            <stop offset="1" stopColor="#DD2B18" />
           </linearGradient>
-          <linearGradient id="lgEmerald" x1="0" y1="1" x2="1" y2="0">
-            <stop offset="0" stopColor="#0E9473" />
-            <stop offset="0.5" stopColor="#2ED39B" />
-            <stop offset="1" stopColor="#5FE3B3" />
-          </linearGradient>
-          <linearGradient id="lgViolet" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#9E86FF" />
-            <stop offset="1" stopColor="#5E3FE0" />
+          <linearGradient id="logoShine" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="#FFFFFF" stopOpacity="0.5" />
+            <stop offset="0.55" stopColor="#FFFFFF" stopOpacity="0.06" />
+            <stop offset="1" stopColor="#FFFFFF" stopOpacity="0" />
           </linearGradient>
         </defs>
-        <path d="M244 236 C 196 108 84 92 62 158 C 40 224 128 268 244 262 Z" fill="url(#lgGold)" />
-        <path d="M268 236 C 316 108 428 92 450 158 C 472 224 384 268 268 262 Z" fill="url(#lgGold)" />
-        <path d="M244 268 C 208 340 132 396 92 372 C 52 348 96 268 244 276 Z" fill="url(#lgEmerald)" />
-        <path d="M268 268 C 304 340 380 396 420 372 C 460 348 416 268 268 276 Z" fill="url(#lgEmerald)" />
-        <g fill="none" stroke="#04060F" strokeOpacity="0.5" strokeWidth="10" strokeLinecap="round">
-          <path d="M244 254 C 216 190 176 150 132 146" />
-          <path d="M268 254 C 296 190 336 150 380 146" />
-          <path d="M244 274 C 216 322 180 352 138 358" />
-          <path d="M268 274 C 296 322 332 352 374 358" />
+        <g className={animated ? 'logo-wing-left' : undefined}>
+          <path d="M 18 40 C 14 90, 52 142, 100 178 C 86 140, 72 88, 68 40 C 48 32, 32 32, 18 40 Z" fill="url(#logoGrad)" />
+          <path d="M 26 46 C 24 88, 56 134, 96 168 C 84 134, 72 90, 68 48 C 52 42, 38 42, 26 46 Z" fill="url(#logoShine)" />
         </g>
-        <ellipse cx="256" cy="196" rx="26" ry="34" fill="url(#lgViolet)" opacity="0.95" />
-        <path d="M256 196 C 268 240 268 330 256 392 C 244 330 244 240 256 196 Z" fill="url(#lgGold)" />
-        <circle cx="256" cy="188" r="20" fill="#FFE9B0" />
-        <g fill="none" stroke="#FFE9B0" strokeWidth="10" strokeLinecap="round">
-          <path d="M248 172 C 232 140 214 124 196 116" />
-          <path d="M264 172 C 280 140 298 124 316 116" />
+        <g className={animated ? 'logo-wing-right' : undefined}>
+          <path d="M 182 40 C 186 90, 148 142, 100 178 C 114 140, 128 88, 132 40 C 152 32, 168 32, 182 40 Z" fill="url(#logoGrad)" />
+          <path d="M 174 46 C 176 88, 144 134, 104 168 C 116 134, 128 90, 132 48 C 148 42, 162 42, 174 46 Z" fill="url(#logoShine)" />
         </g>
-        <circle cx="196" cy="116" r="12" fill="#F5B942" />
-        <circle cx="316" cy="116" r="12" fill="#F5B942" />
+        <g className={animated ? 'logo-flame' : undefined}>
+          <path d="M 100 4 C 113 24, 126 40, 126 55 C 126 72, 114 84, 100 84 C 86 84, 74 72, 74 55 C 74 40, 87 24, 100 4 Z" fill="url(#logoGrad)" />
+          <path d="M 100 14 C 110 30, 120 43, 120 55 C 120 68, 111 77, 100 77 C 89 77, 80 68, 80 55 C 80 43, 90 30, 100 14 Z" fill="url(#logoShine)" opacity="0.65" />
+        </g>
       </svg>
 
       {withWordmark && (
-        <span className="flex flex-col leading-none">
-          <span className="font-display text-[1.35rem] font-extrabold tracking-[0.16em] text-cream">
-            METAMORPHOO
+        <span className="flex flex-col leading-[0.92]">
+          <span className="bg-gradient-to-br from-gold-200 via-gold-400 to-gold-600 bg-clip-text font-display text-[1.3rem] font-extrabold tracking-[-0.01em] text-transparent">
+            META
           </span>
-          <span className="mt-1 text-[0.6rem] font-semibold uppercase tracking-[0.34em] text-gold-300/80">
-            Movement
+          <span className="bg-gradient-to-br from-gold-200 via-gold-400 to-gold-600 bg-clip-text font-display text-[1.3rem] font-extrabold tracking-[-0.01em] text-transparent">
+            MORPHOO
           </span>
         </span>
       )}

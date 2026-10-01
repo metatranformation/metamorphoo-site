@@ -1,13 +1,18 @@
+'use client';
+
 import { Lock } from './Icons';
+import { useI18n } from './I18nProvider';
 
 const BADGES = ['FlexPaie', 'GeneraPay', 'M-Pesa', 'Airtel Money', 'Orange Money', 'Virement bancaire', 'Espèces'];
 
 /** Bandeau des moyens de paiement acceptés. */
 export function PaymentBadges({ className = '' }: { className?: string }) {
+  const { t } = useI18n();
+
   return (
     <div className={`flex flex-wrap items-center gap-2.5 ${className}`}>
       <span className="flex items-center gap-1.5 text-[0.7rem] font-medium text-cream/40">
-        <Lock width={13} height={13} /> Paiements acceptés :
+        <Lock width={13} height={13} /> {t('footer.payments')}
       </span>
       {BADGES.map((b) => (
         <span

@@ -5,6 +5,7 @@ import { Book, Check, Clock, Play, Shield } from './Icons';
 import { academyModules, totalLessons } from '@/lib/content';
 import { cn, youtubeThumb } from '@/lib/utils';
 import { Reveal } from './Reveal';
+import { useI18n } from './I18nProvider';
 
 const STORAGE_KEY = 'metamorphoo-academy-progress';
 
@@ -38,8 +39,28 @@ function useProgress() {
 
 export function AcademyClient() {
   const { done, toggle } = useProgress();
+  const { t, translateList } = useI18n();
   const [openModule, setOpenModule] = useState<string | null>(academyModules[0]?.id ?? null);
   const [playing, setPlaying] = useState<Lesson | null>(null);
+
+  // Texte traduit depuis le dictionnaire, structure (id / image / videoId) depuis le contenu.
+  const modules = useMemo(
+    () =>
+      academyModules.map((m) => ({
+        id: m.id,
+        image: m.image,
+        niveau: t(`data.academy.${m.id}.niveau`),
+        duree: t(`data.academy.${m.id}.duree`),
+        titre: t(`data.academy.${m.id}.titre`),
+        objectifs: translateList(`data.academy.${m.id}.objectifs`),
+        lecons: m.lecons.map((l, i) => ({
+          ...l,
+          titre: t(`data.academy.${m.id}.lecons.${i}.titre`),
+          resume: t(`data.academy.${m.id}.lecons.${i}.resume`),
+        })),
+      })),
+    [t, translateList],
+  );
 
   const lessonKey = (moduleId: string, index: number) => `${moduleId}-${index}`;
 
@@ -55,15 +76,12 @@ export function AcademyClient() {
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="eyebrow mb-3">
-              <Shield width={13} height={13} /> Votre progression
+              <Shield width={13} height={13} /> {t('academy.progress.eyebrow')}
             </p>
             <h3 className="text-2xl font-bold">
-              {done.length} / {totalLessons} leçons terminées
+              {done.length} / {totalLessons} {t('academy.progress.title')}
             </h3>
-            <p className="mt-2 max-w-md text-sm text-cream/60">
-              Suivez les modules à votre rythme. Votre progression est enregistrée sur cet appareil. À la fin
-              du parcours, validez votre candidature pour être appelé en ligne ou en présentiel.
-            </p>
+            <p className="mt-2 max-w-md text-sm text-cream/60">{t('academy.progress.lead')}</p>
           </div>
           <div className="shrink-0 text-center">
             <span className="font-display text-5xl font-extrabold text-gradient">{percent}%</span>
@@ -79,7 +97,7 @@ export function AcademyClient() {
 
       {/* Modules */}
       <div className="mt-10 space-y-5">
-        {academyModules.map((module, mi) => {
+        {modules.map((module, mi) => {
           const open = openModule === module.id;
           const moduleDone = module.lecons.filter((_, i) => done.includes(lessonKey(module.id, i))).length;
           return (
@@ -106,7 +124,7 @@ export function AcademyClient() {
                         {module.niveau}
                       </span>
                       <span className="rounded-full bg-white/10 px-2 py-0.5 text-[0.62rem] text-cream/60">
-                        {module.lecons.length} leçons
+                        {module.lecons.length} {t('academy.modules.lessons')}
                       </span>
                       <span className="flex items-center gap-1 text-[0.62rem] text-cream/50">
                         <Clock width={12} height={12} /> {module.duree}
@@ -114,7 +132,7 @@ export function AcademyClient() {
                     </span>
                     <span className="mt-2 block font-display text-xl font-bold text-cream">{module.titre}</span>
                     <span className="mt-1.5 block text-xs text-cream/50">
-                      {moduleDone} / {module.lecons.length} leçons terminées
+                      {moduleDone} / {module.lecons.length} {t('academy.modules.done')}
                     </span>
                   </span>
                   <span
@@ -133,7 +151,7 @@ export function AcademyClient() {
                     <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr]">
                       <div>
                         <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-cream/40">
-                          Leçons vidéo (YouTube)
+                          {t('academy.modules.videoLessons')}
                         </h4>
                         <ul className="space-y-3">
                           {module.lecons.map((lesson, i) => {
@@ -151,7 +169,7 @@ export function AcademyClient() {
                                   type="button"
                                   onClick={() => setPlaying(lesson)}
                                   className="group relative h-16 w-28 shrink-0 overflow-hidden rounded-xl"
-                                  aria-label={`Lire : ${lesson.titre}`}
+                                  aria-label={`${t('academy.modules.play')} : ${lesson.titre}`}
                                 >
                                   <img src={youtubeThumb(lesson.videoId)} alt="" className="h-full w-full object-cover" />
                                   <span className="absolute inset-0 grid place-items-center bg-night-950/40 transition-colors group-hover:bg-night-950/20">
@@ -176,7 +194,7 @@ export function AcademyClient() {
                                   )}
                                 >
                                   <Check width={13} height={13} />
-                                  {isDone ? 'Terminée' : 'Marquer'}
+                                  {isDone ? t('academy.modules.marked') : t('academy.modules.mark')}
                                 </button>
                               </li>
                             );
@@ -186,7 +204,7 @@ export function AcademyClient() {
 
                       <div>
                         <h4 className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-cream/40">
-                          <Book width={14} height={14} /> Objectifs
+                          <Book width={14} height={14} /> {t('academy.modules.objectives')}
                         </h4>
                         <ul className="space-y-3">
                           {module.objectifs.map((o) => (
@@ -197,10 +215,9 @@ export function AcademyClient() {
                           ))}
                         </ul>
                         <div className="mt-6 rounded-2xl border border-gold-300/25 bg-gold-400/10 p-4">
-                          <p className="text-xs font-semibold text-gold-100">Évaluation & validation</p>
+                          <p className="text-xs font-semibold text-gold-100">{t('academy.modules.evaluation')}</p>
                           <p className="mt-1.5 text-xs leading-relaxed text-cream/70">
-                            À la fin du module, répondez au questionnaire de validation. Les candidats
-                            retenus sont appelés en ligne ou en présentiel pour l’interview finale.
+                            {t('academy.modules.evaluationText')}
                           </p>
                         </div>
                       </div>
@@ -229,7 +246,7 @@ export function AcademyClient() {
                 onClick={() => setPlaying(null)}
                 className="glass rounded-full px-4 py-1.5 text-xs font-semibold text-cream/80 hover:text-cream"
               >
-                Fermer ✕
+                {t('home.youtube.close')} ✕
               </button>
             </div>
             <div className="aspect-video overflow-hidden rounded-2xl border border-white/15 bg-black shadow-card">

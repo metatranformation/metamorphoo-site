@@ -9,17 +9,24 @@ import { Mail, WhatsappIcon } from '@/components/Icons';
 import { site, videos } from '@/lib/content';
 import { getLatestVideos } from '@/lib/youtube';
 import { youtubeId, youtubeThumb } from '@/lib/utils';
+import { getLocale, getT, translateArray } from '@/lib/i18n';
 
 export const revalidate = 3600;
 
-export const metadata: Metadata = {
-  title: 'Médias & Galerie',
-  description:
-    'Vidéos YouTube, galerie photos et réseaux sociaux de METAMORPHOO : enseignements, témoignages, camps, conférences et actions humanitaires.',
-  alternates: { canonical: '/medias' },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getT();
+  return {
+    title: t('media.title'),
+    description: t('media.subtitle'),
+    alternates: { canonical: '/medias' },
+  };
+}
 
 export default async function MediasPage() {
+  const t = await getT();
+  const locale = await getLocale();
+  const fallbackText = translateArray<{ titre: string }>(locale, 'data.videos');
+
   const channelId =
     process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID || site.integrations.youtubeChannelId || '';
   const feed = await getLatestVideos(channelId, 6);
@@ -27,9 +34,9 @@ export default async function MediasPage() {
   const youtubeVideos =
     feed.length > 0
       ? feed
-      : videos.map((v) => ({
+      : videos.map((v, i) => ({
           videoId: youtubeId(v.videoId),
-          titre: v.titre,
+          titre: fallbackText[i]?.titre ?? v.titre,
           publieLe: '',
           vignette: youtubeThumb(youtubeId(v.videoId)),
           vues: '',
@@ -38,14 +45,10 @@ export default async function MediasPage() {
   return (
     <>
       <PageHero
-        breadcrumb="Médias"
-        eyebrow="Galerie · Vidéos · Réseaux"
-        title={
-          <>
-            La vie du mouvement en <span className="text-gradient">images</span>
-          </>
-        }
-        subtitle="Camps, conférences, concerts, actions humanitaires : revivez les temps forts de METAMORPHOO et suivez-nous sur toutes nos plateformes."
+        breadcrumb={t('media.eyebrow')}
+        eyebrow={t('media.eyebrow')}
+        title={t('media.title')}
+        subtitle={t('media.subtitle')}
         image="/images/action-concerts.jpg"
       />
 
@@ -53,8 +56,8 @@ export default async function MediasPage() {
         <div className="container-x">
           <YouTubeSection
             videos={youtubeVideos}
-            title="Nos dernières vidéos"
-            subtitle="Enseignements, témoignages et temps de louange — en direct sur notre chaîne YouTube."
+            title={t('media.videosTitle')}
+            subtitle={t('media.videosSubtitle')}
           />
         </div>
       </section>
@@ -62,13 +65,9 @@ export default async function MediasPage() {
       <section className="section pt-0" id="galerie">
         <div className="container-x">
           <SectionHeading
-            eyebrow="Galerie"
-            title={
-              <>
-                Instants de <span className="text-gradient">transformation</span>
-              </>
-            }
-            subtitle="Cliquez sur une image pour l’agrandir. Les visuels sont librement remplaçables dans le dossier public/images."
+            eyebrow={t('media.gallery.eyebrow')}
+            title={t('media.gallery.title')}
+            subtitle={t('media.gallery.subtitle')}
           />
           <GalleryGrid />
         </div>
@@ -77,13 +76,9 @@ export default async function MediasPage() {
       <section className="section pt-0" id="reseaux">
         <div className="container-x">
           <SectionHeading
-            eyebrow="Réseaux sociaux"
-            title={
-              <>
-                Rejoignez la <span className="text-gradient">communauté</span> en ligne
-              </>
-            }
-            subtitle="Facebook, Instagram, YouTube, TikTok et groupes WhatsApp : le mouvement est connecté partout."
+            eyebrow={t('media.reseaux.eyebrow')}
+            title={t('media.reseaux.title')}
+            subtitle={t('media.reseaux.subtitle')}
           />
           <SocialWall />
         </div>
@@ -92,10 +87,9 @@ export default async function MediasPage() {
       <section className="section pt-0">
         <div className="container-x">
           <Reveal className="glass rounded-3xl px-7 py-10 text-center sm:px-14">
-            <h2 className="text-2xl font-bold sm:text-3xl">Vous êtes journaliste, créateur ou partenaire média ?</h2>
+            <h2 className="text-2xl font-bold sm:text-3xl">{t('media.press.title')}</h2>
             <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-cream/70">
-              Nous mettons à disposition des visuels, des témoignages et des données sur les actions du
-              mouvement. Contactez notre équipe communication.
+              {t('media.press.text')}
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <a href={`mailto:${site.contact.emails[0]}`} className="btn-gold">

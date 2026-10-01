@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { site } from '@/lib/content';
+import { useI18n } from './I18nProvider';
 
 function useInView<T extends HTMLElement>() {
   const ref = useRef<T | null>(null);
@@ -50,6 +51,9 @@ function Counter({ value, suffix }: { value: number; suffix?: string }) {
 }
 
 export function StatBand() {
+  const { t } = useI18n();
+  const STAT_KEYS = ['founded', 'leaders', 'spheres', 'actions'];
+
   return (
     <section className="relative z-10 py-14">
       <div className="container-x">

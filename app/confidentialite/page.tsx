@@ -2,69 +2,44 @@ import type { Metadata } from 'next';
 import { PageHero } from '@/components/PageHero';
 import { Reveal } from '@/components/Reveal';
 import { site } from '@/lib/content';
+import { getLocale, getT, translateList } from '@/lib/i18n';
+import { LOCALE_TAGS } from '@/lib/i18n-core';
 
-export const metadata: Metadata = {
-  title: 'Politique de confidentialité',
-  description:
-    'Politique de confidentialité et de protection des données personnelles de METAMORPHOO MOVEMENT.',
-  alternates: { canonical: '/confidentialite' },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getT();
+  return {
+    title: t('legal.privacyTitle'),
+    description: t('legal.privacySubtitle'),
+    alternates: { canonical: '/confidentialite' },
+  };
+}
 
-export default function ConfidentialitePage() {
+const BLOCK_IDS = ['donnees', 'finalite', 'conservation', 'droits', 'cookies', 'securite'] as const;
+
+export default async function ConfidentialitePage() {
+  const t = await getT();
+  const locale = await getLocale();
+
+  const blocks = BLOCK_IDS.map((id) => ({
+    id,
+    titre: t(`legal.privacy.${id}.titre`),
+    contenu: translateList(locale, `legal.privacy.${id}.contenu`),
+  }));
+
   return (
     <>
       <PageHero
-        breadcrumb="Confidentialité"
-        eyebrow="Protection des données"
-        title={<>Politique de confidentialité</>}
-        subtitle="Quelles données nous collectons, pourquoi, et comment les supprimer."
+        breadcrumb={t('legal.privacyTitle')}
+        eyebrow={t('legal.privacyEyebrow')}
+        title={t('legal.privacyTitle')}
+        subtitle={t('legal.privacySubtitle')}
         image="/images/stage-caterpillar.jpg"
       />
 
       <section className="section pt-8">
         <div className="container-x max-w-3xl space-y-8">
-          {[
-            {
-              titre: 'Données collectées',
-              contenu: [
-                'Nous collectons uniquement les informations que vous nous transmettez volontairement : nom, e-mail, téléphone, ville, message, type de soutien et montant des dons.',
-                'Aucune donnée bancaire n’est stockée sur ce site. Les paiements en ligne sont traités par les plateformes habilitées (FlexPaie, GeneraPay, opérateurs Mobile Money).',
-              ],
-            },
-            {
-              titre: 'Finalité',
-              contenu: [
-                'Vos données servent à vous recontacter, à organiser les activités, à suivre les candidatures et les formations, à vous remercier de votre soutien et à vous envoyer la lettre d’information si vous y avez consenti.',
-              ],
-            },
-            {
-              titre: 'Hébergement et durée de conservation',
-              contenu: [
-                'Les réponses aux formulaires sont enregistrées dans un tableur Google Sheets sécurisé, accessible uniquement à l’équipe habilitée. Elles sont conservées le temps nécessaire à la finalité du traitement, puis supprimées.',
-              ],
-            },
-            {
-              titre: 'Vos droits',
-              contenu: [
-                'Vous pouvez demander l’accès, la rectification ou la suppression de vos données à tout moment en écrivant à ' +
-                  site.contact.emails[0] +
-                  '. Nous répondons sous 30 jours.',
-              ],
-            },
-            {
-              titre: 'Cookies',
-              contenu: [
-                'Ce site n’utilise pas de cookies publicitaires. Des contenus intégrés (YouTube, Facebook, Instagram, TikTok, Google Maps) peuvent déposer leurs propres cookies lorsque vous les visualisez.',
-              ],
-            },
-            {
-              titre: 'Sécurité',
-              contenu: [
-                'Le site est diffusé en connexion sécurisée (HTTPS). L’accès aux données est limité aux membres autorisés du mouvement.',
-              ],
-            },
-          ].map((block, i) => (
-            <Reveal key={block.titre} delay={((i % 3) + 1) as 1 | 2 | 3} className="glass rounded-3xl p-7">
+          {blocks.map((block, i) => (
+            <Reveal key={block.id} delay={((i % 3) + 1) as 1 | 2 | 3} className="glass rounded-3xl p-7">
               <h2 className="text-xl font-bold">{block.titre}</h2>
               <div className="mt-4 space-y-2.5">
                 {block.contenu.map((ligne) => (
@@ -75,6 +50,17 @@ export default function ConfidentialitePage() {
               </div>
             </Reveal>
           ))}
+
+          <Reveal className="glass rounded-3xl p-7">
+            <h2 className="text-xl font-bold">{t('legal.privacy.contact.titre')}</h2>
+            <p className="mt-4 text-sm leading-relaxed text-cream/70">
+              {t('legal.privacy.contact.texte')} {site.contact.emails[0]}.
+            </p>
+          </Reveal>
+
+          <Reveal className="text-center text-xs text-cream/40">
+            {t('legal.updated')} : {new Date().toLocaleDateString(LOCALE_TAGS[locale], { month: 'long', year: 'numeric' })}
+          </Reveal>
         </div>
       </section>
     </>

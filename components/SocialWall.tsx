@@ -1,5 +1,8 @@
+'use client';
+
 import { ArrowUpRight, FacebookIcon, InstagramIcon, TiktokIcon, YoutubeIcon } from './Icons';
 import { site } from '@/lib/content';
+import { useI18n } from './I18nProvider';
 import { Reveal } from './Reveal';
 
 const ICONS: Record<string, (p: { width?: number; height?: number }) => JSX.Element> = {
@@ -18,6 +21,7 @@ const DESCRIPTIONS: Record<string, string> = {
 
 /** Mur social : Facebook (plugin officiel), Instagram et TikTok (liens & intégrations). */
 export function SocialWall() {
+  const { t } = useI18n();
   const facebook = site.socials.find((s) => s.id === 'facebook');
   const instagram = site.socials.find((s) => s.id === 'instagram');
   const tiktok = site.socials.find((s) => s.id === 'tiktok');
@@ -48,7 +52,7 @@ export function SocialWall() {
             />
           </div>
           <a href={facebook?.url} target="_blank" rel="noopener noreferrer" className="btn-ghost mt-4 !py-2.5 !text-xs">
-            Suivre la page <ArrowUpRight width={14} height={14} />
+            {t('media.reseaux.follow')} <ArrowUpRight width={14} height={14} />
           </a>
         </div>
       </Reveal>
@@ -66,7 +70,7 @@ export function SocialWall() {
             </div>
           </div>
           <div className="flex flex-1 flex-col justify-between rounded-2xl border border-white/10 bg-gradient-to-br from-[#E1306C]/10 via-violet2-500/10 to-gold-400/10 p-6">
-            <p className="text-sm leading-relaxed text-cream/75">{DESCRIPTIONS.instagram}</p>
+            <p className="text-sm leading-relaxed text-cream/75">{t('media.reseaux.instagramText')}</p>
             <div className="mt-6 grid grid-cols-3 gap-2">
               {['/images/action-camps.jpg', '/images/action-concerts.jpg', '/images/action-humanitaire.jpg'].map((src) => (
                 <img key={src} src={src} alt="" className="h-20 w-full rounded-lg object-cover" />
@@ -74,7 +78,7 @@ export function SocialWall() {
             </div>
           </div>
           <a href={instagram?.url} target="_blank" rel="noopener noreferrer" className="btn-ghost mt-4 !py-2.5 !text-xs">
-            Voir le profil <ArrowUpRight width={14} height={14} />
+            {t('media.reseaux.profile')} <ArrowUpRight width={14} height={14} />
           </a>
         </div>
       </Reveal>
@@ -92,7 +96,7 @@ export function SocialWall() {
             </div>
           </div>
           <div className="flex flex-1 flex-col justify-between rounded-2xl border border-white/10 bg-gradient-to-br from-[#25F4EE]/10 via-violet2-500/10 to-[#FE2C55]/10 p-6">
-            <p className="text-sm leading-relaxed text-cream/75">{DESCRIPTIONS.tiktok}</p>
+            <p className="text-sm leading-relaxed text-cream/75">{t('media.reseaux.tiktokText')}</p>
             <div className="mt-6 flex items-end gap-1.5">
               {[40, 65, 50, 80, 60, 95, 70].map((h, i) => (
                 <span
@@ -104,7 +108,7 @@ export function SocialWall() {
             </div>
           </div>
           <a href={tiktok?.url} target="_blank" rel="noopener noreferrer" className="btn-ghost mt-4 !py-2.5 !text-xs">
-            Suivre sur TikTok <ArrowUpRight width={14} height={14} />
+            {t('media.reseaux.tiktok')} <ArrowUpRight width={14} height={14} />
           </a>
         </div>
       </Reveal>
