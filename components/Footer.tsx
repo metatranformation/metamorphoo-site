@@ -54,7 +54,7 @@ export function Footer() {
 
       <div className="container-x grid gap-12 pb-14 pt-4 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr]">
         <div>
-          <Logo size={46} />
+          <Logo size={46} animated />
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-cream/60">{t('footer.tagline')}</p>
           <p className="mt-4 max-w-sm text-xs italic leading-relaxed text-gold-200/70">
             {site.brand.verse} <span className="not-italic">— {site.brand.verseRef}</span>

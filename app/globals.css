@@ -409,11 +409,11 @@
    ============================================================ */
 @keyframes logo-wing-left {
   0%, 100% { transform: scaleX(1) rotate(0deg); }
-  50% { transform: scaleX(0.86) rotate(-1.6deg); }
+  50% { transform: scaleX(0.88) rotate(-1.4deg); }
 }
 @keyframes logo-wing-right {
   0%, 100% { transform: scaleX(1) rotate(0deg); }
-  50% { transform: scaleX(0.86) rotate(1.6deg); }
+  50% { transform: scaleX(0.88) rotate(1.4deg); }
 }
 @keyframes logo-flame-beat {
   0%, 100% { transform: scale(1) translateY(0); }
@@ -424,7 +424,7 @@
 .logo-wing-right,
 .logo-flame {
   transform-box: fill-box;
-  transform-origin: 100px 178px;
+  transform-origin: 50% 100%;
 }
 .logo-wing-left {
   animation: logo-wing-left 2.6s ease-in-out infinite;

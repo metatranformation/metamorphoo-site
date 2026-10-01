@@ -5,6 +5,8 @@
 
 ---
 
+> **Textes du site (FR / EN / ES) :** voir [08 — Langues & traductions](08-LANGUES-ET-TRADUCTIONS.md).
+
 ## Méthode 1 — L'interface d'administration (Decap CMS)
 
 Une interface web, comme WordPress, accessible à l'adresse :

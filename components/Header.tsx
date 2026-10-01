@@ -62,7 +62,7 @@ export function Header() {
       >
         <div className="container-x flex items-center justify-between gap-4">
           <Link href="/" aria-label="METAMORPHOO" className="shrink-0">
-            <Logo size={scrolled ? 38 : 44} />
+            <Logo size={scrolled ? 38 : 44} animated />
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex" aria-label={t('nav.footerNav')}>

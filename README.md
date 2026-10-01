@@ -25,7 +25,8 @@ vision reçue par le couple **Fidèle BUMBA OBUTU & Clarice BUMBA**.
 | | |
 |---|---|
 | 🦋 **Métamorphose animée** | Des papillons animés en toile de fond sur **chaque page**, un rail de progression « chenille → chrysalide → papillon », et une section 3D interactive |
-| 🎨 **Branding complet** | Logo SVG (papillon dont les veines dessinent un « M »), palette, typographie, favicon, manifest PWA |
+| 🎬 **Film de la marque** | Séquence cinématique chenille → chrysalide → papillon → logo, puis globe 3D avec les drapeaux des nations |
+| 🎨 **Branding complet** | Logo officiel SVG (« M » aux ailes de feu surmonté d'une flamme), palette orange de la marque, typographie, favicon |
 | 📄 **9 pages** | Accueil · Vision & Mission · Nos Actions · Académie · Devenir Leader · Médias · Dons · Contact · Mentions légales |
 | ▶️ **YouTube** | Affichage automatique des dernières vidéos de la chaîne (flux RSS, sans clé API) |
 | 📱 **Réseaux sociaux** | YouTube, Facebook, Instagram, TikTok — liens et intégrations |
@@ -33,6 +34,7 @@ vision reçue par le couple **Fidèle BUMBA OBUTU & Clarice BUMBA**.
 | 💳 **Dons & paiements** | Offrandes, dîmes, dons, vœux, partenariats — espèces et nature, ponctuel à annuel. Prêt pour **FlexPaie** et **GeneraPay** (SaaS Metamorphoo) |
 | 🎓 **Académie en ligne** | Modules vidéo, suivi de progression, validation puis interview en ligne ou en présentiel |
 | 💬 **WhatsApp** | Bouton flottant et liens pré-remplis partout (+243 997 628 592) |
+| 🌍 **Multilingue** | Site entièrement traduit en **français**, **anglais** et **espagnol** — un seul jeu de pages |
 | ✏️ **Mise à jour sans coder** | Interface d'administration `/admin/` + fichiers de contenu JSON |
 | 🔍 **SEO & performance** | Pages statiques, données structurées, sitemap, Open Graph, 100/100 sur mobile |
 
@@ -130,6 +132,7 @@ metamorphoo-site/
 | [05 — Réseaux sociaux](docs/05-RESEAUX-SOCIAUX.md) | YouTube, Facebook, Instagram, TikTok, WhatsApp |
 | [06 — Académie](docs/06-ACADEMIE-FORMATION.md) | Modules vidéo, progression, interview |
 | [07 — Recommandations](docs/07-RECOMMANDATIONS.md) | Gratuit d'abord, payant ensuite |
+| [08 — Langues & traductions](docs/08-LANGUES-ET-TRADUCTIONS.md) | Traduire le site (FR / EN / ES), ajouter une langue |
 
 ---
 
@@ -137,13 +140,41 @@ metamorphoo-site/
 
 | Élément | Valeur |
 |---|---|
+| Orange flamme (couleur de marque) | `#F9A227` |
+| Rouge transformation | `#DD2B18` |
+| Dégradé officiel du logo | `#FFC44D → #F9A227 → #F4731F → #DD2B18` |
 | Nuit profonde | `#04060F` |
-| Or transformation | `#F5B942` |
 | Émeraude de vie | `#2ED39B` |
-| Violet de l'Esprit | `#7C5CFF` |
 | Crème | `#F7F3EA` |
 | Titres | Playfair Display / Georgia |
 | Textes | Inter / system-ui |
+
+Le logo officiel (le « M » aux ailes de feu surmonté d'une flamme) est disponible dans
+`public/logo.svg`, `public/logo-mark.svg` et `public/favicon.svg`. Il est utilisé partout
+sur le site via le composant `components/Logo.tsx`, y compris dans la section
+**Charte graphique** de la page [Vision & Mission](https://metamorphoo.org/vision-mission#charte).
+
+---
+
+## Multilingue (FR · EN · ES)
+
+Le site est entièrement traduit en **français** (langue principale), **anglais** et **espagnol**,
+sans dupliquer aucune page.
+
+| Fichier | Rôle |
+|---|---|
+| `content/i18n/fr.json` | Dictionnaire français — **la référence** |
+| `content/i18n/en.json` | Dictionnaire anglais |
+| `content/i18n/es.json` | Dictionnaire espagnol |
+| `lib/i18n-core.ts` | Traduction, listes, objets, tableaux (partagé client + serveur) |
+| `lib/i18n.ts` | Lecture de la langue dans le cookie `NEXT_LOCALE` (côté serveur) |
+| `components/I18nProvider.tsx` | Contexte React + hook `useI18n()` |
+| `components/LanguageSwitcher.tsx` | Sélecteur de langue dans l'en-tête |
+
+* Pour **modifier un texte** : éditez `content/i18n/fr.json` puis reportez la même clé dans `en.json` et `es.json`.
+* Pour **ajouter une langue** : dupliquez `fr.json`, ajoutez son code dans `LOCALES` (`lib/i18n-core.ts`)
+  et son libellé dans `LOCALE_LABELS`.
+* Toute clé manquante retombe automatiquement sur le français : le site n'affiche jamais de texte vide.
 
 ---
 
