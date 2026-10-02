@@ -45,7 +45,10 @@ jobs:
           NEXT_PUBLIC_YOUTUBE_CHANNEL_ID: ${{ vars.YOUTUBE_CHANNEL_ID || '' }}
           NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
 
+      # Methode "GitHub Actions" : preparee mais inactive sur cette branche
+      # (l'environnement github-pages n'autorise que la branche main).
       - name: Upload artifact (methode GitHub Actions)
+        if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
@@ -59,8 +62,10 @@ jobs:
           publish_branch: gh-pages
           force_orphan: true
 
+  # Ne s'execute que sur la branche main (regles de protection de l'environnement).
   deploy:
     needs: build
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
