@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Butterfly } from '@/components/Icons';
+import { DEFAULT_LOCALE, localePath } from '@/lib/i18n';
 
 export default function NotFound() {
   return (
@@ -13,10 +14,10 @@ export default function NotFound() {
           visite.
         </p>
         <div className="mt-9 flex flex-wrap justify-center gap-3">
-          <Link href="/" className="btn-gold">
+          <Link href={localePath(DEFAULT_LOCALE, '/')} className="btn-gold">
             Retour à l’accueil
           </Link>
-          <Link href="/contact" className="btn-ghost">
+          <Link href={localePath(DEFAULT_LOCALE, '/contact')} className="btn-ghost">
             Nous contacter
           </Link>
         </div>

@@ -7,22 +7,24 @@ import { Logo } from './Logo';
 import { Close, Menu } from './Icons';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { useI18n } from './I18nProvider';
+import { localePath } from '@/lib/i18n-core';
 import { cn } from '@/lib/utils';
 
 export function Header() {
   const pathname = usePathname();
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
+  // Chemins internes préfixés par la langue courante (/fr/actions, /en/actions…)
   const NAV = [
-    { href: '/', key: 'nav.home' },
-    { href: '/vision-mission', key: 'nav.vision' },
-    { href: '/actions', key: 'nav.actions' },
-    { href: '/academie', key: 'nav.academy' },
-    { href: '/leaders', key: 'nav.leaders' },
-    { href: '/medias', key: 'nav.media' },
-    { href: '/contact', key: 'nav.contact' },
+    { href: localePath(locale, '/'), key: 'nav.home' },
+    { href: localePath(locale, '/vision-mission'), key: 'nav.vision' },
+    { href: localePath(locale, '/actions'), key: 'nav.actions' },
+    { href: localePath(locale, '/academie'), key: 'nav.academy' },
+    { href: localePath(locale, '/leaders'), key: 'nav.leaders' },
+    { href: localePath(locale, '/medias'), key: 'nav.media' },
+    { href: localePath(locale, '/contact'), key: 'nav.contact' },
   ];
 
   useEffect(() => {
@@ -43,8 +45,13 @@ export function Header() {
     };
   }, [open]);
 
-  const isActive = (href: string) =>
-    href === '/' ? pathname === '/' : pathname.startsWith(href);
+  // Chemin courant débarrassé du préfixe de langue (/fr/dons -> /dons)
+  const barePath = (pathname || '/').replace(/^\/(fr|en|es)(?=\/|$)/, '') || '/';
+
+  const isActive = (href: string) => {
+    const bare = href.replace(/^\/(fr|en|es)(?=\/|$)/, '') || '/';
+    return bare === '/' ? barePath === '/' : barePath.startsWith(bare);
+  };
 
   return (
     <>
@@ -61,7 +68,7 @@ export function Header() {
         )}
       >
         <div className="container-x flex items-center justify-between gap-4">
-          <Link href="/" aria-label="METAMORPHOO" className="shrink-0">
+          <Link href={localePath(locale, '/')} aria-label="METAMORPHOO" className="shrink-0">
             <Logo size={scrolled ? 38 : 44} animated />
           </Link>
 
@@ -88,7 +95,7 @@ export function Header() {
 
           <div className="flex items-center gap-2.5">
             <LanguageSwitcher />
-            <Link href="/dons" className="btn-gold hidden !px-5 !py-2.5 !text-[0.78rem] sm:inline-flex">
+            <Link href={localePath(locale, '/dons')} className="btn-gold hidden !px-5 !py-2.5 !text-[0.78rem] sm:inline-flex">
               {t('nav.donate')}
             </Link>
             <button
@@ -129,10 +136,10 @@ export function Header() {
             </Link>
           ))}
           <div className="mt-8 flex flex-col gap-3">
-            <Link href="/dons" className="btn-gold w-full">
+            <Link href={localePath(locale, '/dons')} className="btn-gold w-full">
               {t('nav.donate')}
             </Link>
-            <Link href="/contact" className="btn-ghost w-full">
+            <Link href={localePath(locale, '/contact')} className="btn-ghost w-full">
               {t('hero.cta1')}
             </Link>
           </div>

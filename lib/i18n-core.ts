@@ -107,3 +107,14 @@ export function translateArray<T>(locale: Locale, path: string): T[] {
   const value = read(dict) ?? read(fallback);
   return Array.isArray(value) ? (value as T[]) : [];
 }
+
+/** Valide une valeur inconnue et retombe sur la langue par défaut. */
+export function resolveLocale(value: unknown): Locale {
+  return isLocale(value) ? value : DEFAULT_LOCALE;
+}
+
+/** Prépare un chemin interne avec le préfixe de langue (`/fr/dons`, `/en/contact`). */
+export function localePath(locale: Locale, path: string): string {
+  const clean = path === '/' ? '' : path.replace(/^\/+|\/+$/g, '');
+  return `/${locale}${clean ? `/${clean}` : ''}`;
+}

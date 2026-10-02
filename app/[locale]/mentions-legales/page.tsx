@@ -2,11 +2,12 @@ import type { Metadata } from 'next';
 import { PageHero } from '@/components/PageHero';
 import { Reveal } from '@/components/Reveal';
 import { site } from '@/lib/content';
-import { getLocale, getT, translateList } from '@/lib/i18n';
+import { localeFromParams, localePath, translate, translateArray, translateList } from '@/lib/i18n';
 import { getObject, LOCALE_TAGS } from '@/lib/i18n-core';
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getT();
+export function generateMetadata({ params }: { params: { locale: string } }): Metadata {
+  const locale = localeFromParams(params);
+  const t = (path: string) => translate(locale, path);
   return {
     title: t('legal.title'),
     description: t('legal.subtitle'),
@@ -16,9 +17,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const BLOCK_IDS = ['editeur', 'nature', 'hebergement', 'propriete', 'dons', 'contact'] as const;
 
-export default async function MentionsLegalesPage() {
-  const t = await getT();
-  const locale = await getLocale();
+export default async function MentionsLegalesPage({ params }: { params: { locale: string } }) {
+  const locale = localeFromParams(params);
+  const t = (path: string) => translate(locale, path);
   const labels = getObject(locale, 'legal.blocks.editeur.labels');
 
   const blocks = BLOCK_IDS.map((id) => ({

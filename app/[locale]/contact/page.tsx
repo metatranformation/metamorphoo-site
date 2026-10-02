@@ -6,10 +6,11 @@ import { ContactForm } from '@/components/ContactForm';
 import { GoogleFormEmbed } from '@/components/GoogleFormEmbed';
 import { Clock, Mail, MapPin, Phone, WhatsappIcon } from '@/components/Icons';
 import { getForm, site } from '@/lib/content';
-import { getT } from '@/lib/i18n';
+import { localeFromParams, localePath, translate, translateArray, translateList } from '@/lib/i18n';
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getT();
+export function generateMetadata({ params }: { params: { locale: string } }): Metadata {
+  const locale = localeFromParams(params);
+  const t = (path: string) => translate(locale, path);
   return {
     title: t('contact.title'),
     description: t('contact.subtitle'),
@@ -17,8 +18,9 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function ContactPage() {
-  const t = await getT();
+export default async function ContactPage({ params }: { params: { locale: string } }) {
+  const locale = localeFromParams(params);
+  const t = (path: string) => translate(locale, path);
   const visiteur = getForm('visiteur');
   const priere = getForm('priere');
   const waNumber = site.contact.whatsapp.replace(/[^\d]/g, '');

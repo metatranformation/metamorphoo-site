@@ -8,11 +8,12 @@ import { GoogleFormEmbed } from '@/components/GoogleFormEmbed';
 import { Calendar, Check, MapPin } from '@/components/Icons';
 import { actions, getForm, site } from '@/lib/content';
 import agenda from '@/content/agenda.json';
-import { getLocale, getT, translateArray } from '@/lib/i18n';
+import { localeFromParams, localePath, translate, translateArray, translateList } from '@/lib/i18n';
 import { LOCALE_TAGS } from '@/lib/i18n-core';
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getT();
+export function generateMetadata({ params }: { params: { locale: string } }): Metadata {
+  const locale = localeFromParams(params);
+  const t = (path: string) => translate(locale, path);
   return {
     title: t('actions.title'),
     description: t('actions.subtitle'),
@@ -20,9 +21,9 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function ActionsPage() {
-  const t = await getT();
-  const locale = await getLocale();
+export default async function ActionsPage({ params }: { params: { locale: string } }) {
+  const locale = localeFromParams(params);
+  const t = (path: string) => translate(locale, path);
   const form = getForm('visiteur');
   const tag = LOCALE_TAGS[locale];
   const agendaText = translateArray<{ id: string; titre: string; description: string }>(
@@ -90,7 +91,7 @@ export default async function ActionsPage() {
                     ))}
                   </ul>
                   <div className="mt-8 flex flex-wrap gap-3">
-                    <Link href="/contact" className="btn-gold">
+                    <Link href={localePath(locale, '/contact')} className="btn-gold">
                       {t('actions.cta')}
                     </Link>
                     <a
@@ -147,7 +148,7 @@ export default async function ActionsPage() {
                       </div>
                     </dl>
                     <Link
-                      href="/contact"
+                      href={localePath(locale, '/contact')}
                       className="mt-7 text-xs font-semibold uppercase tracking-[0.14em] text-gold-200 hover:text-gold-100"
                     >
                       {t('actions.agenda.register')}

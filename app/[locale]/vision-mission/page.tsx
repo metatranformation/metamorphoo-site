@@ -7,10 +7,11 @@ import { Logo } from '@/components/Logo';
 import { ActionCardGrid } from '@/components/ActionCardGrid';
 import { ArrowRight, Book, Butterfly, Globe, Heart, Sparkle, Users } from '@/components/Icons';
 import { actions, site } from '@/lib/content';
-import { getLocale, getT, translateArray } from '@/lib/i18n';
+import { localeFromParams, localePath, translate, translateArray, translateList } from '@/lib/i18n';
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getT();
+export function generateMetadata({ params }: { params: { locale: string } }): Metadata {
+  const locale = localeFromParams(params);
+  const t = (path: string) => translate(locale, path);
   return {
     title: t('vision.title'),
     description: t('vision.subtitle'),
@@ -20,9 +21,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const SPHERE_ICONS = [Sparkle, Heart, Book, Users, Globe];
 
-export default async function VisionMissionPage() {
-  const t = await getT();
-  const locale = await getLocale();
+export default async function VisionMissionPage({ params }: { params: { locale: string } }) {
+  const locale = localeFromParams(params);
+  const t = (path: string) => translate(locale, path);
 
   const timeline = translateArray<{ date: string; titre: string; texte: string }>(locale, 'vision.origin.timeline');
   const spheres = translateArray<{ titre: string; texte: string }>(locale, 'vision.objectif.spheres');
@@ -234,7 +235,7 @@ export default async function VisionMissionPage() {
           </div>
 
           <Reveal className="mt-10 text-center">
-            <Link href="/medias" className="btn-ghost">
+            <Link href={localePath(locale, '/medias')} className="btn-ghost">
               {t('vision.charte.cta')} <ArrowRight width={16} height={16} />
             </Link>
           </Reveal>
@@ -253,10 +254,10 @@ export default async function VisionMissionPage() {
                 {t('vision.closing.quote')}
               </p>
               <div className="mt-9 flex flex-wrap justify-center gap-3">
-                <Link href="/contact" className="btn-gold">
+                <Link href={localePath(locale, '/contact')} className="btn-gold">
                   {t('vision.closing.cta1')}
                 </Link>
-                <Link href="/dons" className="btn-ghost">
+                <Link href={localePath(locale, '/dons')} className="btn-ghost">
                   {t('vision.closing.cta2')}
                 </Link>
               </div>

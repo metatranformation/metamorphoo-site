@@ -9,12 +9,11 @@ import { Mail, WhatsappIcon } from '@/components/Icons';
 import { site, videos } from '@/lib/content';
 import { getLatestVideos } from '@/lib/youtube';
 import { youtubeId, youtubeThumb } from '@/lib/utils';
-import { getLocale, getT, translateArray } from '@/lib/i18n';
+import { localeFromParams, localePath, translate, translateArray, translateList } from '@/lib/i18n';
 
-export const revalidate = 3600;
-
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getT();
+export function generateMetadata({ params }: { params: { locale: string } }): Metadata {
+  const locale = localeFromParams(params);
+  const t = (path: string) => translate(locale, path);
   return {
     title: t('media.title'),
     description: t('media.subtitle'),
@@ -22,9 +21,9 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function MediasPage() {
-  const t = await getT();
-  const locale = await getLocale();
+export default async function MediasPage({ params }: { params: { locale: string } }) {
+  const locale = localeFromParams(params);
+  const t = (path: string) => translate(locale, path);
   const fallbackText = translateArray<{ titre: string }>(locale, 'data.videos');
 
   const channelId =

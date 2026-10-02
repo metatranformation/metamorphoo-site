@@ -7,10 +7,11 @@ import { GoogleFormEmbed } from '@/components/GoogleFormEmbed';
 import { PaymentBadges } from '@/components/PaymentBadges';
 import { Check, Handshake, Heart, Lock, Shield } from '@/components/Icons';
 import { getForm, site } from '@/lib/content';
-import { getLocale, getT, translateList } from '@/lib/i18n';
+import { localeFromParams, localePath, translate, translateArray, translateList } from '@/lib/i18n';
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getT();
+export function generateMetadata({ params }: { params: { locale: string } }): Metadata {
+  const locale = localeFromParams(params);
+  const t = (path: string) => translate(locale, path);
   return {
     title: t('dons.title'),
     description: t('dons.subtitle'),
@@ -18,9 +19,9 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function DonsPage() {
-  const t = await getT();
-  const locale = await getLocale();
+export default async function DonsPage({ params }: { params: { locale: string } }) {
+  const locale = localeFromParams(params);
+  const t = (path: string) => translate(locale, path);
   const donForm = getForm('don');
   const natureForm = getForm('donNature');
   const bank = site.payments.banque;

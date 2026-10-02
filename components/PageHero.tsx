@@ -4,6 +4,7 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { ChevronDown } from './Icons';
 import { useI18n } from './I18nProvider';
+import { localePath } from '@/lib/i18n-core';
 
 type PageHeroProps = {
   eyebrow: string;
@@ -15,7 +16,7 @@ type PageHeroProps = {
 
 /** Bandeau d'en-tête des pages intérieures. */
 export function PageHero({ eyebrow, title, subtitle, image, breadcrumb }: PageHeroProps) {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
 
   return (
     <section className="relative flex min-h-[54svh] items-end overflow-hidden pb-14 pt-36">
@@ -31,7 +32,7 @@ export function PageHero({ eyebrow, title, subtitle, image, breadcrumb }: PageHe
       <div className="container-x relative">
         {breadcrumb && (
           <nav className="mb-5 flex items-center gap-2 text-xs text-cream/40" aria-label="Fil d'Ariane">
-            <Link href="/" className="hover:text-gold-200">
+            <Link href={localePath(locale, '/')} className="hover:text-gold-200">
               {t('nav.home')}
             </Link>
             <ChevronDown width={13} height={13} className="-rotate-90" />

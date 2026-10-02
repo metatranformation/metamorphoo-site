@@ -5,10 +5,11 @@ import { Reveal } from '@/components/Reveal';
 import { GoogleFormEmbed } from '@/components/GoogleFormEmbed';
 import { Check, Heart, Users } from '@/components/Icons';
 import { getForm, site } from '@/lib/content';
-import { getLocale, getT, translateArray, translateList } from '@/lib/i18n';
+import { localeFromParams, localePath, translate, translateArray, translateList } from '@/lib/i18n';
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getT();
+export function generateMetadata({ params }: { params: { locale: string } }): Metadata {
+  const locale = localeFromParams(params);
+  const t = (path: string) => translate(locale, path);
   return {
     title: t('leaders.title'),
     description: t('leaders.subtitle'),
@@ -16,9 +17,9 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function LeadersPage() {
-  const t = await getT();
-  const locale = await getLocale();
+export default async function LeadersPage({ params }: { params: { locale: string } }) {
+  const locale = localeFromParams(params);
+  const t = (path: string) => translate(locale, path);
   const leaderForm = getForm('leader');
   const workerForm = getForm('ouvrier');
 

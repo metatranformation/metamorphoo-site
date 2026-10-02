@@ -8,9 +8,10 @@ import { ArrowRight, Check, Mail, MapPin, Phone } from './Icons';
 import { actions, site } from '@/lib/content';
 import { submitForm } from '@/lib/forms';
 import { useI18n } from './I18nProvider';
+import { localePath } from '@/lib/i18n-core';
 
 export function Footer() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const [email, setEmail] = useState('');
   const [state, setState] = useState<'idle' | 'sending' | 'done' | 'error'>('idle');
 
@@ -41,7 +42,7 @@ export function Footer() {
               <p className="mt-2 max-w-lg text-sm text-cream/65">{t('footer.cta.text')}</p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <Link href="/contact" className="btn-gold">
+              <Link href={localePath(locale, '/contact')} className="btn-gold">
                 {t('footer.cta.cta1')} <ArrowRight width={16} height={16} />
               </Link>
               <a href={waHref} target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
@@ -78,13 +79,13 @@ export function Footer() {
           </h4>
           <ul className="space-y-2.5 text-sm text-cream/60">
             {[
-              { href: '/vision-mission', key: 'nav.vision' },
-              { href: '/actions', key: 'nav.actions' },
-              { href: '/academie', key: 'nav.academy' },
-              { href: '/leaders', key: 'nav.leaders' },
-              { href: '/medias', key: 'nav.media' },
-              { href: '/dons', key: 'nav.donate' },
-              { href: '/contact', key: 'nav.contact' },
+              { href: localePath(locale, '/vision-mission'), key: 'nav.vision' },
+              { href: localePath(locale, '/actions'), key: 'nav.actions' },
+              { href: localePath(locale, '/academie'), key: 'nav.academy' },
+              { href: localePath(locale, '/leaders'), key: 'nav.leaders' },
+              { href: localePath(locale, '/medias'), key: 'nav.media' },
+              { href: localePath(locale, '/dons'), key: 'nav.donate' },
+              { href: localePath(locale, '/contact'), key: 'nav.contact' },
             ].map((l) => (
               <li key={l.href}>
                 <Link href={l.href} className="transition-colors hover:text-gold-200">
@@ -102,7 +103,7 @@ export function Footer() {
           <ul className="space-y-2.5 text-sm text-cream/60">
             {actions.slice(0, 6).map((a) => (
               <li key={a.id}>
-                <Link href="/actions" className="transition-colors hover:text-gold-200">
+                <Link href={localePath(locale, '/actions')} className="transition-colors hover:text-gold-200">
                   {t(`data.actions.${a.id}.titre`)}
                 </Link>
               </li>
@@ -173,10 +174,10 @@ export function Footer() {
             © {new Date().getFullYear()} {site.brand.fullName} — {site.contact.address}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-5">
-            <Link href="/mentions-legales" className="hover:text-gold-200">
+            <Link href={localePath(locale, '/mentions-legales')} className="hover:text-gold-200">
               {t('footer.legal')}
             </Link>
-            <Link href="/confidentialite" className="hover:text-gold-200">
+            <Link href={localePath(locale, '/confidentialite')} className="hover:text-gold-200">
               {t('footer.privacy')}
             </Link>
             <span className="hidden sm:inline">·</span>

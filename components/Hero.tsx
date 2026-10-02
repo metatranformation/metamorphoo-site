@@ -6,9 +6,10 @@ import { ArrowRight, Sparkle, WhatsappIcon } from './Icons';
 import { SocialLinks } from './SocialLinks';
 import { site } from '@/lib/content';
 import { useI18n } from './I18nProvider';
+import { localePath } from '@/lib/i18n-core';
 
 export function Hero() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const sceneRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -58,10 +59,10 @@ export function Hero() {
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-4 animate-rise-fade">
-              <Link href="/contact" className="btn-gold">
+              <Link href={localePath(locale, '/contact')} className="btn-gold">
                 {t('hero.cta1')} <ArrowRight width={17} height={17} />
               </Link>
-              <Link href="/vision-mission" className="btn-ghost">
+              <Link href={localePath(locale, '/vision-mission')} className="btn-ghost">
                 {t('hero.cta2')}
               </Link>
               <a href={waHref} target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
@@ -72,7 +73,7 @@ export function Hero() {
             <div className="mt-10 flex flex-wrap items-center gap-6 animate-rise-fade">
               <SocialLinks size={17} />
               <span className="hidden h-5 w-px bg-white/12 sm:block" />
-              <Link href="/academie" className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-cream/55 transition-colors hover:text-gold-200">
+              <Link href={localePath(locale, '/academie')} className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-cream/55 transition-colors hover:text-gold-200">
                 {t('hero.link')}
                 <ArrowRight width={15} height={15} className="transition-transform group-hover:translate-x-1" />
               </Link>

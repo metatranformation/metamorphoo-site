@@ -7,6 +7,7 @@ import { ArrowUpRight, Check } from './Icons';
 import { Reveal } from './Reveal';
 import type { Action } from '@/lib/content';
 import { useI18n } from './I18nProvider';
+import { localePath } from '@/lib/i18n-core';
 
 type ActionCardProps = {
   action: Action;
@@ -16,7 +17,7 @@ type ActionCardProps = {
 
 /** Carte d'action avec effet 3D à la souris. */
 export function ActionCard({ action, index, compact = false }: ActionCardProps) {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const ref = useRef<HTMLDivElement>(null);
 
   const titre = t(`data.actions.${action.id}.titre`);
@@ -79,7 +80,7 @@ export function ActionCard({ action, index, compact = false }: ActionCardProps) 
           )}
 
           <Link
-            href="/contact"
+            href={localePath(locale, '/contact')}
             className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-gold-200 transition-all duration-300 group-hover:gap-3.5"
           >
             Participer / s’inscrire

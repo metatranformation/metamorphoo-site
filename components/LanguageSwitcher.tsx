@@ -1,14 +1,17 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import { LOCALES, LOCALE_LABELS } from '@/lib/i18n-core';
+import { LOCALES, LOCALE_LABELS, localePath } from '@/lib/i18n-core';
 import { useI18n } from './I18nProvider';
 import { Globe } from './Icons';
 
-/** Sélecteur de langue (FR / EN / ES) — mémorisé dans un cookie. */
+/** Sélecteur de langue (FR / EN / ES) — navigue vers la même page dans l'autre langue. */
 export function LanguageSwitcher({ className }: { className?: string }) {
-  const { locale, setLocale, t } = useI18n();
+  const { locale, t } = useI18n();
+  const router = useRouter();
+  const pathname = usePathname() || '/';
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -52,7 +55,9 @@ export function LanguageSwitcher({ className }: { className?: string }) {
                 role="option"
                 aria-selected={code === locale}
                 onClick={() => {
-                  setLocale(code);
+                  // /fr/dons -> /en/dons : on remplace uniquement le prefixe de langue
+                  const rest = pathname.replace(/^\/(fr|en|es)(?=\/|$)/, '') || '/';
+                  router.push(localePath(code, rest));
                   setOpen(false);
                 }}
                 className={cn(

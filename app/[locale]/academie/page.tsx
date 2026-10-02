@@ -7,10 +7,11 @@ import { AcademyClient } from '@/components/AcademyClient';
 import { GoogleFormEmbed } from '@/components/GoogleFormEmbed';
 import { ArrowRight, Check, Play, Shield, Users, WhatsappIcon } from '@/components/Icons';
 import { getForm, site, totalLessons } from '@/lib/content';
-import { getLocale, getT, translateArray, translateList } from '@/lib/i18n';
+import { localeFromParams, localePath, translate, translateArray, translateList } from '@/lib/i18n';
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getT();
+export function generateMetadata({ params }: { params: { locale: string } }): Metadata {
+  const locale = localeFromParams(params);
+  const t = (path: string) => translate(locale, path);
   return {
     title: t('academy.title'),
     description: t('academy.subtitle'),
@@ -20,10 +21,10 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const STEP_ICONS = [Play, Users, Shield, Check];
 
-export default async function AcademiePage() {
-  const t = await getT();
+export default async function AcademiePage({ params }: { params: { locale: string } }) {
+  const locale = localeFromParams(params);
+  const t = (path: string) => translate(locale, path);
   const form = getForm('formation');
-  const locale = await getLocale();
   const steps = translateArray<{ titre: string; texte: string }>(locale, 'academy.steps');
   const bullets = translateList(locale, 'academy.validation.bullets');
 
@@ -145,7 +146,7 @@ export default async function AcademiePage() {
           </div>
           <Reveal className="mt-10 text-center text-xs text-cream/40">
             {t('academy.formFallback')}{' '}
-            <Link href="/contact" className="text-gold-200 underline-offset-4 hover:underline">
+            <Link href={localePath(locale, '/contact')} className="text-gold-200 underline-offset-4 hover:underline">
               {t('academy.write')}
             </Link>{' '}
             {t('academy.orCall')}

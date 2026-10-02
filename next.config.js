@@ -1,17 +1,24 @@
 /** @type {import('next').NextConfig} */
+const isExport = process.env.NEXT_EXPORT === 'true' || process.env.GITHUB_ACTIONS === 'true';
+
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
-  images: {
-    formats: ['image/avif', 'image/webp'],
-    remotePatterns: [
-      { protocol: 'https', hostname: 'i.ytimg.com' },
-      { protocol: 'https', hostname: 'img.youtube.com' },
-      { protocol: 'https', hostname: 'scontent.cdninstagram.com' },
-      { protocol: 'https', hostname: 'platform-lookaside.fbsbx.com' },
-    ],
-  },
+
+  // Export 100% statique (GitHub Pages, Netlify Drop, tout hébergeur de fichiers)
+  ...(isExport
+    ? {
+        output: 'export',
+        trailingSlash: true,
+        images: { unoptimized: true },
+      }
+    : {}),
+
+  // Sous-chemin du dépôt GitHub Pages (ex: /metamorphoo-site)
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
+  assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH || '',
+
   async headers() {
     return [
       {
