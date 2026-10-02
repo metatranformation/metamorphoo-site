@@ -1,0 +1,23 @@
+[
+  {
+    "nom": "Pasteur Daniel K.",
+    "ville": "Goma",
+    "role": "Leader d'Église partenaire",
+    "texte": "Metamorphoo a réveillé notre jeunesse. En trois jours de camp, nous avons vu plus de conversions que durant toute une année. Ce n'est pas une émotion, c'est une transformation qui demeure.",
+    "note": 5
+  },
+  {
+    "nom": "Grâce M.",
+    "ville": "Goma",
+    "role": "Participante à la Leadership Master Class",
+    "texte": "J'ai appris que le réveil commence dans ma manière de penser. Ma famille, mon travail et mon service ont été transformés. Aujourd'hui je dirige un noyau de 12 leaders dans ma ville.",
+    "note": 5
+  },
+  {
+    "nom": "Entreprise Espoir SA",
+    "ville": "Nord-Kivu",
+    "role": "Partenaire de soutien",
+    "texte": "Nous soutenons Metamorphoo parce que l'œuvre est sérieuse, transparente et structurée. L'impact humanitaire d'Oasis de vie est visible et mesurable.",
+    "note": 5
+  }
+]

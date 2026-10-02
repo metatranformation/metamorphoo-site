@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="METAMORPHOO">
+  <defs>
+    <linearGradient id="fvGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFC44D"/>
+      <stop offset="0.4" stop-color="#F9A227"/>
+      <stop offset="0.75" stop-color="#F4731F"/>
+      <stop offset="1" stop-color="#DD2B18"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#0B1026"/>
+  <g transform="translate(32 34) scale(0.115) translate(-100 -100)">
+    <path d="M 18 40 C 14 90, 52 142, 100 178 C 86 140, 72 88, 68 40 C 48 32, 32 32, 18 40 Z" fill="url(#fvGrad)"/>
+    <path d="M 182 40 C 186 90, 148 142, 100 178 C 114 140, 128 88, 132 40 C 152 32, 168 32, 182 40 Z" fill="url(#fvGrad)"/>
+    <path d="M 100 4 C 113 24, 126 40, 126 55 C 126 72, 114 84, 100 84 C 86 84, 74 72, 74 55 C 74 40, 87 24, 100 4 Z" fill="url(#fvGrad)"/>
+  </g>
+</svg>

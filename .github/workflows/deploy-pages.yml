@@ -1,0 +1,76 @@
+# ============================================================
+#  METAMORPHOO — Déploiement automatique sur GitHub Pages
+#  Compatible avec les DEUX méthodes d'activation :
+#    1. Settings → Pages → Source = "GitHub Actions"
+#    2. Settings → Pages → Source = "Deploy from a branch" → gh-pages
+#  Dans les deux cas, le site se met en ligne automatiquement.
+# ============================================================
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main, arena/01a0f370-metamorphoo-site]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build statique
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: ${{ vars.SITE_URL || 'https://metamorphoo.org' }}
+          NEXT_PUBLIC_YOUTUBE_CHANNEL_ID: ${{ vars.YOUTUBE_CHANNEL_ID || '' }}
+          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+
+      # Methode "GitHub Actions" : preparee mais inactive sur cette branche
+      # (l'environnement github-pages n'autorise que la branche main).
+      - name: Upload artifact (methode GitHub Actions)
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+      # Methode "Deploy from a branch" : on pousse aussi le resultat sur gh-pages
+      - name: Publier sur la branche gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          publish_branch: gh-pages
+          force_orphan: true
+
+  # Ne s'execute que sur la branche main (regles de protection de l'environnement).
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy (methode GitHub Actions)
+        id: deployment
+        uses: actions/deploy-pages@v4

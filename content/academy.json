@@ -1,0 +1,112 @@
+[
+  {
+    "id": "fondements",
+    "titre": "Module 1 – Fondements de la transformation",
+    "niveau": "Fondation",
+    "duree": "3 semaines",
+    "image": "/images/stage-chrysalis.jpg",
+    "objectifs": [
+      "Comprendre la métamorphose selon Romains 12:2",
+      "Distinguer émotion, âme et esprit dans la marche chrétienne",
+      "Poser les bases d'une vie de renouvellement de l'intelligence"
+    ],
+    "lecons": [
+      {
+        "titre": "La chenille, la chrysalide et le papillon",
+        "videoId": "dQw4w9WgXcQ",
+        "duree": "18 min",
+        "resume": "Une image biblique de la transformation : mourir à l'ancien pour vivre le nouveau."
+      },
+      {
+        "titre": "Le renouvellement de l'intelligence",
+        "videoId": "dQw4w9WgXcQ",
+        "duree": "24 min",
+        "resume": "Comment nos pensées déterminent notre terrain spirituel et nos résultats."
+      },
+      {
+        "titre": "Le fardeau du réveil",
+        "videoId": "dQw4w9WgXcQ",
+        "duree": "21 min",
+        "resume": "Le critère unique du leader Metamorphoo : porter le fardeau et être prêt au sacrifice."
+      }
+    ]
+  },
+  {
+    "id": "identite",
+    "titre": "Module 2 – Identité, caractère & sainteté",
+    "niveau": "Fondation",
+    "duree": "3 semaines",
+    "image": "/images/action-education.jpg",
+    "objectifs": [
+      "Bâtir un caractère capable de porter la vision",
+      "Vaincre les schémas de sommeil spirituel et moral",
+      "Développer la vie de prière et la Parole"
+    ],
+    "lecons": [
+      {
+        "titre": "Qui suis-je en Christ ?",
+        "videoId": "dQw4w9WgXcQ",
+        "duree": "22 min",
+        "resume": "L'identité précède le ministère : retrouver sa vraie place."
+      },
+      {
+        "titre": "Le caractère avant le charisme",
+        "videoId": "dQw4w9WgXcQ",
+        "duree": "26 min",
+        "resume": "Pourquoi Dieu creuse le vase avant de s'en servir."
+      }
+    ]
+  },
+  {
+    "id": "reveil",
+    "titre": "Module 3 – Le réveil dans les nations",
+    "niveau": "Intermédiaire",
+    "duree": "4 semaines",
+    "image": "/images/action-croisades.jpg",
+    "objectifs": [
+      "Comprendre la vision Chrisco et l'impact sur les nations",
+      "Identifier les sphères de la société à réveiller",
+      "Préparer une action de réveil contextualisée"
+    ],
+    "lecons": [
+      {
+        "titre": "Le réveil de l'Église qui impacte les nations",
+        "videoId": "dQw4w9WgXcQ",
+        "duree": "28 min",
+        "resume": "De l'église locale aux gouvernements : la logique du Royaume."
+      },
+      {
+        "titre": "Réveiller les 7 sphères de la société",
+        "videoId": "dQw4w9WgXcQ",
+        "duree": "25 min",
+        "resume": "Famille, Église, éducation, médias, économie, arts, gouvernement."
+      }
+    ]
+  },
+  {
+    "id": "leadership",
+    "titre": "Module 4 – Leadership & mobilisation",
+    "niveau": "Avancé",
+    "duree": "4 semaines",
+    "image": "/images/action-leadership.jpg",
+    "objectifs": [
+      "Mobiliser et responsabiliser le noyau de 12 leaders",
+      "Organiser une action Metamorphoo de A à Z",
+      "Gérer les ressources, les partenaires et les finances du Royaume"
+    ],
+    "lecons": [
+      {
+        "titre": "Construire le noyau de 12",
+        "videoId": "dQw4w9WgXcQ",
+        "duree": "27 min",
+        "resume": "Choisir, responsabiliser et maintenir une équipe de leaders clés."
+      },
+      {
+        "titre": "Mobilisation financière et matérielle",
+        "videoId": "dQw4w9WgXcQ",
+        "duree": "23 min",
+        "resume": "Dieu comme bailleur de fonds : offrandes, dons, vœux, partenaires et sponsors."
+      }
+    ]
+  }
+]

@@ -1,0 +1,267 @@
+{
+  "brand": {
+    "name": "METAMORPHOO",
+    "fullName": "METAMORPHOO MOVEMENT",
+    "baseline": "Mouvement du Saint-Esprit pour les nations",
+    "tagline": "Transformation holistique pour le réveil authentique et durable dans les nations",
+    "verse": "« Soyez transformés par le renouvellement de l'intelligence. »",
+    "verseRef": "Romains 12:2",
+    "founded": "Juillet 2023",
+    "founders": "Pasteur – Entrepreneur – Chantre Fidèle BUMBA OBUTU & Clarice BUMBA",
+    "legalNote": "Metamorphoo n'est pas une Église, mais un mouvement du Saint-Esprit pour les nations et une plateforme missionnaire qui peut faire naître des Églises."
+  },
+  "contact": {
+    "whatsapp": "+243997628592",
+    "whatsappDisplay": "+243 997 628 592",
+    "whatsappMessage": "Bonjour METAMORPHOO, je vous contacte depuis votre site internet.",
+    "phones": [
+      "+243 997 328 120",
+      "+243 822 928 730",
+      "+243 903 569 114"
+    ],
+    "emails": [
+      "contactmetamorphoo@gmail.com",
+      "bumbafidele@gmail.com",
+      "salumuclarice@gmail.com"
+    ],
+    "address": "Goma, Nord-Kivu, République Démocratique du Congo",
+    "hours": "Lundi – Vendredi : 08h30 – 17h30 · Samedi : 09h00 – 13h00",
+    "googleMapsQuery": "Goma, Nord-Kivu, RDC",
+    "whatsappChannel": "https://whatsapp.com/channel/0029VbAy52xIN9itPPfLe82M",
+    "whatsappChannelLabel": "Canal WhatsApp Metamorphoo"
+  },
+  "socials": [
+    {
+      "id": "youtube",
+      "label": "YouTube",
+      "handle": "@metamorphoo-tv",
+      "url": "https://youtube.com/@metamorphoo-tv",
+      "channelId": "",
+      "accent": "#FF0033"
+    },
+    {
+      "id": "facebook",
+      "label": "Facebook",
+      "handle": "Metamorphoo Movement",
+      "url": "https://www.facebook.com/share/1DHQW7zXBg/",
+      "accent": "#1877F2"
+    },
+    {
+      "id": "instagram",
+      "label": "Instagram",
+      "handle": "@metamorphoo",
+      "url": "https://www.instagram.com/metamorphoo",
+      "accent": "#E1306C"
+    },
+    {
+      "id": "tiktok",
+      "label": "TikTok",
+      "handle": "@metamorphoo",
+      "url": "https://www.tiktok.com/@metamorphoo",
+      "accent": "#25F4EE"
+    }
+  ],
+  "stats": [
+    {
+      "value": 2023,
+      "suffix": "",
+      "label": "Année de fondation",
+      "detail": "Juillet 2023, retraite de la jeunesse Chrisco Goma"
+    },
+    {
+      "value": 12,
+      "suffix": "",
+      "label": "Leaders clés par ville",
+      "detail": "Le noyau de 12 dans chaque ville"
+    },
+    {
+      "value": 5,
+      "suffix": "",
+      "label": "Sphères de réveil",
+      "detail": "Esprit, âme/corps, éducation, professions, société"
+    },
+    {
+      "value": 8,
+      "suffix": "",
+      "label": "Domaines d'action",
+      "detail": "Camps, conférences, ateliers, retraites…"
+    }
+  ],
+  "integrations": {
+    "googleScriptUrl": "",
+    "youtubeChannelId": "",
+    "youtubePlaylistFormation": ""
+  },
+  "forms": {
+    "visiteur": {
+      "titre": "Devenir visiteur / nouveau venu",
+      "description": "Enregistrez-vous en 1 minute : vous serez automatiquement suivi par notre équipe.",
+      "googleFormId": "",
+      "googleFormHeight": 1400,
+      "redirectThanks": "/contact?merci=visiteur"
+    },
+    "ouvrier": {
+      "titre": "Recrutement des ouvriers (bénévoles & staff)",
+      "description": "Servez dans un département : accueil, intercession, logistique, louange, médias, humanitaire…",
+      "googleFormId": "",
+      "googleFormHeight": 1600,
+      "redirectThanks": "/contact?merci=ouvrier"
+    },
+    "leader": {
+      "titre": "Candidature – Leader clé du noyau de 12",
+      "description": "Vous avez le fardeau du réveil et vous êtes prêt au sacrifice ? Postulez pour votre ville.",
+      "googleFormId": "",
+      "googleFormHeight": 1700,
+      "redirectThanks": "/contact?merci=leader"
+    },
+    "formation": {
+      "titre": "Inscription – Metamorphoo Académie",
+      "description": "Formation en ligne par vidéos, puis appel en ligne ou en présentiel pour l'interview de validation.",
+      "googleFormId": "",
+      "googleFormHeight": 1500,
+      "redirectThanks": "/contact?merci=formation"
+    },
+    "don": {
+      "titre": "Promesse de don / partenariat",
+      "description": "Dons, offrandes, dîmes, vœux, en espèces ou en nature, ponctuels ou réguliers.",
+      "googleFormId": "",
+      "googleFormHeight": 1500,
+      "redirectThanks": "/contact?merci=don"
+    },
+    "donNature": {
+      "titre": "Don en nature / matériel",
+      "description": "Équipements, denrées, moyens de transport, locaux, matériel médical…",
+      "googleFormId": "",
+      "googleFormHeight": 1300,
+      "redirectThanks": "/contact?merci=don-nature"
+    },
+    "contact": {
+      "titre": "Nous écrire",
+      "description": "Question, demande de prière, invitation ou partenariat.",
+      "googleFormId": "",
+      "googleFormHeight": 1200,
+      "redirectThanks": "/contact?merci=contact"
+    },
+    "newsletter": {
+      "titre": "Lettre Metamorphoo",
+      "description": "Recevez les dates des camps, conférences et enseignements.",
+      "googleFormId": "",
+      "googleFormHeight": 900,
+      "redirectThanks": "/contact?merci=newsletter"
+    },
+    "priere": {
+      "titre": "Demande de prière",
+      "description": "Notre équipe d'intercesseurs se tient avec vous.",
+      "googleFormId": "",
+      "googleFormHeight": 1000,
+      "redirectThanks": "/contact?merci=priere"
+    }
+  },
+  "payments": {
+    "actifs": [
+      "mobile-money",
+      "virement",
+      "especes"
+    ],
+    "enDeveloppement": [
+      "flexpaie",
+      "generapay"
+    ],
+    "flexpaie": {
+      "url": "",
+      "marchand": ""
+    },
+    "generapay": {
+      "url": "",
+      "marchand": ""
+    },
+    "mobileMoney": {
+      "mpesa": "",
+      "airtelMoney": "",
+      "orangeMoney": ""
+    },
+    "banque": {
+      "nom": "",
+      "compte": "",
+      "swift": "",
+      "titulaire": "METAMORPHOO MOVEMENT"
+    },
+    "paypal": ""
+  },
+  "frequences": [
+    {
+      "id": "ponctuel",
+      "label": "Ponctuel",
+      "detail": "Une seule fois"
+    },
+    {
+      "id": "hebdomadaire",
+      "label": "Hebdomadaire",
+      "detail": "Chaque semaine"
+    },
+    {
+      "id": "mensuel",
+      "label": "Mensuel",
+      "detail": "Chaque mois"
+    },
+    {
+      "id": "annuel",
+      "label": "Annuel",
+      "detail": "Chaque année"
+    }
+  ],
+  "typesDon": [
+    {
+      "id": "offrande",
+      "label": "Offrande",
+      "detail": "Soutenir l'œuvre en cours"
+    },
+    {
+      "id": "dime",
+      "label": "Dîme",
+      "detail": "Fidélité et principes bibliques"
+    },
+    {
+      "id": "don",
+      "label": "Don libre",
+      "detail": "Montant libre"
+    },
+    {
+      "id": "voeu",
+      "label": "Vœu",
+      "detail": "Engagement devant Dieu"
+    },
+    {
+      "id": "partenariat",
+      "label": "Partenariat de soutien",
+      "detail": "Église, entreprise, ASBL, ONG"
+    },
+    {
+      "id": "projet",
+      "label": "Projet Triomphes / Oasis de vie",
+      "detail": "Construction & humanitaire"
+    },
+    {
+      "id": "nature",
+      "label": "Don en nature",
+      "detail": "Matériel, denrées, moyens"
+    }
+  ],
+  "devises": [
+    {
+      "code": "USD",
+      "label": "Dollar US",
+      "symbole": "$"
+    },
+    {
+      "code": "CDF",
+      "label": "Franc congolais",
+      "symbole": "FC"
+    },
+    {
+      "code": "EUR",
+      "label": "Euro",
+      "symbole": "€"
+    }
+  ]
+}

@@ -1,0 +1,295 @@
+# ============================================================
+#  METAMORPHOO — Interface d'administration du contenu (Decap CMS)
+#  Permet de modifier le site SANS coder, depuis https://votre-domaine/admin
+#  Guide : docs/04-MISE-A-JOUR-DU-CONTENU.md
+# ============================================================
+
+backend:
+  name: github
+  repo: metatranformation/metamorphoo-site   # <-- à adapter : votre-utilisateur/votre-depot
+  branch: main                                 # <-- branche de publication
+  base_url: https://decap-oauth.netlify.app    # <-- proxy OAuth (Netlify, gratuit)
+  auth_endpoint: /auth
+
+# Option hébergement Netlify (alternative gratuite à Vercel pour le CMS) :
+# backend:
+#   name: github-gateway
+#   branch: main
+
+site_url: https://metamorphoo.org
+display_url: https://metamorphoo.org
+logo_url: /logo.svg
+locale: fr
+
+media_folder: public/images
+public_folder: /images
+
+publish_mode: editorial_workflow   # brouillon -> relecture -> publication
+
+slug:
+  encoding: ascii
+  clean_accents: true
+
+collections:
+  # ---------------- Informations générales ----------------
+  - name: site
+    label: Informations générales
+    files:
+      - name: site
+        label: Configuration du site
+        file: content/site.json
+        fields:
+          - { label: Nom complet, name: brand, widget: object, collapsed: true, fields: [
+              { label: Nom, name: name, widget: string },
+              { label: Nom long, name: fullName, widget: string },
+              { label: Baseline, name: baseline, widget: string },
+              { label: Slogan / tagline, name: tagline, widget: string },
+              { label: Verset, name: verse, widget: string },
+              { label: Référence du verset, name: verseRef, widget: string },
+              { label: Date de fondation, name: founded, widget: string },
+              { label: Fondateurs, name: founders, widget: string },
+              { label: Mention légale, name: legalNote, widget: text }
+            ]}
+          - { label: Contact, name: contact, widget: object, collapsed: true, fields: [
+              { label: WhatsApp (format international), name: whatsapp, widget: string },
+              { label: WhatsApp (affichage), name: whatsappDisplay, widget: string },
+              { label: Message WhatsApp par défaut, name: whatsappMessage, widget: text },
+              { label: Téléphones', name: phones, widget: list, field: { label: Numéro, name: num, widget: string } },
+              { label: E-mails, name: emails, widget: list, field: { label: E-mail, name: mail, widget: string } },
+              { label: Adresse, name: address, widget: string },
+              { label: Horaires, name: hours, widget: string },
+              { label: Recherche Google Maps, name: googleMapsQuery, widget: string }
+            ]}
+          - { label: Réseaux sociaux', name: socials, widget: list, fields: [
+              { label: Identifiant, name: id, widget: select, options: [youtube, facebook, instagram, tiktok] },
+              { label: Libellé, name: label, widget: string },
+              { label: Compte (@…), name: handle, widget: string },
+              { label: Lien, name: url, widget: string },
+              { label: Couleur (accent), name: accent, widget: string }
+            ]}
+          - { label: Chiffres clés', name: stats, widget: list, fields: [
+              { label: Valeur, name: value, widget: number },
+              { label: Suffixe, name: suffix, widget: string, required: false },
+              { label: Libellé, name: label, widget: string },
+              { label: Détail, name: detail, widget: string }
+            ]}
+          - { label: Intégrations, name: integrations, widget: object, collapsed: true, fields: [
+              { label: URL Google Apps Script, name: googleScriptUrl, widget: string, required: false },
+              { label: ID de la chaîne YouTube (UC…)', name: youtubeChannelId, widget: string, required: false },
+              { label: Playlist de formation', name: youtubePlaylistFormation, widget: string, required: false }
+            ]}
+          - { label: Formulaires Google (identifiants)', name: forms, widget: object, collapsed: true, fields: [
+              { label: Visiteur, name: visiteur, widget: object, fields: [
+                { label: Titre, name: titre, widget: string },
+                { label: Description, name: description, widget: text },
+                { label: ID du Google Form, name: googleFormId, widget: string, required: false, hint: "Partie /d/e/XXXXXXXXXXXX/ de l'URL" },
+                { label: Hauteur (px)', name: googleFormHeight, widget: number }
+              ]},
+              { label: Ouvriers, name: ouvrier, widget: object, fields: [
+                { label: Titre, name: titre, widget: string },
+                { label: Description, name: description, widget: text },
+                { label: ID du Google Form, name: googleFormId, widget: string, required: false },
+                { label: Hauteur (px)', name: googleFormHeight, widget: number }
+              ]},
+              { label: Leader, name: leader, widget: object, fields: [
+                { label: Titre, name: titre, widget: string },
+                { label: Description, name: description, widget: text },
+                { label: ID du Google Form, name: googleFormId, widget: string, required: false },
+                { label: Hauteur (px)', name: googleFormHeight, widget: number }
+              ]},
+              { label: Formation, name: formation, widget: object, fields: [
+                { label: Titre, name: titre, widget: string },
+                { label: Description, name: description, widget: text },
+                { label: ID du Google Form, name: googleFormId, widget: string, required: false },
+                { label: Hauteur (px)', name: googleFormHeight, widget: number }
+              ]},
+              { label: Don, name: don, widget: object, fields: [
+                { label: Titre, name: titre, widget: string },
+                { label: Description, name: description, widget: text },
+                { label: ID du Google Form, name: googleFormId, widget: string, required: false },
+                { label: Hauteur (px)', name: googleFormHeight, widget: number }
+              ]},
+              { label: Don en nature, name: donNature, widget: object, fields: [
+                { label: Titre, name: titre, widget: string },
+                { label: Description, name: description, widget: text },
+                { label: ID du Google Form, name: googleFormId, widget: string, required: false },
+                { label: Hauteur (px)', name: googleFormHeight, widget: number }
+              ]},
+              { label: Contact, name: contact, widget: object, fields: [
+                { label: Titre, name: titre, widget: string },
+                { label: Description, name: description, widget: text },
+                { label: ID du Google Form, name: googleFormId, widget: string, required: false },
+                { label: Hauteur (px)', name: googleFormHeight, widget: number }
+              ]},
+              { label: Lettre d'information, name: newsletter, widget: object, fields: [
+                { label: Titre, name: titre, widget: string },
+                { label: Description, name: description, widget: text },
+                { label: ID du Google Form, name: googleFormId, widget: string, required: false },
+                { label: Hauteur (px)', name: googleFormHeight, widget: number }
+              ]},
+              { label: Prière, name: priere, widget: object, fields: [
+                { label: Titre, name: titre, widget: string },
+                { label: Description, name: description, widget: text },
+                { label: ID du Google Form, name: googleFormId, widget: string, required: false },
+                { label: Hauteur (px)', name: googleFormHeight, widget: number }
+              ]}
+            ]}
+          - { label: Paiement', name: payments, widget: object, collapsed: true, fields: [
+              { label: FlexPaie', name: flexpaie, widget: object, fields: [
+                { label: URL', name: url, widget: string, required: false },
+                { label: Marchand', name: marchand, widget: string, required: false }
+              ]},
+              { label: GeneraPay', name: generapay, widget: object, fields: [
+                { label: URL', name: url, widget: string, required: false },
+                { label: Marchand', name: marchand, widget: string, required: false }
+              ]},
+              { label: Mobile Money', name: mobileMoney, widget: object, fields: [
+                { label: M-Pesa', name: mpesa, widget: string, required: false },
+                { label: Airtel Money', name: airtelMoney, widget: string, required: false },
+                { label: Orange Money', name: orangeMoney, widget: string, required: false }
+              ]},
+              { label: Banque', name: banque, widget: object, fields: [
+                { label: Nom', name: nom, widget: string, required: false },
+                { label: Compte', name: compte, widget: string, required: false },
+                { label: SWIFT', name: swift, widget: string, required: false },
+                { label: Titulaire', name: titulaire, widget: string }
+              ]}
+            ]}
+
+  # ---------------- Nos actions ----------------
+  - name: actions
+    label: Nos Actions
+    folder: content
+    files:
+      - name: actions
+        label: Domaines d'action
+        file: content/actions.json
+        fields:
+          - label: Actions
+            name: items
+            widget: list
+            fields:
+              - { label: Identifiant, name: id, widget: string, hint: "minuscules-sans-accents" }
+              - { label: Titre, name: titre, widget: string }
+              - { label: Image, name: image, widget: image, choose_url: false, media_folder: 'public/images' }
+              - { label: Résumé, name: resume, widget: text }
+              - { label: Contenu détaillé, name: contenu, widget: text }
+              - { label: Points clés, name: points, widget: list, field: { label: Point, name: point, widget: string } }
+              - { label: Catégorie, name: categorie, widget: string }
+              - { label: Formulaire lié, name: formId, widget: select, options: [visiteur, ouvrier, leader, formation, donNature] }
+
+  # ---------------- Agenda ----------------
+  - name: agenda
+    label: Agenda
+    files:
+      - name: agenda
+        label: Prochaines activités
+        file: content/agenda.json
+        fields:
+          - label: Événements
+            name: items
+            widget: list
+            fields:
+              - { label: Identifiant, name: id, widget: string }
+              - { label: Titre, name: titre, widget: string }
+              - { label: Date, name: date, widget: datetime, format: 'YYYY-MM-DD', date_format: 'DD/MM/YYYY', time_format: false }
+              - { label: Heure, name: heure, widget: string }
+              - { label: Lieu, name: lieu, widget: string }
+              - { label: Type, name: type, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Formulaire d'inscription, name: inscription, widget: select, options: [visiteur, ouvrier, leader, formation] }
+
+  # ---------------- Académie ----------------
+  - name: academie
+    label: Académie (formation)
+    files:
+      - name: academy
+        label: Modules de formation
+        file: content/academy.json
+        fields:
+          - label: Modules
+            name: items
+            widget: list
+            fields:
+              - { label: Identifiant, name: id, widget: string }
+              - { label: Titre, name: titre, widget: string }
+              - { label: Niveau, name: niveau, widget: select, options: [Fondation, Intermédiaire, Avancé] }
+              - { label: Durée, name: duree, widget: string }
+              - { label: Image, name: image, widget: image, choose_url: false, media_folder: 'public/images' }
+              - { label: Objectifs, name: objectifs, widget: list, field: { label: Objectif, name: objectif, widget: string } }
+              - label: Leçons
+                name: lecons
+                widget: list
+                fields:
+                  - { label: Titre, name: titre, widget: string }
+                  - { label: ID vidéo YouTube, name: videoId, widget: string, hint: "11 caractères après ?v=" }
+                  - { label: Durée, name: duree, widget: string }
+                  - { label: Résumé, name: resume, widget: text }
+
+  # ---------------- Témoignages ----------------
+  - name: temoignages
+    label: Témoignages
+    files:
+      - name: testimonies
+        label: Témoignages
+        file: content/testimonies.json
+        fields:
+          - label: Témoignages
+            name: items
+            widget: list
+            fields:
+              - { label: Nom, name: nom, widget: string }
+              - { label: Ville, name: ville, widget: string }
+              - { label: Rôle, name: role, widget: string }
+              - { label: Témoignage, name: texte, widget: text }
+              - { label: Note (1-5)', name: note, widget: number, min: 1, max: 5, default: 5 }
+
+  # ---------------- FAQ ----------------
+  - name: faq
+    label: FAQ
+    files:
+      - name: faq
+        label: Questions fréquentes
+        file: content/faq.json
+        fields:
+          - label: Questions
+            name: items
+            widget: list
+            fields:
+              - { label: Question, name: question, widget: string }
+              - { label: Réponse, name: reponse, widget: text }
+
+  # ---------------- Galerie ----------------
+  - name: galerie
+    label: Galerie
+    files:
+      - name: gallery
+        label: Photos
+        file: content/gallery.json
+        fields:
+          - label: Photos
+            name: items
+            widget: list
+            fields:
+              - { label: Identifiant, name: id, widget: string }
+              - { label: Titre, name: titre, widget: string }
+              - { label: Image, name: image, widget: image, choose_url: false, media_folder: 'public/images' }
+              - { label: Légende, name: legende, widget: string }
+              - { label: Catégorie, name: categorie, widget: string }
+
+  # ---------------- Vidéos mises en avant ----------------
+  - name: videos
+    label: Vidéos à la une
+    files:
+      - name: videos
+        label: Vidéos
+        file: content/videos.json
+        fields:
+          - label: Vidéos
+            name: items
+            widget: list
+            fields:
+              - { label: Titre, name: titre, widget: string }
+              - { label: ID vidéo YouTube, name: videoId, widget: string }
+              - { label: Catégorie, name: categorie, widget: string }
+              - { label: Durée, name: duree, widget: string }

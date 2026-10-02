@@ -1,0 +1,42 @@
+[
+  {
+    "id": "agenda-1",
+    "titre": "Camp spirituel de consécration",
+    "date": "2026-11-13",
+    "heure": "17h00 – 21h00",
+    "lieu": "Goma, Nord-Kivu",
+    "type": "Camp",
+    "description": "Trois jours de jeûne, d'enseignement et d'intercession pour la nation.",
+    "inscription": "visiteur"
+  },
+  {
+    "id": "agenda-2",
+    "titre": "Conférence : le renouvellement de l'intelligence",
+    "date": "2026-12-05",
+    "heure": "09h00 – 13h00",
+    "lieu": "Salle de conférence, Goma",
+    "type": "Conférence",
+    "description": "Romains 12:2 appliqué à la vie quotidienne, à la famille et au travail.",
+    "inscription": "visiteur"
+  },
+  {
+    "id": "agenda-3",
+    "titre": "Nuit de louange et célébration",
+    "date": "2026-12-19",
+    "heure": "18h00 – 22h00",
+    "lieu": "Goma",
+    "type": "Concert",
+    "description": "Concert chrétien réunissant les talents de la nation.",
+    "inscription": "visiteur"
+  },
+  {
+    "id": "agenda-4",
+    "titre": "Leadership Master Class — session en ligne",
+    "date": "2027-01-10",
+    "heure": "15h00 – 17h30",
+    "lieu": "En ligne (Zoom)",
+    "type": "Formation",
+    "description": "Session réservée aux leaders clés et aux candidats du noyau de 12.",
+    "inscription": "leader"
+  }
+]
