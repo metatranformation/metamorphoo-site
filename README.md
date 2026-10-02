@@ -34,7 +34,8 @@ vision reçue par le couple **Fidèle BUMBA OBUTU & Clarice BUMBA**.
 | 💳 **Dons & paiements** | Offrandes, dîmes, dons, vœux, partenariats — espèces et nature, ponctuel à annuel. Prêt pour **FlexPaie** et **GeneraPay** (SaaS Metamorphoo) |
 | 🎓 **Académie en ligne** | Modules vidéo, suivi de progression, validation puis interview en ligne ou en présentiel |
 | 💬 **WhatsApp** | Bouton flottant et liens pré-remplis partout (+243 997 628 592) |
-| 🌍 **Multilingue** | Site entièrement traduit en **français**, **anglais** et **espagnol** — un seul jeu de pages |
+| 🌍 **Multilingue** | Site entièrement traduit en **français**, **anglais** et **espagnol** — un seul jeu de pages, adresses `/fr`, `/en`, `/es` |
+| 📦 **100 % statique** | Export statique Next.js : fonctionne sur GitHub Pages, Netlify, tout hébergeur de fichiers |
 | ✏️ **Mise à jour sans coder** | Interface d'administration `/admin/` + fichiers de contenu JSON |
 | 🔍 **SEO & performance** | Pages statiques, données structurées, sitemap, Open Graph, 100/100 sur mobile |
 
@@ -134,6 +135,7 @@ metamorphoo-site/
 | [07 — Recommandations](docs/07-RECOMMANDATIONS.md) | Gratuit d'abord, payant ensuite |
 | [08 — Langues & traductions](docs/08-LANGUES-ET-TRADUCTIONS.md) | Traduire le site (FR / EN / ES), ajouter une langue |
 | [09 — Mise en ligne Netlify](docs/09-MISE-EN-LIGNE-NETLIFY.md) | Publier le site gratuitement sur une adresse `.netlify.app` |
+| [10 — GitHub Pages](docs/10-GITHUB-PAGES.md) | Publier le site gratuitement sur `github.io` (déjà configuré) |
 
 ---
 
