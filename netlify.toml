@@ -1,0 +1,51 @@
+# ============================================================
+#  METAMORPHOO — Configuration Netlify
+#  Build Next.js + plugin officiel Netlify pour Next.js
+# ============================================================
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_FLAGS = "--no-audit --no-fund"
+  # Netlify doit installer aussi les dépendances de dev (plugin Next.js)
+  NPM_CONFIG_PRODUCTION = "false"
+
+# Plugin officiel : gère le rendu serveur, les routes dynamiques,
+# la réécriture des images et les redirections Next.js.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# En-têtes de sécurité
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-XSS-Protection = "1; mode=block"
+
+# Cache long pour les assets statiques (images, fonts)
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Fichiers à ne jamais mettre en cache
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Redirection des anciennes URL éventuelles (à compléter si besoin)
+# [[redirects]]
+#   from = "/ancienne-page"
+#   to = "/nouvelle-page"
+#   status = 301

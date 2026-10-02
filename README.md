@@ -133,6 +133,7 @@ metamorphoo-site/
 | [06 — Académie](docs/06-ACADEMIE-FORMATION.md) | Modules vidéo, progression, interview |
 | [07 — Recommandations](docs/07-RECOMMANDATIONS.md) | Gratuit d'abord, payant ensuite |
 | [08 — Langues & traductions](docs/08-LANGUES-ET-TRADUCTIONS.md) | Traduire le site (FR / EN / ES), ajouter une langue |
+| [09 — Mise en ligne Netlify](docs/09-MISE-EN-LIGNE-NETLIFY.md) | Publier le site gratuitement sur une adresse `.netlify.app` |
 
 ---
 
