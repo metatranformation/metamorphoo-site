@@ -1,6 +1,9 @@
 # ============================================================
 #  METAMORPHOO — Déploiement automatique sur GitHub Pages
-#  Chaque push sur la branche principale reconstruit et publie le site.
+#  Compatible avec les DEUX méthodes d'activation :
+#    1. Settings → Pages → Source = "GitHub Actions"
+#    2. Settings → Pages → Source = "Deploy from a branch" → gh-pages
+#  Dans les deux cas, le site se met en ligne automatiquement.
 # ============================================================
 
 name: Deploy to GitHub Pages
@@ -11,7 +14,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -42,10 +45,19 @@ jobs:
           NEXT_PUBLIC_YOUTUBE_CHANNEL_ID: ${{ vars.YOUTUBE_CHANNEL_ID || '' }}
           NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
 
-      - name: Upload artifact
+      - name: Upload artifact (methode GitHub Actions)
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
+
+      # Methode "Deploy from a branch" : on pousse aussi le resultat sur gh-pages
+      - name: Publier sur la branche gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          publish_branch: gh-pages
+          force_orphan: true
 
   deploy:
     needs: build
@@ -54,6 +66,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy
+      - name: Deploy (methode GitHub Actions)
         id: deployment
         uses: actions/deploy-pages@v4
