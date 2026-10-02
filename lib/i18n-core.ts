@@ -118,3 +118,23 @@ export function localePath(locale: Locale, path: string): string {
   const clean = path === '/' ? '' : path.replace(/^\/+|\/+$/g, '');
   return `/${locale}${clean ? `/${clean}` : ''}`;
 }
+
+/**
+ * Préfixe du dépôt GitHub Pages (`/metamorphoo-site`), vide en local.
+ * Next.js l'ajoute automatiquement aux `<Link>`, mais pas aux URLs brutes
+ * (redirection méta, `router.push`, ancres `<a>`).
+ */
+export const BASE_PATH = (process.env.NEXT_PUBLIC_BASE_PATH || '').replace(/\/+$/, '');
+
+/** Ajoute le préfixe du dépôt à un chemin interne. */
+export function withBasePath(path: string): string {
+  if (!BASE_PATH) return path;
+  return `${BASE_PATH}${path}`.replace(/([^:]\/)\/+/g, '$1');
+}
+
+/** Retire le préfixe du dépôt d'un chemin revenant de `usePathname()`. */
+export function stripBasePath(path: string): string {
+  if (!BASE_PATH || !path.startsWith(BASE_PATH)) return path;
+  const rest = path.slice(BASE_PATH.length);
+  return rest || '/';
+}

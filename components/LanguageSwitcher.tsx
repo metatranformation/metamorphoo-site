@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import { LOCALES, LOCALE_LABELS, localePath } from '@/lib/i18n-core';
+import { LOCALES, LOCALE_LABELS, localePath, stripBasePath } from '@/lib/i18n-core';
 import { useI18n } from './I18nProvider';
 import { Globe } from './Icons';
 
@@ -11,7 +11,8 @@ import { Globe } from './Icons';
 export function LanguageSwitcher({ className }: { className?: string }) {
   const { locale, t } = useI18n();
   const router = useRouter();
-  const pathname = usePathname() || '/';
+  // usePathname() inclut le prefixe du depot GitHub Pages : on le retire
+  const pathname = stripBasePath(usePathname() || '/');
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 

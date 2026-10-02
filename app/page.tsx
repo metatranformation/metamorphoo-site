@@ -1,11 +1,12 @@
-import { DEFAULT_LOCALE, localePath } from '@/lib/i18n';
+import { DEFAULT_LOCALE, localePath, withBasePath } from '@/lib/i18n';
 
 /**
  * Racine du site : redirige vers la langue principale (français).
- * Export statique — on utilise une redirection méta (aucun serveur requis).
+ * Export statique — redirection méta, aucun serveur requis.
+ * Le préfixe du dépôt GitHub Pages est ajouté via `withBasePath`.
  */
 export default function RootPage() {
-  const target = localePath(DEFAULT_LOCALE, '/');
+  const target = withBasePath(localePath(DEFAULT_LOCALE, '/'));
 
   return (
     <html lang={DEFAULT_LOCALE}>
