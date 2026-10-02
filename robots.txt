@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /admin/
+
+Host: https://metamorphoo.org
+Sitemap: https://metamorphoo.org/sitemap.xml
